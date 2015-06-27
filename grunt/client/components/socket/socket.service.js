@@ -1,11 +1,13 @@
 /* global io */
 'use strict';
 
+var socketHost = 'http://10.202.240.57:4000';
+
 angular.module('plankApp')
   .factory('socket', function(socketFactory) {
 
     // socket.io now auto-configures its connection when we ommit a connection url
-    var ioSocket = io('', {
+    var ioSocket = io(socketHost, {
       // Send auth token on connection, you will need to DI the Auth service above
       // 'query': 'token=' + Auth.getToken()
       path: '/socket.io-client'

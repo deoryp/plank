@@ -120,7 +120,10 @@
     "http-proxy-middleware": "~0.0.5",
     "chalk": "~1.0.0",
     "uglify-save-license": "~0.4.1",
-    "wrench": "~1.5.8"
+    "wrench": "~1.5.8",
+    "gulp-nodemon": "~2.0.2",
+    "gulp-livereload": "~3.8.0",
+    "gulp-plumber": "~1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"

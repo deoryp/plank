@@ -3,6 +3,8 @@
 var path = require('path');
 var _ = require('lodash');
 
+var pw = require('../passwords');
+
 function requiredProcessEnv(name) {
   if(!process.env[name]) {
     throw new Error('You must set the ' + name + ' environment variable');
@@ -42,9 +44,12 @@ var all = {
   },
 
   google: {
-    clientID:     process.env.GOOGLE_ID || 'id',
-    clientSecret: process.env.GOOGLE_SECRET || 'secret',
-    callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
+    clientID: pw.google.clientId,
+    clientSecret: pw.google.clientSecret,
+    //clientID:     //process.env.GOOGLE_ID || 'id',
+    //clientSecret: process.env.GOOGLE_SECRET || 'secret',
+//    callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
+    callbackURL:  'http://localhost:4000/auth/google/callback'
   }
 };
 

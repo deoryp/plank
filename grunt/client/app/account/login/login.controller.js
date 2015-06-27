@@ -1,5 +1,7 @@
 'use strict';
 
+var apiHost = 'http://localhost:4000';
+
 angular.module('plankApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
@@ -15,7 +17,8 @@ angular.module('plankApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+//          $location.path('/');
+          $window.location.href = "http://localhost:3000/";
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
@@ -24,6 +27,6 @@ angular.module('plankApp')
     };
 
     $scope.loginOauth = function(provider) {
-      $window.location.href = '/auth/' + provider;
+      $window.location.href = apiHost + '/auth/' + provider;
     };
   });

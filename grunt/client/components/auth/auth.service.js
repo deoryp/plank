@@ -7,6 +7,9 @@ angular.module('plankApp')
       currentUser = User.get();
     }
 
+
+console.log('HRE')
+
     return {
 
       /**

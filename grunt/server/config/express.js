@@ -28,6 +28,9 @@ module.exports = function(app) {
   app.use(methodOverride());
   app.use(cookieParser());
   app.use(passport.initialize());
+  
+  console.log('env = ' + env + ', root = ' + config.root)
+  
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
@@ -39,8 +42,25 @@ module.exports = function(app) {
     app.use(require('connect-livereload')());
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(path.join(config.root, 'client')));
-    app.set('appPath', 'client');
+    app.set('appPath', 'client/dist');
     app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last
+    
+    
+    app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
+    
+
+    app.use('/app', express.static(app.get('appPath')));
+    app.use('/styles', express.static(app.get('appPath') + '/styles'));
+    app.use('/scripts', express.static(app.get('appPath') + '/script'));
+    
+    
+    
+    
+    
   }
 };
