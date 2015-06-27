@@ -2,10 +2,13 @@
 
 // Development specific configuration
 // ==================================
+
+var pw = require('../passwords');
+
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/plank-dev'
+    uri: pw.dev.mongo.db
   },
 
   seedDB: true
