@@ -1,0 +1,21 @@
+{
+  "name": "mock",
+  "version": "0.0.0",
+  "homepage": "https://github.com/deoryp/plank",
+  "authors": [
+    "Scott Nichols <snichols@riotgames.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "slabText": "~2.2.0",
+    "bigtext": "~0.1.8",
+    "fittext": "*"
+  }
+}

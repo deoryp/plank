@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treasure Boxes</title>
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/slabText/css/slabtext.css">
+  
+<style>
+  
+  
+.slab {
+  width: 200px;
+  height: 200px;
+}
+  
+  
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    padding-top: 220px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+  img.coin {
+    height: 100px;
+    padding-left: 2px;
+  }
+  img.mini-coin {
+    height: 50px;
+  }
+
+  div.recipe-hint {
+    padding: 2px 2px 2px 2px;
+  }
+  div.recipe-hint:hover { 
+      background-color: #5cb85c;
+  }
+    
+  .recipe-start span {
+    padding: 0px 60px 0px 60px;
+  }
+  
+  div.recipe-first {
+    height: 130px;
+    padding-top: 40px;
+  }  
+  
+  span.drag-here {
+    border-width:10px;	
+    border-style:dashed;
+    padding: 20px 200px 30px 200px;
+    color: grey;
+    height: 160px;
+    font-size: 30px;
+  }
+  
+  .recipe span {
+    font-size:30px;
+  }
+  .recipe span.glyphicon {
+    font-size:20px;
+  }
+  .recipe span em {
+    font-size:14px;
+  }
+  
+  .popover {
+    max-width: 300px;
+  }
+  
+</style>
+
+</head>
+<body>
+  
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+    
+  
+      
+      <div class="navbar-header">
+        
+        <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img id="demo_image" src="http://placehold.it/200x200"/>
+                </a>
+              </div>
+              <div class="media-body">
+                <div class="slab" id="demo_slabText">
+                </div>
+              </div>
+            </div>
+        
+        <!--div class="slab" id="demo_slabText"></div-->
+      </div>
+      <div id="navbar" class="navbar-form navbar-right">
+        <button id="buy" data-action="attemptbuy" class="btn btn-success">Buys</button>
+        <button data-action="clock" type="button" class="btn btn-default" aria-label="History">
+          <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+          <span class="sr-only">History</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Begin page content -->
+  <div class="container">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Booty</h3>
+      </div>
+      <div class="panel-body">
+        <img class="coin awakening-coin has-popover" src="./img/awaken.png" data-toggle="tooltip" title="Some tooltip text!"/>
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin skin-coin has-popover" src="./img/skin.png" />
+        <img class="coin skin-coin has-popover" src="./img/skin.png" />
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Booty</h3>
+      </div>
+      <div class="panel-body">
+        <img class="coin awakening-coin has-popover" src="./img/awaken.png" data-toggle="tooltip" title="Some tooltip text!"/>
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin skin-coin has-popover" src="./img/skin.png" />
+        <img class="coin skin-coin has-popover" src="./img/skin.png" />
+      </div>
+    </div>
+        
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Booty</h3>
+      </div>
+      <div class="panel-body">
+        <img class="coin awakening-coin has-popover" src="./img/awaken.png" data-toggle="tooltip" title="Some tooltip text!"/>
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin champ-coin has-popover" src="./img/champ.png" />
+        <img class="coin skin-coin has-popover" src="./img/skin.png" />
+        <img class="coin skin-coin has-popover" src="./img/skin.png" />
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Barter</h3>
+      </div>
+      <div class="panel-body text-center recipe-start">
+        <img class="coin" src="./img/awaken_placeholder.png" />
+        <span><em>OR</em></span>
+        <img class="coin" src="./img/champ_placeholder.png" />
+        <span><em>OR</em></span>
+        <img class="coin" src="./img/skin_placeholder.png" />
+      </div>
+    </div>
+    
+  </div>
+  
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+  </footer>
+  
+  
+  <div id="awakeningHint" class="hidden">
+    <div class="recipe-hint" data-action="barter-from-hint">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/champ_placeholder.png" />
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <img class="mini-coin pull-right" src="./img/champ_payoff_placeholder.png" />
+    </div>
+    <div class="recipe-hint" data-action="barter-from-hint">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/skin_placeholder.png" />
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <img class="mini-coin pull-right" src="./img/skin_payoff_placeholder.png" />
+    </div>
+  </div>
+  
+  <div id="champHint" class="hidden">
+    <div class="recipe-hint" data-action="barter-from-hint">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/awaken_placeholder.png" />
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <img class="mini-coin pull-right" src="./img/champ_payoff_placeholder.png" />
+    </div>
+    <div class="recipe-hint" data-action="barter-from-hint">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/champ_placeholder.png" />
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/champ_placeholder.png" />
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <img class="mini-coin pull-right" src="./img/champ_mystery.png" />
+    </div>
+  </div>
+
+  <div id="skinHint" class="hidden">
+    <div class="recipe-hint" data-action="barter-from-hint">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/awaken_placeholder.png" />
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <img class="mini-coin pull-right" src="./img/skin_payoff_placeholder.png" />
+    </div>
+    <div class="recipe-hint" data-action="barter-from-hint">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/skin_placeholder.png" />
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <img class="mini-coin" src="./img/skin_placeholder.png" />
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <img class="mini-coin pull-right" src="./img/skin_mystery.png" />
+    </div>
+  </div>
+  
+  
+  
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="../bower_components/slabText/js/jquery.slabtext.min.js"></script>
+  
+<script>
+
+
+$(function(){
+ var shrinkHeader = 100;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+    if ( scroll >= shrinkHeader ) {
+     $('nav').addClass('shrink');
+     $('nav').height(shrinkHeader);
+     
+     $("#demo_slabText").height(shrinkHeader);
+     $("#demo_slabText").width(shrinkHeader * 1.35);
+     
+     $("#demo_image").height(shrinkHeader);
+//      $("#demo_image").width(shrinkHeader);
+    }
+    else {
+      $('nav').height(shrinkHeader + shrinkHeader - scroll);
+      $('nav').removeClass('shrink');
+      
+      $("#demo_slabText").height(shrinkHeader + shrinkHeader - scroll);
+      $("#demo_slabText").width((shrinkHeader + shrinkHeader - scroll) * 1.35);
+      
+      $("#demo_image").height(shrinkHeader  + shrinkHeader - scroll);
+//      $("#demo_image").width(shrinkHeader + shrinkHeader - scroll);
+      
+    }
+
+    $("#demo_slabText").slabText();
+
+  });
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});
+
+$(function(){
+  var stS = "<span class='slabtext'>",
+      stE = "</span>",
+      txt = [
+        "THE", "FORUM"
+      ];
+    
+  $("#demo_slabText").html(stS + txt.join(stE + stS) + stE).slabText();
+});
+</script>
+
+<script src="../bower_components/bigtext/dist/bigtext.js"></script>
+
+<script>
+// Only BigText on “new-ish” browsers
+if( 'querySelectorAll' in document ) {
+    $('#bigtext').bigtext({minfontsize: 10});
+}
+</script>
+
+
+</body>
+</html>
