@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treasure Boxes</title>
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/slabText/css/slabtext.css">
+  
+<style>
+  
+  
+.slab {
+  width: 200px;
+  height: 200px;
+}
+  
+  
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    padding-top: 270px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  
+  
+  .bs-callout {
+    padding: 20px 20px 20px 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+  }
+  .bs-callout-new {
+    border-left-color: #337ab7;
+  }
+  .bs-callout:hover { 
+    border: 1px solid #222;
+    border-left-width: 5px;
+    border-radius: 3px;
+    transition: border .2s ease-in-out;
+  }
+  
+</style>
+
+</head>
+<body>
+  
+  <!-- Fixed navbar -->
+  <nav id="theforum" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img id="demo_image" src="http://placehold.it/250x250"/>
+            </a>
+          </div>
+          <div class="media-body">
+            <div class="slab" id="demo_slabText"></div>
+            
+          </div>
+          <div class="media-right">
+            <button type="button" class="btn btn-primary navbar-btn"> <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Begin page content -->
+  <div class="container">
+    
+    <div class="row">
+    
+    <div class="well bs-callout">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+        </div>
+      </div>
+      <p class="pull-right">
+        <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+        <a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> </a>
+        
+      </p>
+    </div>
+    
+    <div class="well bs-callout bs-callout-new">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015 <span class="badge">5</span></small> <span class="label label-primary pull-right"></span></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+        </div>
+      </div>
+      <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a></p>
+    </div>
+    
+    <div class="well bs-callout bs-callout-new">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015 <span class="badge">5</span></small> <span class="label label-primary pull-right"></span></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <code>...</code>
+          <div class="well">
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><small class="pull-right">July 4, 2015</small> <span class="label label-primary pull-right"></span></h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a></p>
+    </div>
+
+    <div class="well bs-callout">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <p class="pull-right"></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="well row bs-callout bs-callout-new">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small> <span class="label label-primary pull-right"></span></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <p class="pull-right"><a href="#">Comments <span class="badge">42</span></a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="well bs-callout">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <p class="pull-right"><a href="#">Comments <span class="badge"></span></a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="well row bs-callout bs-callout-new">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small> <span class="label label-primary pull-right"></span></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <p class="pull-right"><a href="#">Comments <span class="badge">42</span></a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="well bs-callout">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <p class="pull-right"><a href="#">Comments <span class="badge"></span></a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="well row bs-callout bs-callout-new">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Something here that you read <small class="pull-right">July 4, 2015</small> <span class="label label-primary pull-right"></span></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis....</p>
+          <p class="pull-right"><a href="#">Comments <span class="badge">42</span></a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <nav>
+        <ul class="pager">
+          <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+          <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+  </footer>
+  
+  
+  
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="../bower_components/slabText/js/jquery.slabtext.min.js"></script>
+  
+<script>
+
+
+$(function(){
+  var shrinkHeader_small = 50;
+  var shrinkHeader_large = 200;
+  var fixHeader = function() {
+    var scroll = getCurrentScroll();
+    if ( scroll >= shrinkHeader_large ) {
+     $('nav').addClass('shrink');
+     $('nav').height(shrinkHeader_small);
+     
+     $("#demo_slabText").height(shrinkHeader_small);
+     $("#demo_slabText").width(shrinkHeader_small * 1.35);
+     
+     $("#demo_image").height(shrinkHeader_small);
+//      $("#demo_image").width(shrinkHeader);
+    }
+    else {
+      $('#theforum').height(shrinkHeader_small + shrinkHeader_large - scroll);
+      $('#theforum').removeClass('shrink');
+      
+      $("#demo_slabText").height(shrinkHeader_small + shrinkHeader_large - scroll);
+      $("#demo_slabText").width((shrinkHeader_small + shrinkHeader_large - scroll) * 1.35);
+      
+      $("#demo_image").height(shrinkHeader_small  + shrinkHeader_large - scroll);
+//      $("#demo_image").width(shrinkHeader + shrinkHeader - scroll);
+      
+    }
+
+    $("#demo_slabText").slabText();
+
+  };
+  
+  $(window).scroll(fixHeader);
+  fixHeader();
+  
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});
+
+$(function(){
+  var stS = "<span class='slabtext'>",
+      stE = "</span>",
+      txt = [
+        "THE", "FORUM"
+      ];
+  // https://github.com/freqdec/slabText
+  $("#demo_slabText").html(stS + txt.join(stE + stS) + stE).slabText();
+  
+  var dt = "I wonder |what| this post is about...";
+    
+   var demo_txt = dt.split("|");
+    
+  $("#demo_post").html(stS + demo_txt.join(stE + stS) + stE).slabText();
+  $("#demo_post2").html(stS + demo_txt.join(stE + stS) + stE).slabText();
+  
+  
+});
+</script>
+
+<script src="../bower_components/bigtext/dist/bigtext.js"></script>
+
+<script>
+// Only BigText on “new-ish” browsers
+if( 'querySelectorAll' in document ) {
+    $('#bigtext').bigtext({minfontsize: 10});
+}
+</script>
+
+
+</body>
+</html>

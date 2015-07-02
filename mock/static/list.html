@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treasure Boxes</title>
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/slabText/css/slabtext.css">
+  
+<style>
+  
+  
+.slab {
+  width: 200px;
+  height: 200px;
+}
+  
+  
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    padding-top: 270px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+  
+</style>
+
+</head>
+<body>
+  
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img id="demo_image" src="http://placehold.it/250x250"/>
+            </a>
+          </div>
+          <div class="media-body">
+            <div class="slab" id="demo_slabText"></div>
+            
+          </div>
+          <div class="media-right">
+            <a href="#">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Begin page content -->
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li class="active">Data</li>
+    </ol>
+
+    <div class="list-group">
+      <a href="#" class="list-group-item active">
+        Cras justo odio
+      </a>
+      <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+      <a href="#" class="list-group-item">Morbi leo risus</a>
+      <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+      <a href="#" class="list-group-item">Vestibulum at eros</a>
+    </div>
+
+    <h1 id="list-group" class="page-header"><a class="anchorjs-link " href="#list-group" aria-label="Anchor link for: list group" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>List group</h1>
+    
+    <ul class="media-list">
+      <li class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Media heading <small>- July 4, 2015</small></h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+          <!-- Nested media object -->
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+              </a>
+            </div>
+            <div class="media-body">
+          <h4 class="media-heading"><small>July 4, 2015</small></h4>
+              Phasellus id aliquam enim, non volutpat lectus. Nunc viverra purus at nulla ullamcorper maximus. Curabitur ac lorem vitae tellus tempus elementum. Etiam eget lacus sem. Sed at arcu tristique, vestibulum lectus nec, gravida est. Praesent lorem lorem, vestibulum in finibus quis, interdum vitae massa. Proin dictum lacus a nulla bibendum, et semper lacus congue. Vestibulum quis tempor massa. Pellentesque vitae est eget neque consectetur accumsan. Vivamus nec imperdiet felis. Mauris ultricies quis sem ac euismod. In nec luctus purus. Aenean sit amet egestas lorem. Etiam tempus felis vulputate, venenatis magna in, finibus urna.
+              <!-- Nested media object -->
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><small>July 4, 2015</small></h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Nested media object -->
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle" src="http://placehold.it/64x64" style="width: 64px; height: 64px;">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><small>July 4, 2015</small></h4>
+              Etiam rhoncus ipsum non euismod tempus. Suspendisse potenti. Cras finibus at mauris eu egestas. Etiam faucibus lorem sed iaculis efficitur. Nulla dui est, tempus eleifend pharetra sit amet, fringilla et justo. Suspendisse viverra felis sed turpis sollicitudin aliquet. Maecenas dignissim ullamcorper ex ut lacinia. Proin malesuada ex ut velit rhoncus accumsan. Proin nec imperdiet orci, et laoreet metus. Donec auctor elementum lacus, facilisis facilisis purus bibendum a.
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+  </div>
+  
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+  </footer>
+  
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="../bower_components/slabText/js/jquery.slabtext.min.js"></script>
+  
+<script>
+
+
+$(function(){
+  var shrinkHeader_small = 50;
+  var shrinkHeader_large = 200;
+  var fixHeader = function() {
+    var scroll = getCurrentScroll();
+    if ( scroll >= shrinkHeader_large ) {
+     $('nav').addClass('shrink');
+     $('nav').height(shrinkHeader_small);
+     
+     $("#demo_slabText").height(shrinkHeader_small);
+     $("#demo_slabText").width(shrinkHeader_small * 1.35);
+     
+     $("#demo_image").height(shrinkHeader_small);
+//      $("#demo_image").width(shrinkHeader);
+    }
+    else {
+      $('nav').height(shrinkHeader_small + shrinkHeader_large - scroll);
+      $('nav').removeClass('shrink');
+      
+      $("#demo_slabText").height(shrinkHeader_small + shrinkHeader_large - scroll);
+      $("#demo_slabText").width((shrinkHeader_small + shrinkHeader_large - scroll) * 1.35);
+      
+      $("#demo_image").height(shrinkHeader_small  + shrinkHeader_large - scroll);
+//      $("#demo_image").width(shrinkHeader + shrinkHeader - scroll);
+      
+    }
+
+    $("#demo_slabText").slabText();
+
+  };
+  
+  $(window).scroll(fixHeader);
+  fixHeader();
+  
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});
+
+$(function(){
+  var stS = "<span class='slabtext'>",
+      stE = "</span>",
+      txt = [
+        "THE", "FORUM"
+      ];
+  // https://github.com/freqdec/slabText
+  $("#demo_slabText").html(stS + txt.join(stE + stS) + stE).slabText();
+});
+</script>
+
+<script src="../bower_components/bigtext/dist/bigtext.js"></script>
+
+<script>
+// Only BigText on “new-ish” browsers
+if( 'querySelectorAll' in document ) {
+    $('#bigtext').bigtext({minfontsize: 10});
+}
+</script>
+
+
+</body>
+</html>
