@@ -11,6 +11,7 @@ module.exports = function(app) {
   // Insert routes below
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
+  app.use('/api/invite', require('./api/invite'));
 
   app.use('/auth', require('./auth'));
   
@@ -18,19 +19,8 @@ module.exports = function(app) {
   app.route('/:url(api|auth|app|components|bower_components|assets)/*')
    .get(errors[404]);
 
+  app.route('/*').get(errors[404]);
   /*
-  app.route('/app/:file')
-   .get(function(req, res) {
-     
-     console.log('returning ' + app.get('appPath')  + '/' + req.params.file)
-     
-     res.sendfile(app.get('appPath')  + '/' + req.params.file);
-   });
-  */
- 
-
-  // All other routes should redirect to the index.html
-  app.route('/*')
     .get(function(req, res) {
       
       console.log('returning ' + app.get('appPath')  + '/index.html')
@@ -39,5 +29,5 @@ module.exports = function(app) {
       
       res.sendfile(app.get('appPath') + '/index.html');
     });
-  
+  */
 };

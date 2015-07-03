@@ -1,6 +1,9 @@
 'use strict';
 
 var User = require('./user.model');
+
+var Invite = require('../invite/invite.model');
+
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
@@ -20,6 +23,18 @@ exports.index = function(req, res) {
   });
 };
 
+/*
+
+        console.log(req.user);
+        
+        Invite.find({ email: req.user.email.toLowerCase() }, function (err, invite) {
+          console.log('find by email for invite...');
+          console.log(invite);
+          if (!invite || invite.length !== 0) return res.send(401);
+
+        });
+*/
+
 /**
  * Creates a new user
  */
@@ -27,6 +42,10 @@ exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
+  
+  console.log('creating a new user');
+  
+  
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
@@ -89,7 +108,15 @@ exports.me = function(req, res, next) {
   }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
     if (err) return next(err);
     if (!user) return res.json(401);
-    res.json(user);
+    Invite.find({ email: user.email.toLowerCase() }, function (err, invite) {
+      if (err) return next(err);
+      if (invite && invite.length === 1) {
+        user.role = invite[0].role;
+        res.json(user);
+      } else {
+        return res.json(401);
+      }
+    });
   });
 };
 

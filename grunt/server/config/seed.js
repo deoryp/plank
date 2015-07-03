@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Invite = require('../api/invite/invite.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -44,6 +45,22 @@ User.find({}).remove(function() {
     password: 'admin'
   }, function() {
       console.log('finished populating users');
+    }
+  );
+});
+
+Invite.find({}).remove(function() {
+  Invite.create({
+    email: 'test@test.com',
+    role: 'user'
+  }, {
+    email: 'admin@admin.com',
+    role: 'admin'
+  }, {
+    email: 'deoryp@gmail.com',
+    role: 'admin'
+  }, function() {
+      console.log('finished populating invites');
     }
   );
 });

@@ -7,12 +7,34 @@ var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var compose = require('composable-middleware');
 var User = require('../api/user/user.model');
+var Invite = require('../api/invite/invite.model');
 var validateJwt = expressJwt({ secret: config.secrets.session });
 
 /**
  * Attaches the user object to the request if authenticated
  * Otherwise returns 403
  */
+function isAuthenticated_old() {
+  return compose()
+    // Validate jwt
+    .use(function(req, res, next) {
+      // allow access_token to be passed through query parameter as well
+      if(req.query && req.query.hasOwnProperty('access_token')) {
+        req.headers.authorization = 'Bearer ' + req.query.access_token;
+      }
+      validateJwt(req, res, next);
+    })
+    // Attach user to request
+    .use(function(req, res, next) {
+      User.findById(req.user._id, function (err, user) {
+        if (err) return next(err);
+        if (!user) return res.send(401);
+        req.user = user;
+        next();
+      });
+    });
+}
+
 function isAuthenticated() {
   return compose()
     // Validate jwt
@@ -28,9 +50,16 @@ function isAuthenticated() {
       User.findById(req.user._id, function (err, user) {
         if (err) return next(err);
         if (!user) return res.send(401);
-
-        req.user = user;
-        next();
+        Invite.find({ email: user.email.toLowerCase() }, function (err, invites) {
+          if (err) return next(err);
+          if (invites && invites.length === 1) {
+            user.role = invites[0].role;
+            req.user = user;
+            next();
+          } else {
+            return res.send(401);
+          }
+        });
       });
     });
 }
@@ -44,10 +73,12 @@ function hasRole(roleRequired) {
   return compose()
     .use(isAuthenticated())
     .use(function meetsRequirements(req, res, next) {
+      
+      console.log(req);
+      
       if (config.userRoles.indexOf(req.user.role) >= config.userRoles.indexOf(roleRequired)) {
         next();
-      }
-      else {
+      } else {
         res.send(403);
       }
     });
@@ -67,7 +98,7 @@ function setTokenCookie(req, res) {
   if (!req.user) return res.json(404, { message: 'Something went wrong, please try again.'});
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
-  res.redirect('http://localhost:3000/');
+  res.redirect('http://localhost:1337/');
 }
 
 exports.isAuthenticated = isAuthenticated;

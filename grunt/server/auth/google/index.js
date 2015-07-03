@@ -6,6 +6,8 @@ var auth = require('../auth.service');
 
 var router = express.Router();
 
+console.log('and here');
+
 router
   .get('/', passport.authenticate('google', {
     failureRedirect: '/signup',
