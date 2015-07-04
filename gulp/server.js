@@ -46,8 +46,50 @@ browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
 
+
+var exec = require('child_process').exec;
+
+var nodemon = require('gulp-nodemon');
+var plumber = require('gulp-plumber');
+var livereload = require('gulp-livereload');
+
+var serverInit = function () {
+  livereload.listen();
+  nodemon({
+    script: 'server/app.js',
+    ext: 'js coffee handlebars',
+  }).on('restart', function () {
+    setTimeout(function () {
+      livereload.changed(__dirname + '/server/');
+    }, 500);
+  });
+};
+
+var proxyInit = function () {
+  livereload.listen();
+  nodemon({
+    script: 'proxy/app.js',
+    ext: 'js coffee handlebars',
+  }).on('restart', function () {
+    setTimeout(function () {
+      livereload.changed(__dirname + '/proxy/');
+    }, 500);
+  });
+};
+
+
+
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
+  
+  serverInit();
+  
+  exec('node proxy/app.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+
+  
 });
 
 gulp.task('serve:dist', ['build'], function () {
@@ -61,3 +103,8 @@ gulp.task('serve:e2e', ['inject'], function () {
 gulp.task('serve:e2e-dist', ['build'], function () {
   browserSyncInit(conf.paths.dist, []);
 });
+
+
+
+
+

@@ -29,7 +29,7 @@ proxy.on('proxyReq', function(proxyReq, req, res, options) {
 var server = http.createServer(function(req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
-  console.log(req.url); 
+  //console.log(req.url); 
   
   if (req.url.startsWith('/api/') || req.url.startsWith('/auth/')) {
     proxy.web(req, res, {
