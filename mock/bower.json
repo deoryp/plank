@@ -14,8 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "slabText": "~2.2.0",
-    "bigtext": "~0.1.8",
-    "fittext": "*"
+    "slabText": "~2.2.0"
   }
 }

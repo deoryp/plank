@@ -25,6 +25,39 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   img.pull-right {
     width: 50px;
   }
+}  
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+}
+
+// This should be in the nav bar sass...  
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.slab {
+  width: 200px;
+  height: 200px;
+}
+  
+body {
+  /* Move down content because we have a fixed navbar that is 50px tall */
+  padding-top: 270px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+nav.theforumheader {
+  height: 250px;
+}
+
+.navbar-brand {
+  padding: 0px;
 }
 
 /**

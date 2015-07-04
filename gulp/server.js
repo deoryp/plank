@@ -65,20 +65,6 @@ var serverInit = function () {
   });
 };
 
-var proxyInit = function () {
-  livereload.listen();
-  nodemon({
-    script: 'proxy/app.js',
-    ext: 'js coffee handlebars',
-  }).on('restart', function () {
-    setTimeout(function () {
-      livereload.changed(__dirname + '/proxy/');
-    }, 500);
-  });
-};
-
-
-
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
   

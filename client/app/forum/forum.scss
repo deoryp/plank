@@ -1,0 +1,20 @@
+small.link {
+  color: #337ab7;
+}
+
+.bs-callout {
+  padding: 20px 20px 20px 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.bs-callout-new {
+  border-left-color: #337ab7;
+}
+.bs-callout:hover { 
+  border: 1px solid #222;
+  border-left-width: 5px;
+  border-radius: 3px;
+  transition: border .2s ease-in-out;
+}

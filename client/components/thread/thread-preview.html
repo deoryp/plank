@@ -1,0 +1,19 @@
+<div class="well bs-callout" ng-class="{'bs-callout-new': thread.me.updates}" ng-click="view()">
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object img-circle" src="{{thread.author.photo}}" alt="{{thread.author.handle}}" title="{{thread.author.handle}}" style="width: 64px; height: 64px;">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{thread.title}} 
+        <small class="pull-right">{{thread.date}} <span ng-if="thread.me.comments > 0" class="badge">{{thread.me.comments}}</span></small>
+      </h4>
+      <p>{{thread.markup}}</p>
+    </div>
+  </div>
+  <p class="pull-right">
+    <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> </a>
+    <a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> </a>
+  </p>
+</div>
