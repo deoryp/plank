@@ -20,7 +20,7 @@ angular.module('plankApp')
       },
       {
         title: 'Events',
-        glyph: 'glyphicon glyphicon-tent',
+        glyph: 'glyphicon glyphicon-calendar',
         href: '/forum/events'
       }
     ];
