@@ -9,6 +9,8 @@ var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Invite = require('../api/invite/invite.model');
 
+var Thread = require('../api/thread/thread.model');
+
 Thing.find({}).remove(function() {
   Thing.create({
     name : 'Development Tools',
@@ -31,41 +33,98 @@ Thing.find({}).remove(function() {
   });
 });
 
-/*
+var seedUser = false;
+var seedInvite = false;
+var seedThead = true;
 
-User.find({}).remove(function() {
-  User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
-      console.log('finished populating users');
+if (seedUser) {
+  User.find({}).remove(function() {
+    User.create({
+      provider: 'local',
+      name: 'Test User',
+      email: 'test@test.com',
+      password: 'test'
+    }, {
+      provider: 'local',
+      role: 'admin',
+      name: 'Admin',
+      email: 'admin@admin.com',
+      password: 'admin'
+    }, function() {
+        console.log('finished populating users');
+      }
+    );
+  });
+}
+
+if (seedInvite) {
+  Invite.find({}).remove(function() {
+    Invite.create({
+      email: 'test@test.com',
+      role: 'user'
+    }, {
+      email: 'admin@admin.com',
+      role: 'admin'
+    }, {
+      email: 'deoryp@gmail.com',
+      role: 'admin'
+    }, function() {
+        console.log('finished populating invites');
+      }
+    );
+  });
+}
+
+if (seedThead) {
+  Thread.find({}).remove(function() {
+    Thread.create({
+      topic: 'test',
+      title: 'A Thread without a reply',
+      author: {
+        handle: 'Scott',
+        photo: 'http://photo'
+      },
+      markup: 'here is the markup...'
+    }, {
+      topic: 'test',
+      title: 'A Thread with a reply',
+      author: {
+        handle: 'Scott',
+        photo: 'http://photo'
+      },
+      markup: 'here is the markup...',
+      reply: [
+        {
+          author: {
+            handle: 'Scott',
+            photo: 'http://photo'
+          },
+          markup: 'more markup'
+        }, {
+          author: {
+            handle: 'Henry',
+            photo: 'http://photo'
+          },
+          markup: 'such a reply'
+        }
+      ]
+    }, function() {
+        console.log('finished populating threads');
+      }
+    );
+  });
+}
+
+// TODO:: only saving one thread? why??
+
+setTimeout(function() {
+  Thread.find(function (err, threads) {
+    if(err) { 
+      console.log(err);
+      return;
     }
-  );
-});
-
-Invite.find({}).remove(function() {
-  Invite.create({
-    email: 'test@test.com',
-    role: 'user'
-  }, {
-    email: 'admin@admin.com',
-    role: 'admin'
-  }, {
-    email: 'deoryp@gmail.com',
-    role: 'admin'
-  }, function() {
-      console.log('finished populating invites');
-    }
-  );
-});
+    console.log(threads);
+  });
+}, 3000);
 
 
-*/
