@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumCtrl', function ($scope, $stateParams, $http) {
+  .controller('ForumCtrl', function ($scope, $stateParams, $http, ThreadModal) {
       
     $http.get('/api/users/me').success(function(user) {
       $scope.user = user;
@@ -15,7 +15,18 @@ angular.module('plankApp')
       $scope.title = 'Media';
     } else if ($stateParams.forum === 'events') {
       $scope.title = 'Events';
+    } else {
+      console.error('invalid forum');
+      return;
     }
+    
+    $scope.forum = $stateParams.forum;
+    
+    
+    $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {
+      $scope.dataThreads = threads;
+    });
+    
     
     $scope.threads = [
       {
@@ -48,5 +59,12 @@ angular.module('plankApp')
         markup: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.'
       }
     ];
+    
+    
+    $scope.createNewThread = ThreadModal.create.thread(function (r) {
+      console.log('called back from create thread');
+      console.log(r);
+    }, 'app/forum/modal/text.html');
+      
     
   });

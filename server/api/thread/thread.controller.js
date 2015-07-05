@@ -16,6 +16,10 @@ var _ = require('lodash');
 var Thread = require('./thread.model');
 var config = require('../../config/environment');
 
+//
+// TODO:: need to filter out the seenBy field and replace it with the me field...
+//
+
 // Get list of threads
 exports.index = function(req, res) {
   
@@ -23,7 +27,7 @@ exports.index = function(req, res) {
   if (typeof req.query.startdate !== 'undefined') {
     startDate = req.query.startDate;
   } else {
-    startDate = new Date(1984, 2, 28);
+    startDate = new Date();
   } 
   
   var limit;
@@ -65,7 +69,14 @@ exports.show = function(req, res) {
 
 // Creates a new thread in the DB.
 exports.create = function(req, res) {
+  
+  console.log('TODO:: req.user: ');
+  console.log(req.user);
+  
   req.body.topic = req.params.topic;
+  req.author = {
+    id: req.user._id // TODO need to get the rest of the details around the author and jam them in here.
+  };
   Thread.create(req.body, function(err, thread) {
     if(err) {
       return handleError(res, err);
@@ -79,10 +90,12 @@ exports.update = function(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
+  if(req.body.author) {
+    delete req.body.author;
+  }
   if(req.body.reply) {
     delete req.body.reply;
   }
-  
   Thread.findById(req.params.id, function (err, thread) {
     if (err) {
       return handleError(res, err);

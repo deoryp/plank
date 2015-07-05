@@ -78,7 +78,7 @@ if (seedInvite) {
 if (seedThead) {
   Thread.find({}).remove(function() {
     Thread.create({
-      topic: 'test',
+      topic: 'general',
       title: 'A Thread without a reply',
       author: {
         id: '321abc',
@@ -87,7 +87,6 @@ if (seedThead) {
       },
       markup: 'here is the markup...'
     }, {
-      topic: 'test2',
       title: 'A Thread with a reply',
       author: {
         id: '321abc',
