@@ -33,6 +33,10 @@ var all = {
 
   // List of user roles
   userRoles: ['guest', 'user', 'admin'],
+  
+  hasRole: function(hasRole, needsRole) {
+    return this.userRoles.indexOf(hasRole) >= config.userRoles.indexOf(needsRole)
+  },
 
   // MongoDB connection options
   mongo: {

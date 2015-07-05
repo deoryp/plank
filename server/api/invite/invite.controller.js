@@ -1,9 +1,6 @@
 'use strict';
 
 var Invite = require('./invite.model');
-var passport = require('passport');
-var config = require('../../config/environment');
-var jwt = require('jsonwebtoken');
 
 var validationError = function(res, err) {
   return res.json(422, err);

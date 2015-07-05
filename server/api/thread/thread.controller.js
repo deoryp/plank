@@ -1,50 +1,146 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /things              ->  index
- * POST    /things              ->  create
- * GET     /things/:id          ->  show
- * PUT     /things/:id          ->  update
- * DELETE  /things/:id          ->  destroy
+ * GET     /thread              ->  index
+ * POST    /thread              ->  create
+ * GET     /thread/:id          ->  show
+ * PUT     /thread/:id          ->  update
+ * DELETE  /thread/:id          ->  destroy
+ * POST    /thread/:id/reply    ->  createReply
+ * PUT     /thread/:id/reply/:replyId ->  updateReply
+ * DELETE  /thread/:id/reply/:replyId ->  destroyReply
  */
 
 'use strict';
 
-
-// TODO NEED TO IMPLEMENT THIS FOR THREADS
-
-
-
-
 var _ = require('lodash');
-var Thing = require('./thing.model');
+var Thread = require('./thread.model');
+var config = require('../../config/environment');
 
-// Get list of things
+// Get list of threads
 exports.index = function(req, res) {
-  Thing.find(function (err, things) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, things);
+  
+  var startDate;
+  if (typeof req.query.startdate !== 'undefined') {
+    startDate = req.query.startDate;
+  } else {
+    startDate = new Date(1984, 2, 28);
+  } 
+  
+  var limit;
+  if (typeof req.query.limit !== 'undefined') {
+    startDate = req.query.limit;
+  } else {
+    limit = 20;
+  } 
+  if (limit > 100) {
+    limit = 100;
+  }
+  
+  Thread.find( { 
+    topic: req.params.topic,
+    created: { $lte: startDate } 
+  })
+  .limit( limit )
+  .sort( '-created' )
+  .exec(function (err, threads) {
+    if(err) {
+      return handleError(res, err);
+    }
+    return res.json(200, threads);
   });
 };
 
-// Get a single thing
+// Get a single thread
 exports.show = function(req, res) {
   Thing.findById(req.params.id, function (err, thing) {
-    if(err) { return handleError(res, err); }
-    if(!thing) { return res.send(404); }
+    if(err) {
+      return handleError(res, err);
+    }
+    if(!thing) {
+      return res.send(404);
+    }
     return res.json(thing);
   });
 };
 
-// Creates a new thing in the DB.
+// Creates a new thread in the DB.
 exports.create = function(req, res) {
+  req.body.topic = req.params.topic;
+  Thread.create(req.body, function(err, thread) {
+    if(err) {
+      return handleError(res, err);
+    }
+    return res.json(201, thread);
+  });
+};
+
+// Updates an existing thread in the DB.
+exports.update = function(req, res) {
+  if(req.body._id) {
+    delete req.body._id;
+  }
+  if(req.body.reply) {
+    delete req.body.reply;
+  }
+  
+  Thread.findById(req.params.id, function (err, thread) {
+    if (err) {
+      return handleError(res, err);
+    }
+    if(!thread) {
+      return res.send(404);
+    }
+    if (thread.author.id !== req.user._id && !config.hasRole(req.user.role, 'admin')) {
+      return res.send(403);
+    }
+    
+    var updated = _.merge(thread, req.body);
+    updated.save(function (err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.json(200, thread);
+    });
+  });
+};
+
+// Deletes a thread from the DB.
+exports.destroy = function(req, res) {
+  Thread.findById(req.params.id, function (err, thread) {
+    if(err) {
+      return handleError(res, err);
+    }
+    if(!thread) {
+      return res.send(404);
+    }
+    if (thread.author.id !== req.user._id && !config.hasRole(req.user.role, 'admin')) {
+      return res.send(403);
+    }
+    
+    thread.remove(function(err) {
+      if(err) {
+        return handleError(res, err);
+      }
+      return res.send(204);
+    });
+  });
+};
+
+
+// Creates a new thing in the DB.
+exports.createReply = function(req, res) {
+  /*
   Thing.create(req.body, function(err, thing) {
     if(err) { return handleError(res, err); }
     return res.json(201, thing);
   });
+  */
+  return res.send(504);
 };
 
 // Updates an existing thing in the DB.
-exports.update = function(req, res) {
+exports.updateReply = function(req, res) {
+  /*
   if(req.body._id) { delete req.body._id; }
   Thing.findById(req.params.id, function (err, thing) {
     if (err) { return handleError(res, err); }
@@ -55,10 +151,13 @@ exports.update = function(req, res) {
       return res.json(200, thing);
     });
   });
+  */
+  return res.send(504);
 };
 
 // Deletes a thing from the DB.
-exports.destroy = function(req, res) {
+exports.destroyReply = function(req, res) {
+  /*
   Thing.findById(req.params.id, function (err, thing) {
     if(err) { return handleError(res, err); }
     if(!thing) { return res.send(404); }
@@ -67,7 +166,27 @@ exports.destroy = function(req, res) {
       return res.send(204);
     });
   });
+  */
+  return res.send(504);
 };
+
+/*
+
+ThreadSchema
+  .findOneAndUpdate(
+    {
+      title: req.body.post.title
+    }, { 
+      $push: {
+        comments: comment 
+      }
+    }, { 
+      safe: true, 
+      upsert: true 
+    }, function(err, blogModels) {
+      console.err(err)
+    });
+*/
 
 function handleError(res, err) {
   return res.send(500, err);

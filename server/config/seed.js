@@ -81,37 +81,46 @@ if (seedThead) {
       topic: 'test',
       title: 'A Thread without a reply',
       author: {
+        id: '321abc',
         handle: 'Scott',
         photo: 'http://photo'
       },
       markup: 'here is the markup...'
     }, {
-      topic: 'test',
+      topic: 'test2',
       title: 'A Thread with a reply',
       author: {
+        id: '321abc',
         handle: 'Scott',
         photo: 'http://photo'
       },
-      markup: 'here is the markup...',
+      markup: 'new here is the markup...',
       reply: [
         {
           author: {
+            id: '321abc',
             handle: 'Scott',
             photo: 'http://photo'
           },
           markup: 'more markup'
         }, {
           author: {
+            id: 'abc123',
             handle: 'Henry',
             photo: 'http://photo'
           },
           markup: 'such a reply'
         }
       ]
-    }, function() {
-        console.log('finished populating threads');
+    }, function(err, docs) {
+      if (err) {
+        console.error(err);
+        //next(err);
+      } else {
+        console.log(docs);
       }
-    );
+
+    })
   });
 }
 
@@ -125,6 +134,6 @@ setTimeout(function() {
     }
     console.log(threads);
   });
-}, 3000);
+}, 5000);
 
 

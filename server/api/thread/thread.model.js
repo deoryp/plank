@@ -2,17 +2,43 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ReplySchema = require('./reply.model');
 
 var ThreadSchema = new Schema({
-  topic: { type: String, lowercase: true, default: 'general' },
-  created: Date,
-  modified: Date,
+  topic: { type: String, lowercase: true, default: 'general', index: true },
+  created: {
+      type: Date,
+      default: Date.now,
+      index: true 
+  },
+  modified: {
+      type: Date,
+      default: Date.now
+  },
   title: String,
-  author_handle: String,
-  author_photo: String,
+  author: {
+    id: String,
+    handle: String,
+    photo: String,
+  },
   markup: String,
-  reply: [ReplySchema]
+  seenBy: [String],
+  reply: [{
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    modified: {
+        type: Date,
+        default: Date.now
+    },
+    author: {
+      id: String,
+      handle: String,
+      photo: String,
+    },
+    markup: String,
+    seenBy: [String],
+  }]
 });
 
 ThreadSchema
@@ -21,28 +47,12 @@ ThreadSchema
     return 'preview'; // TODO
   });
 
-ThreadSchema
-  .virtual('author')
-  .set(function(author) {
-    this.author_handle = author.handle;
-    this.author_photo = author.photo;
-  })
-  .get(function() {
-    return {
-      handle: this.author_handle,
-      photo: this.author_photo,
-    };
-  });
-
-
 /**
  * Pre-save hook
  */
 ThreadSchema
   .pre('save', function(next) {
-    if (this.isNew) {
-      this.created = new Date();
-    } else {
+    if (!this.isNew) {
       this.modified = new Date();
     }
     next();
