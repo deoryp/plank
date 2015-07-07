@@ -93,7 +93,7 @@ if (seedThead) {
         handle: 'Scott',
         photo: 'http://photo'
       },
-      markdown: 'new here is the markdown...',
+      markdown: '##new here is the markdown...',
       reply: [
         {
           author: {

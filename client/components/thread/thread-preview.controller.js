@@ -12,6 +12,7 @@ angular.module('plankApp')
     $scope.view = function () {
       $location.path('/forum/' + $scope.thread.topic + '/' + $scope.thread.id);
     }
+    $scope.markdownHtml = marked($scope.thread.markdown);
     
   })
   .directive('forumThreadPreview', function() {
