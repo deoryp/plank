@@ -30,16 +30,22 @@ exports.index = function(req, res) {
 //  console.log(req.query);
   
   if (typeof req.query.startdate !== 'undefined') {
-//    startDate = new Date(parseInt(req.query.startdate));
-    startDate = parseInt(req.query.startdate);
+    startDate = new Date(parseInt(req.query.startdate));
+//    startDate = parseInt(req.query.startdate);
+  } else {
+    startDate = new Date();
   }
+  
   if (typeof req.query.enddate !== 'undefined') {
-//    endDate = new Date(parseInt(req.query.enddate));
-    endDate = parseInt(req.query.enddate);
+    endDate = new Date(parseInt(req.query.enddate));
+//    endDate = parseInt(req.query.enddate);
+  } else {
+    endDate = new Date(0);
   }
-  if (startDate === null && endDate === null) {
-    startDate = new Date().getTime();
-  } 
+//  if (startDate === null && endDate === null) {
+//    startDate = new Date().getTime();
+  //  startDate = new Date();
+  //} 
   
   var limit;
   if (typeof req.query.limit !== 'undefined') {
@@ -67,9 +73,9 @@ exports.index = function(req, res) {
   console.log(query);
   
   Thread.find({ 
-    topic: req.params.topic,
-    created: { $lte: startDate } 
+    topic: req.params.topic
   })
+  .where('created').gte(endDate).lte(startDate)
   .limit( limit )
   .sort( '-created' )
   .exec(function (err, threads) {
@@ -97,10 +103,10 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   
   console.log('TODO:: req: ');
-  console.log(req);
+  console.log(req.user);
   
   req.body.topic = req.params.topic;
-  req.author = {
+  req.body.author = {
     id: req.user._id, // TODO need to get the rest of the details around the author and jam them in here.
     handle: req.user.name,
     photo: req.user.google.image.url 

@@ -6,11 +6,13 @@ var Schema = mongoose.Schema;
 var ThreadSchema = new Schema({
   topic: { type: String, lowercase: true, default: 'general', index: true },
   created: {
-      type: Number,
+      type: Date,
+      default: Date.now,
       index: true 
   },
   modified: {
-      type: Number
+      type: Date,
+      default: Date.now
   },
   title: String,
   author: {
@@ -22,10 +24,12 @@ var ThreadSchema = new Schema({
   seenBy: [String],
   reply: [{
     created: {
-        type: Number
+        type: Date,
+        default: Date.now
     },
     modified: {
-        type: Number
+        type: Date,
+        default: Date.now
     },
     author: {
       id: String,
@@ -48,11 +52,8 @@ ThreadSchema
  */
 ThreadSchema
   .pre('save', function(next) {
-    if (this.isNew) {
-      this.created = new Date().getTime();
-      this.modified = new Date().getTime();
-    } else {
-      this.modified = new Date().getTime();
+    if (!this.isNew) {
+      this.modified = new Date();
     }
     next();
   });
