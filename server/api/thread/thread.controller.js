@@ -21,18 +21,29 @@ var config = require('../../config/environment');
 //
 
 // Get list of threads
+// query: startdate, enddate, limit
 exports.index = function(req, res) {
   
-  var startDate;
+  var startDate = null;  // find startDate --> older <-- endDate
+  var endDate = null;
+  
+//  console.log(req.query);
+  
   if (typeof req.query.startdate !== 'undefined') {
-    startDate = req.query.startDate;
-  } else {
-    startDate = new Date();
+//    startDate = new Date(parseInt(req.query.startdate));
+    startDate = parseInt(req.query.startdate);
+  }
+  if (typeof req.query.enddate !== 'undefined') {
+//    endDate = new Date(parseInt(req.query.enddate));
+    endDate = parseInt(req.query.enddate);
+  }
+  if (startDate === null && endDate === null) {
+    startDate = new Date().getTime();
   } 
   
   var limit;
   if (typeof req.query.limit !== 'undefined') {
-    startDate = req.query.limit;
+    limit = req.query.limit;
   } else {
     limit = 20;
   } 
@@ -40,7 +51,22 @@ exports.index = function(req, res) {
     limit = 100;
   }
   
-  Thread.find( { 
+  var query = { 
+    topic: req.params.topic
+  };
+  
+  if (startDate !== null && endDate !== null) {
+    query.created = { $lte: startDate, $gte: endDate };
+  } else if (endDate !== null) {
+    query.created = { $gte: endDate };
+  } else if (startDate !== null) {
+    query.created = { $lte: startDate };
+  }
+
+  console.log('query:');  
+  console.log(query);
+  
+  Thread.find({ 
     topic: req.params.topic,
     created: { $lte: startDate } 
   })
@@ -70,13 +96,16 @@ exports.show = function(req, res) {
 // Creates a new thread in the DB.
 exports.create = function(req, res) {
   
-  console.log('TODO:: req.user: ');
-  console.log(req.user);
+  console.log('TODO:: req: ');
+  console.log(req);
   
   req.body.topic = req.params.topic;
   req.author = {
-    id: req.user._id // TODO need to get the rest of the details around the author and jam them in here.
+    id: req.user._id, // TODO need to get the rest of the details around the author and jam them in here.
+    handle: req.user.name,
+    photo: req.user.google.image.url 
   };
+
   Thread.create(req.body, function(err, thread) {
     if(err) {
       return handleError(res, err);

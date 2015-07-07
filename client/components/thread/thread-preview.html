@@ -7,9 +7,9 @@
     </div>
     <div class="media-body">
       <h4 class="media-heading">{{thread.title}} 
-        <small class="pull-right">{{thread.date}} <span ng-if="thread.me.comments > 0" class="badge">{{thread.me.comments}}</span></small>
+        <small class="pull-right">{{thread.created}} <span ng-if="thread.me.comments > 0" class="badge">{{thread.me.comments}}</span></small>
       </h4>
-      <p>{{thread.markup}}</p>
+      <p>{{thread.markdown}}</p>
     </div>
   </div>
   <p class="pull-right">

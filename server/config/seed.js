@@ -85,7 +85,7 @@ if (seedThead) {
         handle: 'Scott',
         photo: 'http://photo'
       },
-      markup: 'here is the markup...'
+      markdown: 'here is the markdown...'
     }, {
       title: 'A Thread with a reply',
       author: {
@@ -93,7 +93,7 @@ if (seedThead) {
         handle: 'Scott',
         photo: 'http://photo'
       },
-      markup: 'new here is the markup...',
+      markdown: 'new here is the markdown...',
       reply: [
         {
           author: {
@@ -101,14 +101,14 @@ if (seedThead) {
             handle: 'Scott',
             photo: 'http://photo'
           },
-          markup: 'more markup'
+          markdown: 'more markdown'
         }, {
           author: {
             id: 'abc123',
             handle: 'Henry',
             photo: 'http://photo'
           },
-          markup: 'such a reply'
+          markdown: 'such a reply'
         }
       ]
     }, function(err, docs) {

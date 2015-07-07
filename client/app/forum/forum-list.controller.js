@@ -20,50 +20,42 @@ angular.module('plankApp')
       return;
     }
     
-    $scope.forum = $stateParams.forum;
-    
+    var forum = $scope.forum = $stateParams.forum;
     
     $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {
-      $scope.dataThreads = threads;
+      $scope.threads = threads;
     });
     
-    
-    $scope.threads = [
-      {
-        id: '1',
-        topic: 'general',
-        date: 'July 4, 2015',
-        title: 'It worked.',
-        me: {
-          updates: true, 
-          comments: 1
-        },
-        author: {
-          handle: 'Scottie',
-          photo: 'https://lh3.googleusercontent.com/-_YyQXXslczM/AAAAAAAAAAI/AAAAAAAAAa0/mQPt6bjybwg/photo.jpg'
-        },
-        markup: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.'
-      }, {
-        id: '2',
-        topic: 'general',
-        date: 'July 7, 2015',
-        title: '2 It worked.',
-        me: {
-          updates: false, 
-          comments: 0
-        },
-        author: {
-          handle: 'Demo',
-          photo: 'http://.it/64x64'
-        },
-        markup: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.'
-      }
-    ];
-    
-    
-    $scope.createNewThread = ThreadModal.create.thread(function (r) {
+    $scope.createNewThread = ThreadModal.create.thread(function (event, args) {
       console.log('called back from create thread');
-      console.log(r);
+      console.log(this.results);
+      
+      // TODO:: check the results are valid.
+      
+      $http.post('/api/thread/' + forum + '/', {
+        topic: forum,
+        title: this.results.title,
+        markdown: this.results.markdown
+      }).success(function(data, status, headers, config) {
+        
+        var lastSeen = new Date($scope.threads[0].created);
+        lastSeen.setSeconds(lastSeen.getSeconds() + 1);
+//        lastSeen = encodeURIComponent(lastSeen);
+        lastSeen = lastSeen.getTime();
+        
+        $http.get('/api/thread/' + $stateParams.forum + '/?enddate=' + lastSeen).success(function(threads) {
+          $scope.threads = threads.concat($scope.threads);
+          console.log(threads);
+                  debugger;
+        });
+        
+        
+      }).error(function(data, status, headers, config) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.error(data);
+      });;
+      
     }, 'app/forum/modal/text.html');
       
     

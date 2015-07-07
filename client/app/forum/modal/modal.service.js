@@ -1,24 +1,25 @@
 'use strict';
 
 angular.module('plankApp')
-  .factory('ThreadModal', function ($rootScope, $modal) {
+  .factory('ThreadModal', function ($rootScope, $modal, $timeout) {
     /**
      * Opens a modal
      * @param  {Object} scope      - an object to be merged with modal's scope
      * @param  {String} modalClass - (optional) class(es) to be applied to the modal
      * @return {Object}            - the instance $modal.open() returns
      */
-    function openModal(scope, modalClass, modalTemplate) {
+    function openModal($scope, modalClass, modalTemplate) {
       var modalScope = $rootScope.$new();
-      scope = scope || {};
+      $scope = $scope || {};
       modalTemplate = modalTemplate || 'app/forum/modal/modal.html';
       modalClass = modalClass || 'modal-default';
-
-      angular.extend(modalScope, scope);
-
+      
+      angular.extend(modalScope, $scope);
+      
       return $modal.open({
         templateUrl: modalTemplate,
         windowClass: modalClass,
+        size: 'lg',
         scope: modalScope
       });
     }
@@ -42,33 +43,45 @@ angular.module('plankApp')
            * @param  {All}           - any additional args are passed staight to del callback
            */
           return function() {
-            var args = Array.prototype.slice.call(arguments),
-                name = args.shift(),
-                deleteModal;
-
-            deleteModal = openModal({
+            var args = Array.prototype.slice.call(arguments);
+            var topic = args.shift();
+            var title = '';
+            var markdown = '';
+            var threadModal = openModal({
+              title: title,
+              markdown: markdown,
               modal: {
-                dismissable: true,
-                title: 'Confirm Delete ' + name,
-//                html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                dismissable: false,
+                title: 'Post to ' + topic,
                 templateUrl: template,
                 buttons: [{
-                  classes: 'btn-danger',
-                  text: 'Delete',
+                  classes: 'btn-create',
+                  text: 'Post',
                   click: function(e) {
-                    deleteModal.close(e);
+                    title = $('#title-modal').val();
+                    markdown = $('#markdown-modal').val();
+                    threadModal.close(e);
                   }
                 }, {
                   classes: 'btn-default',
                   text: 'Cancel',
                   click: function(e) {
-                    deleteModal.dismiss(e);
+                    threadModal.dismiss(e);
                   }
                 }]
               }
-            }, 'modal-danger');
+            }, 'modal-default');
 
-            deleteModal.result.then(function(event) {
+            $timeout(function() {
+              $('#markdown-modal').markdown();
+            }, 100);
+
+            threadModal.result.then(function(event) {
+              event.results = {
+                topic: topic,
+                title: title,
+                markdown: markdown
+              };
               callback.apply(event, args);
             });
           };
