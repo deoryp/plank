@@ -10,7 +10,7 @@ angular.module('plankApp')
     // TODO:: trim down the thread
     
     $scope.view = function () {
-      $location.path('/forum/' + $scope.thread.topic + '/' + $scope.thread.id);
+      $location.path('/forum/' + $scope.thread.topic + '/' + $scope.thread._id);
     }
     $scope.markdownHtml = marked($scope.thread.markdown);
     

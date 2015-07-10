@@ -35,7 +35,7 @@ Thing.find({}).remove(function() {
 
 var seedUser = false;
 var seedInvite = false;
-var seedThead = true;
+var seedThead = false;
 
 if (seedUser) {
   User.find({}).remove(function() {

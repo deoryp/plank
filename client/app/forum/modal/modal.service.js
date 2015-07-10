@@ -86,8 +86,54 @@ angular.module('plankApp')
             });
           };
         },
-        reply: function() {
-          
+        reply: function(callback, template) {
+          callback = callback || angular.noop;
+          template = template || 'app/forum/modal/modal.html';
+
+          /**
+           * Open a delete confirmation modal
+           * @param  {String} name   - name or info to show on modal
+           * @param  {All}           - any additional args are passed staight to del callback
+           */
+          return function() {
+            var args = Array.prototype.slice.call(arguments);
+            var thread = args.shift();
+            var title = thread.title;
+            var markdown = '';
+            var threadModal = openModal({
+              markdown: markdown,
+              modal: {
+                dismissable: false,
+                title: 'Reply to: ' + title,
+                templateUrl: template,
+                buttons: [{
+                  classes: 'btn-create',
+                  text: 'Reply',
+                  click: function(e) {
+                    markdown = $('#markdown-modal').val();
+                    threadModal.close(e);
+                  }
+                }, {
+                  classes: 'btn-default',
+                  text: 'Cancel',
+                  click: function(e) {
+                    threadModal.dismiss(e);
+                  }
+                }]
+              }
+            }, 'modal-default');
+
+            $timeout(function() {
+              $('#markdown-modal').markdown();
+            }, 100);
+
+            threadModal.result.then(function(event) {
+              event.results = {
+                markdown: markdown
+              };
+              callback.apply(event, args);
+            });
+          };
         }
       },
       /* Confirmation modals */

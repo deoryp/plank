@@ -88,14 +88,14 @@ exports.index = function(req, res) {
 
 // Get a single thread
 exports.show = function(req, res) {
-  Thing.findById(req.params.id, function (err, thing) {
+  Thread.findById(req.params.id, function (err, thread) {
     if(err) {
       return handleError(res, err);
     }
-    if(!thing) {
+    if(!thread) {
       return res.send(404);
     }
-    return res.json(thing);
+    return res.json(thread);
   });
 };
 
@@ -177,6 +177,10 @@ exports.destroy = function(req, res) {
 
 // Creates a new thing in the DB.
 exports.createReply = function(req, res) {
+  
+  console.log('createReply - ');
+  console.log(req.body);
+  
   /*
   Thing.create(req.body, function(err, thing) {
     if(err) { return handleError(res, err); }

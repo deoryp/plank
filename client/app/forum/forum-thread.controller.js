@@ -23,31 +23,8 @@ angular.module('plankApp')
     
     console.log('' + $stateParams.id );
     
-    if ($stateParams.id === '1') {
-    
-      $scope.thread = {
-        id: '1',
-        topic: 'general',
-        date: 'July 4, 2015',
-        title: 'It worked.',
-        author: {
-          handle: 'Scottie',
-          photo: 'https://lh3.googleusercontent.com/-_YyQXXslczM/AAAAAAAAAAI/AAAAAAAAAa0/mQPt6bjybwg/photo.jpg'
-        },
-        markup: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.'
-      };
-    } else {
-      $scope.thread = {
-        id: '2',
-        topic: 'general',
-        date: 'July 7, 2015',
-        title: '2 It worked.',
-        author: {
-          handle: 'Demo',
-          photo: 'http://.it/64x64'
-        },
-        markup: 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.'
-      };
-    }
+    $http.get('/api/thread/' + $stateParams.forum + '/' + $stateParams.id).success(function(thread) {
+      $scope.thread = thread;
+    });
     
   });

@@ -59,7 +59,7 @@ angular.module('plankApp')
         console.error(data);
       });;
       
-    }, 'app/forum/modal/text.html');
+    }, 'app/forum/modal/thread-create.modal.html');
       
     
   });
