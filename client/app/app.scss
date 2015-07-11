@@ -60,6 +60,11 @@ nav.theforumheader {
   padding: 0px;
 }
 
+.thread-preview {
+  max-height: 300px;
+  
+}
+
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

@@ -37,26 +37,19 @@ function fixHeader() {
 };
 
 angular.module('plankApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, $timeout, Auth) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
     }];
     
+    console.log($scope.state());
+    
     $(window).scroll(fixHeader);
     fixHeader();
     
-    $scope.isCollapsed = true;
-    $scope.isLoggedIn = Auth.isLoggedIn;
-    $scope.isAdmin = Auth.isAdmin;
-    $scope.getCurrentUser = Auth.getCurrentUser;
-
-    $scope.logout = function() {
-      Auth.logout();
-      $location.path('/login');
-    };
-
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+    
   });

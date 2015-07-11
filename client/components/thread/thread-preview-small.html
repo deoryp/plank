@@ -2,7 +2,7 @@
   <div class="media">
     <div class="media-left">
       <a href="#">
-        <img class="media-object img-circle" src="{{thread.author.photo}}" alt="{{thread.author.handle}}" title="{{thread.author.handle}}" style="width: 64px; height: 64px;">
+        <img class="media-object img-circle" src="{{thread.author.photo}}&sz=64" alt="{{thread.author.handle}}" style="width: 64px; height: 64px;" title="{{thread.author.handle}}">
       </a>
     </div>
     <div class="media-body">
@@ -10,7 +10,14 @@
         <span ng-if="thread.reply.length > 0" class="badge">{{thread.reply.length}}</span>
         <small class="pull-right">{{thread.created | date:'medium'}}</small>
       </h2>
-      <p ng-bind-html="markdownHtml"></p>
+      <p>
+        <img class="img-circle" 
+             src="{{reply.author.photo}}&sz=32" 
+             alt="{{reply.author.handle}}" 
+             title="{{reply.author.handle}}" 
+             style="width: 32px; height: 32px;"
+             ng-repeat="reply in thread.reply">
+      </p>
     </div>
   </div>
 <!--

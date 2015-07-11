@@ -102,17 +102,21 @@ exports.show = function(req, res) {
 // Creates a new thread in the DB.
 exports.create = function(req, res) {
   
-  console.log('TODO:: req: ');
-  console.log(req.user);
-  
-  req.body.topic = req.params.topic;
-  req.body.author = {
-    id: req.user._id, // TODO need to get the rest of the details around the author and jam them in here.
-    handle: req.user.name,
-    photo: req.user.google.image.url 
+  var thread = {
+    author: {
+      id: req.user._id, // TODO need to get the rest of the details around the author and jam them in here.
+      handle: req.user.name,
+      photo: req.user.google.image.url 
+    },
+    topic: req.params.topic,
+    title: req.params.title,
+    markdown: req.params.markdown
   };
-
-  Thread.create(req.body, function(err, thread) {
+  
+  console.log('saving thread:' );
+  console.log(thread);
+  
+  Thread.create(thread, function(err, thread) {
     if(err) {
       return handleError(res, err);
     }
@@ -181,13 +185,25 @@ exports.createReply = function(req, res) {
   console.log('createReply - ');
   console.log(req.body);
   
-  /*
-  Thing.create(req.body, function(err, thing) {
-    if(err) { return handleError(res, err); }
-    return res.json(201, thing);
+  var reply = {
+    author: {
+      id: req.user._id, // TODO need to get the rest of the details around the author and jam them in here.
+      handle: req.user.name,
+      photo: req.user.google.image.url 
+    },
+    markdown: req.body.markdown
+  };
+  
+  Thread.findByIdAndUpdate(req.params.id, 
+  { $push: { reply: reply } },
+  { safe: true, upsert: true },
+  function(err, thread) {
+    if(err) {
+      return handleError(res, err);
+    }
+    return res.json(201, thread);
   });
-  */
-  return res.send(504);
+
 };
 
 // Updates an existing thing in the DB.

@@ -9,10 +9,11 @@ angular.module('plankApp')
     
     // TODO:: trim down the thread
     
+    
     $scope.view = function () {
       $location.path('/forum/' + $scope.thread.topic + '/' + $scope.thread._id);
     }
-    $scope.markdownHtml = marked($scope.thread.markdown);
+    //$scope.markdownHtml = marked($scope.thread.markdown);
     
   })
   .directive('forumThreadPreview', function() {
@@ -21,7 +22,7 @@ angular.module('plankApp')
       scope: {
         thread: '='
       },
-      templateUrl: 'components/thread/thread-preview.html',
+      templateUrl: 'components/thread/thread-preview-small.html',
       controller: 'ForumThreadPreviewCtrl'
     };
   });

@@ -25,7 +25,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login"><span class="glyphicon glyphicon-log-in"></span></a></li>
-        <li ng-show="isLoggedIn()"><p class="navbar-text"><img src="{{getCurrentUser().google.image.url}}" class="img-circle" style="width: 16px; height: 16px;"></p> </li>
+        <li ng-show="isLoggedIn()"><p class="navbar-text"><img src="{{getCurrentUser().google.image.url}}&sz=16" class="img-circle" style="width: 16px; height: 16px;"></p> </li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin"><span class="glyphicon glyphicon-sunglasses"></span></a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span></a></li>
