@@ -14,4 +14,16 @@ angular.module('plankApp')
         }
       });
     };
+    
+    $scope.user = {};
+    $scope.errors = {};
+
+    $scope.invite = function(form) {
+      if(form.$valid) {
+        console.log($scope.user.name);
+        console.log($scope.user.email);
+      }
+    };
+    
+    
   });

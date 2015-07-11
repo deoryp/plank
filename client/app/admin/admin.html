@@ -9,4 +9,26 @@
         <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
     </li>
   </ul>
+  <form class="form" name="form" ng-submit="invite(form)">
+    
+    <div class="row well">
+      <div class="col-lg-3">
+        <div class="input-group">
+          <span class="input-group-addon">Name</span>
+          <input type="text" class="form-control" ng-model="user.name" placeholder="Name">
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="input-group">
+          <span class="input-group-addon">Email</span>
+          <input type="text" class="form-control" ng-model="user.email" placeholder="Email">
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="input-group">
+          <button class="btn btn-primary" type="submit">Invite</button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
