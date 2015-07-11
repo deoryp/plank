@@ -57,27 +57,12 @@ exports.index = function(req, res) {
     limit = 100;
   }
   
-  var query = { 
-    topic: req.params.topic
-  };
-  
-  if (startDate !== null && endDate !== null) {
-    query.created = { $lte: startDate, $gte: endDate };
-  } else if (endDate !== null) {
-    query.created = { $gte: endDate };
-  } else if (startDate !== null) {
-    query.created = { $lte: startDate };
-  }
-
-  console.log('query:');  
-  console.log(query);
-  
   Thread.find({ 
     topic: req.params.topic
   })
-  .where('created').gte(endDate).lte(startDate)
+  .where('modified').gte(endDate).lte(startDate)
   .limit( limit )
-  .sort( '-created' )
+  .sort( '-modified' )
   .exec(function (err, threads) {
     if(err) {
       return handleError(res, err);
@@ -109,8 +94,8 @@ exports.create = function(req, res) {
       photo: req.user.google.image.url 
     },
     topic: req.params.topic,
-    title: req.params.title,
-    markdown: req.params.markdown
+    title: req.body.title,
+    markdown: req.body.markdown
   };
   
   console.log('saving thread:' );
@@ -195,7 +180,7 @@ exports.createReply = function(req, res) {
   };
   
   Thread.findByIdAndUpdate(req.params.id, 
-  { $push: { reply: reply } },
+  { $push: { reply: reply }, modified: new Date() },
   { safe: true, upsert: true },
   function(err, thread) {
     if(err) {

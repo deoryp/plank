@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumThreadCtrlComp', function ($scope, $http, Auth, ThreadModal) {
-    
-    console.log('here ehre here');
+  .controller('ForumThreadCtrlComp', function ($scope, $http, $interval, Auth, ThreadModal) {
     
     $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -31,20 +29,7 @@ angular.module('plankApp')
         markdown: this.results.markdown
       }).success(function(data, status, headers, config) {
         
-        var lastSeen;
-        if (typeof $scope.threads !== 'undefined' && $scope.threads.length > 0 && typeof $scope.threads[0].created !== 'undefined') {
-          lastSeen = new Date($scope.threads[0].created);
-          lastSeen.setSeconds(lastSeen.getSeconds() + 1);
-        } else {
-          lastSeen = new Date();
-          lastSeen.setSeconds(lastSeen.getSeconds() + 1);
-        }
-        lastSeen = lastSeen.getTime();
-        
-        $http.get('/api/thread/' + $stateParams.forum + '/?enddate=' + lastSeen).success(function(threads) {
-          $scope.threads = threads.concat($scope.threads);
-        });
-        
+        $scope.thread = data;
         
       }).error(function(data, status, headers, config) {
         // called asynchronously if an error occurs

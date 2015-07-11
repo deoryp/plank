@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumThreadCtrl', function ($scope, $stateParams, $http) {
+  .controller('ForumThreadCtrl', function ($scope, $stateParams, $http, $interval) {
       
     $http.get('/api/users/me').success(function(user) {
       $scope.user = user;
@@ -23,8 +23,19 @@ angular.module('plankApp')
     
     console.log('' + $stateParams.id );
     
-    $http.get('/api/thread/' + $stateParams.forum + '/' + $stateParams.id).success(function(thread) {
-      $scope.thread = thread;
+    var updateThread = function() {
+      $http.get('/api/thread/' + $stateParams.forum + '/' + $stateParams.id).success(function(thread) {
+        $scope.thread = thread;
+      });
+    };
+    updateThread();
+    
+    var intervalPromise = $interval(function () {
+      updateThread(); 
+    }, 1000 * 60 * 2);
+    $scope.$on('$destroy', function () {
+      $interval.cancel(intervalPromise);
     });
+    
     
   });

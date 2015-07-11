@@ -12,7 +12,8 @@ var ThreadSchema = new Schema({
   },
   modified: {
       type: Date,
-      default: Date.now
+      default: Date.now,
+      index: true 
   },
   title: String,
   author: {
