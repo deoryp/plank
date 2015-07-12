@@ -9,6 +9,9 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep').stream;
 var _ = require('lodash');
 
+
+
+
 gulp.task('inject', ['scripts', 'styles'], function () {
   var injectStyles = gulp.src([
     path.join(conf.paths.tmp, '/serve/app/**/*.css'),
@@ -23,6 +26,9 @@ gulp.task('inject', ['scripts', 'styles'], function () {
     path.join('!' + conf.paths.src, '/app/**/*.mock.js')
   ])
   .pipe($.angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
+
+  console.log($.inject);
+  console.log(injectScripts);
 
   var injectOptions = {
     ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],
