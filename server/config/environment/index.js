@@ -4,7 +4,34 @@ var path = require('path');
 var _ = require('lodash');
 var merge = require('merge');
 
-var pw = require('../passwords');
+
+
+var pw;
+
+switch(process.env.NODE_ENV) {
+  case 'development':
+    pw = require('../passwords');
+    break;
+  case 'production':
+    pw = {
+      host: process.env.HOST,
+      port: process.env.PORT,
+      mongo: {
+        db: process.env.MONGO_DB
+      },
+      google: {
+        clientId: process.env.GOOGLE_ID,
+        email: process.env.GOOGLE_EMAIL,
+        clientSecret: process.env.GOOGLE_SECRET,
+        callback: process.env.HOST + '/auth/google/callback'
+      }
+    };
+    break;
+  default:
+    pw = {};
+}
+
+pw = require('../passwords');
 
 function requiredProcessEnv(name) {
   if(!process.env[name]) {
