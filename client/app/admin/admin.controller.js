@@ -30,9 +30,36 @@ angular.module('plankApp')
     };
     
     $scope.invite = function(form) {
+      
       if(form.$valid) {
-        console.log($scope.user.name);
-        console.log($scope.user.email);
+        
+        $http.post('/api/invite/', {
+          role: $scope.user.role,
+          email: $scope.user.email
+        }).success(function(data, status, headers, config) {
+        
+          $scope.invites = Invite.query();
+        
+        }).error(function(data, status, headers, config) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+          console.error(data);
+        });
+        
+        /*
+        TODO: learn what this is
+        Invite.save({
+          role: $scope.user.role,
+          email: $scope.user.email
+        })
+        .then( function() {
+          console.log('invited');
+        })
+        .catch( function(err) {
+          err = err.data;
+          $scope.errors = {};
+        });
+        */
       }
     };
     

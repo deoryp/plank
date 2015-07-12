@@ -21,7 +21,7 @@ var all = {
   root: path.normalize(__dirname + '/../../..'),
 
   // Server port
-  port: process.env.PORT || 4000,
+  port: process.env.PORT || 80,
 
   // Should we populate the DB with sample data?
   seedDB: false,
@@ -53,7 +53,7 @@ var all = {
     //clientID:     //process.env.GOOGLE_ID || 'id',
     //clientSecret: process.env.GOOGLE_SECRET || 'secret',
 //    callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
-    callbackURL:  'http://localhost:1337/auth/google/callback'
+    callbackURL:  'http://localhost:80/auth/google/callback'
   }
 };
 

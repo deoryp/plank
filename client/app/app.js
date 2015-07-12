@@ -8,10 +8,8 @@ angular.module('plankApp', [
   'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $urlRouterProvider
-      .otherwise('/');
-
-    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true); // true mean drop the # on urls
     $httpProvider.interceptors.push('authInterceptor');
   })
 

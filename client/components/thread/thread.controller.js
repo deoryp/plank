@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumThreadCtrlComp', function ($scope, $http, $interval, Auth, ThreadModal) {
+  .controller('ForumThreadCtrlComp', function ($scope, $http, $interval, Auth, ThreadModal, marked) {
     
     $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
