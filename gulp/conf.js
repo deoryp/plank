@@ -69,3 +69,9 @@ exports.styles =  {
   name: 'theforum',
   dest: dest + '/css'
 };
+
+exports.partials = {
+  src: [],
+  name: 'partials.js',
+  dest: dest + '/js'
+}

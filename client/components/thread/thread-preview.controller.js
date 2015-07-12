@@ -6,15 +6,9 @@ angular.module('plankApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    
-    // TODO:: trim down the thread
-    
-    
     $scope.view = function () {
       $location.path('/forum/' + $scope.thread.topic + '/' + $scope.thread._id);
     }
-    //$scope.markdownHtml = marked($scope.thread.markdown);
-    
   })
   .directive('forumThreadPreview', function() {
     return {
@@ -26,5 +20,3 @@ angular.module('plankApp')
       controller: 'ForumThreadPreviewCtrl'
     };
   });
-  
-console.log('included forum thread')

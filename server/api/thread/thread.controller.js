@@ -98,9 +98,6 @@ exports.create = function(req, res) {
     markdown: req.body.markdown
   };
   
-  console.log('saving thread:' );
-  console.log(thread);
-  
   Thread.create(thread, function(err, thread) {
     if(err) {
       return handleError(res, err);
@@ -166,9 +163,6 @@ exports.destroy = function(req, res) {
 
 // Creates a new thing in the DB.
 exports.createReply = function(req, res) {
-  
-  console.log('createReply - ');
-  console.log(req.body);
   
   var reply = {
     author: {

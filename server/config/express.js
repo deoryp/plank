@@ -29,8 +29,15 @@ module.exports = function(app) {
   app.use(cookieParser());
   app.use(passport.initialize());
   
+  app.set('appPath', path.join(config.root, 'release'));
+  app.use(morgan('dev'));
+  
   console.log('env = ' + env + ', root = ' + config.root)
   
+//  app.use(express.static(path.join(config.root, '.tmp')));
+  app.use(express.static(path.join(config.root, 'client')));
+  
+  /*
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'release', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
@@ -58,9 +65,6 @@ module.exports = function(app) {
     app.use('/styles', express.static(app.get('appPath') + '/styles'));
     app.use('/scripts', express.static(app.get('appPath') + '/script'));
     
-    
-    
-    
-    
   }
+  */
 };

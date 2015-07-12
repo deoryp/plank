@@ -54,6 +54,10 @@ angular.module('plankApp')
 
 /* App Files */
 
+
+require('../../release/js/partials-app');
+require('../../release/js/partials-components');
+
 require('../components/slabtext/slabtext');
 require('../components/bootstrap-markdown/bootstrap-markdown');
 require('../components/thread/thread.controller');

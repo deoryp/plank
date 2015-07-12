@@ -43,7 +43,7 @@ function bundle() {
     .pipe(gulp.dest(config.bundles.dest));
 }
 
-gulp.task('browserify', ['js'], function(callback) {
+gulp.task('browserify', ['release-partials-app', 'release-partials-components', 'js'], function(callback) {
   gulp.src(config.src)
     .pipe(rename({basename:config.name, suffix: '-v' + p.version}))
     .pipe(gulp.dest(config.dest))
