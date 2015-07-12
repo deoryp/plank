@@ -8,6 +8,9 @@ var merge = require('merge');
 
 var pw;
 
+console.log('process.env');
+console.log(process.env);
+
 switch(process.env.NODE_ENV) {
   case 'development':
     pw = require('../passwords');
