@@ -11,6 +11,9 @@ angular.module('plankApp')
         params: {
           id:'me'
         }
+      },
+      invite: {
+        method: 'POST'
       }
 	  });
   });

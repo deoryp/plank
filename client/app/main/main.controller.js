@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('MainCtrl', function ($scope, $http, $timeout) {
+  .controller('MainCtrl', function ($, $scope, $http, $timeout) {
       
     $http.get('/api/users/me').success(function(user) {
       $scope.user = user;

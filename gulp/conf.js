@@ -39,3 +39,33 @@ exports.errorHandler = function(title) {
     this.emit('end');
   };
 };
+
+
+var dest = './client/release';
+var src = './client/';
+var appJs = 'app/Client.js';
+var appSass = 'app/app.scss';
+
+exports.browserify =  {
+  entry: appJs,
+  src: dest  + '/bundles/' + appJs,
+  name: 'theforum',
+  dest: dest + '/js',
+  
+  // Enable source maps
+  debug: true,
+  // Additional file extentions to make optional
+  extensions: ['.js', '.handlebars'],
+  // A separate bundle will be generated for each
+  // bundle config in the list below
+  bundles: {
+    src: [src + appJs],
+    dest: dest + '/bundles'
+  }
+};
+
+exports.styles =  {
+  src: src + appSass,
+  name: 'theforum',
+  dest: dest + '/css'
+};

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .factory('ThreadModal', function ($rootScope, $modal, $timeout) {
+  .factory('ThreadModal', function ($, $rootScope, $modal, $timeout) {
     /**
      * Opens a modal
      * @param  {Object} scope      - an object to be merged with modal's scope

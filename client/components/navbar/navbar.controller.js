@@ -8,7 +8,7 @@ function getCurrentScroll() {
   return window.pageYOffset || document.documentElement.scrollTop;
 }
 
-function fixHeader() {
+function fixHeader($) {
   var scroll = getCurrentScroll();
   if ( scroll >= shrinkHeader_large ) {
    $('nav.theforumheader').addClass('shrink');
@@ -37,7 +37,7 @@ function fixHeader() {
 };
 
 angular.module('plankApp')
-  .controller('NavbarCtrl', function ($scope, $location, $timeout, Auth) {
+  .controller('NavbarCtrl', function ($, $scope, $location, $timeout, Auth) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -45,8 +45,10 @@ angular.module('plankApp')
     
     console.log($scope.state());
     
-    $(window).scroll(fixHeader);
-    fixHeader();
+    $(window).scroll(function() {
+      fixHeader($);
+    });
+    fixHeader($);
     
     $scope.isActive = function(route) {
       return route === $location.path();
