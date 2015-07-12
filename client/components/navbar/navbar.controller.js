@@ -11,8 +11,8 @@ function getCurrentScroll() {
 function fixHeader() {
   var scroll = getCurrentScroll();
   if ( scroll >= shrinkHeader_large ) {
-   $('nav').addClass('shrink');
-   $('nav').height(shrinkHeader_small);
+   $('nav.theforumheader').addClass('shrink');
+   $('nav.theforumheader').height(shrinkHeader_small);
  
    $("#theforumheader").height(shrinkHeader_small);
    $("#theforumheader").width(shrinkHeader_small * scale_factor);
@@ -21,8 +21,8 @@ function fixHeader() {
 //      $("#demo_image").width(shrinkHeader);
   }
   else {
-    $('nav').height(shrinkHeader_small + shrinkHeader_large - scroll);
-    $('nav').removeClass('shrink');
+    $('nav.theforumheader').height(shrinkHeader_small + shrinkHeader_large - scroll);
+    $('nav.theforumheader').removeClass('shrink');
   
     $("#theforumheader").height(shrinkHeader_small + shrinkHeader_large - scroll);
     $("#theforumheader").width((shrinkHeader_small + shrinkHeader_large - scroll) * scale_factor);

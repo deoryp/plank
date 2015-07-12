@@ -36,9 +36,15 @@ exports.create = function (req, res, next) {
  * restriction: 'admin'
  */
 exports.destroy = function(req, res) {
+  Invite.findByIdAndRemove(req.params.id, function(err, user) {
+    if(err) return res.send(500, err);
+    return res.send(204);
+  });
+  /*
   Invite.find({email:req.params.email}).remove(function(err) {
     if(err) return res.send(500, err);
     return res.send(204);
   });
+  */
 };
 

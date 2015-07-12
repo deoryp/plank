@@ -1,15 +1,14 @@
 'use strict';
 
 angular.module('plankApp')
-  .factory('User', function ($resource) {
-    return $resource('/api/users/:id/:controller', {
+  .factory('Invite', function ($resource) {
+    return $resource('/api/invite/:id', {
       id: '@_id'
     },
     {
       get: {
         method: 'GET',
         params: {
-          id:'me'
         }
       }
 	  });
