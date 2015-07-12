@@ -327,9 +327,6 @@ angular.module('plankApp')
     
     
     $scope.createNewThread = ThreadModal.create.thread(function (event, args) {
-      console.log('called back from create thread');
-      console.log(this.results);
-      
       // TODO:: check the results are valid.
       
       $http.post('/api/thread/' + forum + '/', {
