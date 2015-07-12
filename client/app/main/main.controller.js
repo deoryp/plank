@@ -27,18 +27,6 @@ angular.module('plankApp')
     
     // TODO:: look into ui-sref= to target the state and the params without needing to knowing the url.
     
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
-    
     $scope.$watch('topics', function() {
       $timeout(function() {
         $('.slab-topic').slabText();
