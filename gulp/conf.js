@@ -41,7 +41,7 @@ exports.errorHandler = function(title) {
 };
 
 
-var dest = './client/release';
+var dest = './release';
 var src = './client/';
 var appJs = 'app/Client.js';
 var appSass = 'app/app.scss';

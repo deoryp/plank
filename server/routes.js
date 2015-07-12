@@ -5,6 +5,8 @@
 'use strict';
 
 var errors = require('./components/errors');
+var path = require('path');
+var express = require('express');
 
 module.exports = function(app) {
 
@@ -16,18 +18,24 @@ module.exports = function(app) {
   app.use('/auth', require('./auth'));
   
   // All undefined asset or api routes should return a 404
-  app.route('/:url(api|auth|app|components|bower_components|assets)/*')
-   .get(errors[404]);
+//  app.route('/:url(api|auth|app|components|bower_components|assets)/*')
+//   .get(errors[404]);
 
-  app.route('/*').get(errors[404]);
-  /*
+  app.use('/release', express.static('release'));
+
+
+  app.route('/robots.txt')
     .get(function(req, res) {
-      
-      console.log('returning ' + app.get('appPath')  + '/index.html')
-      
-      
-      
-      res.sendfile(app.get('appPath') + '/index.html');
+      res.sendfile(path.join(app.get('appPath'), 'robots.txt'));
     });
-  */
+    
+  app.route('/favicon.ico')
+    .get(function(req, res) {
+      res.sendfile(path.join(app.get('appPath'), 'favicon.ico'));
+    });
+    
+  app.route('/*')
+    .get(function(req, res) {
+      res.sendfile(path.join(app.get('appPath'), 'index.html'));
+    });
 };
