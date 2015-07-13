@@ -11,7 +11,7 @@ var Invite = require('../api/invite/invite.model');
 var Thread = require('../api/thread/thread.model');
 
 var seedUser = false;
-var seedInvite = false;
+var seedInvite = true;
 var seedThead = false;
 
 if (seedUser) {
@@ -37,12 +37,6 @@ if (seedUser) {
 if (seedInvite) {
   Invite.find({}).remove(function() {
     Invite.create({
-      email: 'test@test.com',
-      role: 'user'
-    }, {
-      email: 'admin@admin.com',
-      role: 'admin'
-    }, {
       email: 'deoryp@gmail.com',
       role: 'admin'
     }, function() {
