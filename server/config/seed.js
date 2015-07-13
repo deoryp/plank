@@ -11,7 +11,7 @@ var Invite = require('../api/invite/invite.model');
 var Thread = require('../api/thread/thread.model');
 
 var seedUser = false;
-var seedInvite = true;
+var seedInvite = false;
 var seedThead = false;
 
 if (seedUser) {
