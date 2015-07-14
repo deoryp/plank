@@ -35,7 +35,7 @@ module.exports = function(app) {
   console.log('env = ' + env + ', root = ' + config.root)
   
 //  app.use(express.static(path.join(config.root, '.tmp')));
-  app.use(express.static(path.join(config.root, 'client')));
+//  app.use(express.static(path.join(config.root, 'client')));
   
   /*
   if ('production' === env) {
