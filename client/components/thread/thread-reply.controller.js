@@ -2,7 +2,6 @@
 
 angular.module('plankApp')
   .controller('ForumThreadReplyCtrl', function ($scope, $location, Auth, marked) {
-    $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;

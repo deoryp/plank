@@ -10,6 +10,14 @@ body {
   margin-bottom: 60px;
 }
 
+.navbar-collapse {
+  background-color: #222;
+}
+
 nav.theforumheader {
   height: 250px;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-color: #101010;
 }
