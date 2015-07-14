@@ -15154,9 +15154,9 @@ function getCurrentScroll() {
   return window.pageYOffset || document.documentElement.scrollTop;
 }
 
-function fixHeader($) {
+function fixHeader($, forceShrink) {
   var scroll = getCurrentScroll();
-  if ( scroll >= shrinkHeader_large ) {
+  if (forceShrink || scroll >= shrinkHeader_large ) {
    $('nav.theforumheader').addClass('shrink');
    $('nav.theforumheader').height(shrinkHeader_small);
  
@@ -15184,6 +15184,8 @@ function fixHeader($) {
 
 angular.module('plankApp')
   .controller('NavbarCtrl', function ($, $scope, $location, $timeout, Auth) {
+    $scope.isCollapsed = true;
+    
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -15192,9 +15194,13 @@ angular.module('plankApp')
     console.log($scope.state());
     
     $(window).scroll(function() {
-      fixHeader($);
+      fixHeader($, !$scope.isCollapsed);
     });
-    fixHeader($);
+    fixHeader($, !$scope.isCollapsed);
+    
+    $scope.$watch('isCollapsed', function() {
+      fixHeader($, !$scope.isCollapsed);
+    });
     
     $scope.isActive = function(route) {
       return route === $location.path();
@@ -15449,7 +15455,6 @@ angular.module('plankApp').run(function($) {
 
 angular.module('plankApp')
   .controller('ForumThreadPreviewCtrl', function ($scope, $location, Auth) {
-    $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
@@ -15473,7 +15478,6 @@ angular.module('plankApp')
 
 angular.module('plankApp')
   .controller('ForumThreadReplyCtrl', function ($scope, $location, Auth, marked) {
-    $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
@@ -15498,8 +15502,6 @@ angular.module('plankApp')
 
 angular.module('plankApp')
   .controller('ForumThreadCtrlComp', function ($scope, $http, $interval, Auth, ThreadModal, marked) {
-    
-    $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
