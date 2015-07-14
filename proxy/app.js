@@ -33,7 +33,7 @@ var server = http.createServer(function(req, res) {
   
   if (req.url.startsWith('/api/') || req.url.startsWith('/auth/')) {
     proxy.web(req, res, {
-      target: 'http://127.0.0.1:4000'
+      target: 'http://127.0.0.1:8000'
     });
   } else {
     proxy.web(req, res, {
