@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumCtrl', function (_, $scope, $stateParams, $http, $interval, ThreadModal) {
+  .controller('ForumCtrl', function (_, $scope, $stateParams, $http, $interval, ThreadModal, forumListService) {
+    
+    window.forumListService = forumListService;
     
     $scope.threads = [];
     
@@ -27,6 +29,12 @@ angular.module('plankApp')
     var forum = $scope.forum = $stateParams.forum;
     
     var updateList = function() {
+      
+      forumListService.getList(forum, function(threads) {
+        $scope.threads = threads;
+        $scope.loading = false;
+      });
+/*      
       var lastSeen;
       if (typeof $scope.threads !== 'undefined' && $scope.threads.length > 0 && typeof $scope.threads[0].created !== 'undefined') {
         lastSeen = new Date($scope.threads[0].created);
@@ -57,6 +65,7 @@ angular.module('plankApp')
         
         $scope.loading = false;
       });
+*/
       /*
       $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {
         $scope.threads = threads;

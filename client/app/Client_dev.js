@@ -20,4 +20,6 @@ angular.module('plankApp')
     return marked;
   }).factory('toMarkdown', function getToMarkdown() {
     return toMarkdown;
+  }).factory('version', function getVersion() {
+    return 'development';
   });
