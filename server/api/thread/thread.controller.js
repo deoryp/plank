@@ -20,6 +20,19 @@ var config = require('../../config/environment');
 // TODO:: need to filter out the seenBy field and replace it with the me field...
 //
 
+
+var markSeenLast = function(thread, userId) {
+  if (typeof thread.me === 'undefined') {
+    thread.me = {};
+  }
+  _.each(thread.seenBy, function(seen) {
+    if (seen.user == userId) {
+      thread.me.seen = seen.when;
+      return;
+    }
+  });
+};
+
 // Get list of threads
 // query: startdate, enddate, limit
 exports.index = function(req, res) {
@@ -57,16 +70,39 @@ exports.index = function(req, res) {
     limit = 100;
   }
   
+  // TODO:: TEMP CODE 
+  
+  Thread.find({ lastUpdate: {$exists: false} }).exec(function (err, threads) {
+    if(!err) {
+      threads = _.each(threads, function(thread) {
+        console.log('found lastUpdate null');
+        thread.lastUpdate = new Date();
+        thread.save();
+      });
+    }
+  });
+  
+  // TODO:: End temp code.
+  
   Thread.find({ 
     topic: req.params.topic
   })
-  .where('modified').gte(endDate).lte(startDate)
+  .where('lastUpdate').gte(endDate).lte(startDate)
   .limit( limit )
-  .sort( '-modified' )
+  .sort( '-lastUpdate' )
   .exec(function (err, threads) {
     if(err) {
       return handleError(res, err);
     }
+    
+    threads = _.map(threads, function(thread) {
+      thread = thread.toObject();
+      markSeenLast(thread, req.user._id);
+      return thread;
+    });
+    
+    // TODO:: trim down threads to just the min info we need to list threads.
+    
     return res.json(200, threads);
   });
 };
@@ -80,7 +116,47 @@ exports.show = function(req, res) {
     if(!thread) {
       return res.send(404);
     }
+    
+    thread = thread.toObject(); // needed to be able to use as object rather than mongoose obj
+    
+    markSeenLast(thread, req.user._id);
+    delete thread.seenBy;
+    
+    // TODO:: trim down thread to only what we want to display.
     return res.json(thread);
+  });
+};
+
+exports.seen = function(req, res) {
+  
+  // TODO:: This is not going to work because of modified...
+  // So I think i need to make a lastUpdate field...
+  
+  Thread.findById(req.params.id, function (err, thread) {
+    if(err) {
+      return handleError(res, err);
+    }
+    if(!thread) {
+      return res.send(404);
+    }
+    var userId = req.user._id;
+    var found = false;
+    _.each(thread.seenBy, function(seen) {
+      if (seen.user == userId) {
+        seen.when = new Date();
+        found = true;
+        return;
+      }
+    });
+    if (!found) {
+      thread.seenBy.push({user:userId, when: new Date()});
+    }
+    thread.save(function (err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.json(200);
+    });
   });
 };
 
@@ -102,6 +178,7 @@ exports.create = function(req, res) {
     if(err) {
       return handleError(res, err);
     }
+    // TODO:: trim down thread to only what we want to display.
     return res.json(201, thread);
   });
 };
@@ -128,11 +205,14 @@ exports.update = function(req, res) {
       return res.send(403);
     }
     
+    req.body.lastUpdate = new Date();
+    
     var updated = _.merge(thread, req.body);
     updated.save(function (err) {
       if (err) {
         return handleError(res, err);
       }
+      // TODO:: trim down thread to only what we want to display.
       return res.json(200, thread);
     });
   });
@@ -174,8 +254,8 @@ exports.createReply = function(req, res) {
   };
   
   Thread.findByIdAndUpdate(req.params.id, 
-  { $push: { reply: reply }, modified: new Date() },
-  { safe: true, upsert: true },
+  { $push: { reply: reply }, lastUpdate: new Date() },
+  { safe: true },
   function(err, thread) {
     if(err) {
       return handleError(res, err);

@@ -35,6 +35,24 @@ angular.module('plankApp')
     
       $http.get('/api/thread/' + $stateParams.forum + '/?enddate=' + lastSeen).success(function(threads) {
         $scope.threads = threads.concat($scope.threads);
+        
+        _.each($scope.threads, function(thread) {
+          if (typeof thread.me === 'undefined') {
+            thread.me = {};
+          }
+          if (!thread.me.seen) {
+            thread.me.updates = true;
+            console.log('updates.')
+          } else {
+            thread.me.seen = new Date(thread.me.seen);
+            thread.lastUpdate = new Date(thread.lastUpdate);
+            
+            if (thread.me.seen < thread.lastUpdate) {
+              thread.me.updates = true;
+              console.log('unseen updates.')
+            }
+          }
+        });
       });
       /*
       $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {

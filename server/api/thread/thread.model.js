@@ -15,6 +15,11 @@ var ThreadSchema = new Schema({
       default: Date.now,
       index: true 
   },
+  lastUpdate: {
+      type: Date,
+      default: Date.now,
+      index: true 
+  },
   title: String,
   author: {
     id: String,
@@ -22,7 +27,13 @@ var ThreadSchema = new Schema({
     photo: String,
   },
   markdown: String,
-  seenBy: [String],
+  seenBy: [{
+    user: String,
+    when: {
+      type: Date,
+      default: Date.now
+    }
+  }],
   reply: [{
     created: {
         type: Date,
@@ -37,8 +48,7 @@ var ThreadSchema = new Schema({
       handle: String,
       photo: String,
     },
-    markdown: String,
-    seenBy: [String],
+    markdown: String
   }]
 });
 
@@ -47,6 +57,26 @@ ThreadSchema
   .get(function() {
     return 'preview'; // TODO
   });
+
+/*
+ThreadSchema
+  .virtual('lastSeen')
+  .get(function() {
+    return this._lastSeen;
+});
+
+ThreadSchema
+  .virtual('lastSeen')
+  .set(function(lastSeen) {
+    return this._lastSeen = lastSeen;
+});
+
+ThreadSchema
+  .set('lastSeen', {
+    getters: true
+});
+
+*/
 
 /**
  * Pre-save hook

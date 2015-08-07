@@ -21,11 +21,16 @@ angular.module('plankApp')
       $scope.back.title = 'Events';
     }
     
-    console.log('' + $stateParams.id );
-    
     var updateThread = function() {
       $http.get('/api/thread/' + $stateParams.forum + '/' + $stateParams.id).success(function(thread) {
+        if (!thread.seen) {
+          thread.updates = true;
+          console.log('updates.')
+        }
         $scope.thread = thread;
+      });
+      $http.post('/api/thread/' + $stateParams.forum + '/' + $stateParams.id + '/seen').success(function() {
+        console.log('marked seen.');
       });
     };
     updateThread();

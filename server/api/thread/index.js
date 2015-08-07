@@ -6,12 +6,13 @@ var auth = require('../../auth/auth.service');
 
 var router = express.Router();
 
-router.get(   '/:topic/',    auth.isAuthenticated(), controller.index);
-router.get(   '/:topic/:id', auth.isAuthenticated(), controller.show);
-router.post(  '/:topic/',    auth.isAuthenticated(), controller.create);
-router.put(   '/:topic/:id', auth.isAuthenticated(), controller.update);
-router.patch( '/:topic/:id', auth.isAuthenticated(), controller.update);
-router.delete('/:topic/:id', auth.isAuthenticated(), controller.destroy);
+router.get(   '/:topic',          auth.isAuthenticated(), controller.index);
+router.get(   '/:topic/:id',      auth.isAuthenticated(), controller.show);
+router.post(  '/:topic/:id/seen', auth.isAuthenticated(), controller.seen);
+router.post(  '/:topic',          auth.isAuthenticated(), controller.create);
+router.put(   '/:topic/:id',      auth.isAuthenticated(), controller.update);
+router.patch( '/:topic/:id',      auth.isAuthenticated(), controller.update);
+router.delete('/:topic/:id',      auth.isAuthenticated(), controller.destroy);
 
 router.post(  '/:topic/:id/reply',          auth.isAuthenticated(), controller.createReply);
 router.put(   '/:topic/:id/reply/:replyId', auth.isAuthenticated(), controller.updateReply);
