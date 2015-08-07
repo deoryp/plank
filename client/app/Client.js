@@ -4,6 +4,7 @@
 /* Dependent Files */
 var $ = require('jquery');
 var jQuery = $;
+var _ = require('underscore');
 
 var angular = require('angular');
 require('../bower_components/json3/lib/json3');
@@ -55,8 +56,8 @@ angular.module('plankApp')
 /* App Files */
 
 
-require('../../release/js/partials-app');
-require('../../release/js/partials-components');
+require('../../release/js/partials-app');        // TODO:: these need to be versioned?
+require('../../release/js/partials-components'); // TODO:: these need to be versioned?
 
 require('../components/slabtext/slabtext');
 require('../components/bootstrap-markdown/bootstrap-markdown');
