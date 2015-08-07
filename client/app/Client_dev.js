@@ -14,6 +14,8 @@ marked.setOptions({
 angular.module('plankApp')
   .factory('$', function get$() {
     return $;
+  }).factory('_', function get_() {
+    return _;
   }).factory('marked', function getMarked() {
     return marked;
   }).factory('toMarkdown', function getToMarkdown() {

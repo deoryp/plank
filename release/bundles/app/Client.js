@@ -308,8 +308,7 @@ angular.module('plankApp')
         lastSeen = new Date($scope.threads[0].created);
         lastSeen.setSeconds(lastSeen.getSeconds() + 1);
       } else {
-        lastSeen = new Date();
-        lastSeen.setYear(1984);
+        lastSeen = new Date(0);
       }
       lastSeen = lastSeen.getTime();
     

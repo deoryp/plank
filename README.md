@@ -48,6 +48,8 @@ Boards for Friends
   By default, this will launch those three things all at once and if you navigate to http://localhost:1337 and you have pointed google to the correct ports and permissions, this should allow you to login and see a dynamically updated client with a running server. The server does not auto-reload as of yet, so it needs a reboot if you are making server side changes. Client side changes should force the website to reload using browsersync.
   
   
+TODO:: need to document how to test prod version of app.  
+  
   
 ## License
 
