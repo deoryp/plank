@@ -277,7 +277,7 @@ angular.module('plankApp', [
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumCtrl', function ($scope, $stateParams, $http, $interval, ThreadModal) {
+  .controller('ForumCtrl', function (_, $scope, $stateParams, $http, $interval, ThreadModal) {
     
     $scope.threads = [];
     
@@ -379,7 +379,7 @@ angular.module('plankApp')
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumThreadCtrl', function ($scope, $stateParams, $http, $interval) {
+  .controller('ForumThreadCtrl', function (_, $scope, $stateParams, $http, $interval) {
     
     $scope.thread = null;
     $scope.loading = true;

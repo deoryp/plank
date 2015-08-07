@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('plankApp')
-  .controller('ForumThreadCtrl', function ($scope, $stateParams, $http, $interval) {
+  .controller('ForumThreadCtrl', function (_, $scope, $stateParams, $http, $interval) {
     
     $scope.thread = null;
     $scope.loading = true;
