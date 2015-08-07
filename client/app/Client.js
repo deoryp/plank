@@ -83,6 +83,7 @@ require('../app/main/main');
 require('../app/main/main.controller');
 require('../app/forum/forum');
 require('../app/forum/forum-thread.controller');
+require('../app/forum/forum-list.service');
 require('../app/forum/forum-list.controller');
 require('../app/admin/admin');
 require('../app/admin/admin.controller');
