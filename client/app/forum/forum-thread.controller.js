@@ -3,7 +3,8 @@
 angular.module('plankApp')
   .controller('ForumThreadCtrl', function ($scope, $stateParams, $http, $interval) {
     
-    $scope.thread = {};
+    $scope.thread = null;
+    $scope.loading = true;        console.log('loading is true');
     
     $http.get('/api/users/me').success(function(user) {
       $scope.user = user;
@@ -60,6 +61,7 @@ angular.module('plankApp')
           }
         });
         $scope.thread = thread;
+        $scope.loading = false;         console.log('loading is false');
       });
       
       $http.post('/api/thread/' + $stateParams.forum + '/' + $stateParams.id + '/seen').success(function() {

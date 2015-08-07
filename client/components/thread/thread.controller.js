@@ -7,7 +7,7 @@ angular.module('plankApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
     
     $scope.$watch('thread', function(newValue, oldValue) {
-      if (typeof $scope.thread !== 'undefined') {
+      if ($scope.thread !== null && typeof $scope.thread !== 'undefined') {
         $scope.markdownHtml = marked($scope.thread.markdown);
       }
     });

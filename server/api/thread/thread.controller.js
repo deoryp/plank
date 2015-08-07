@@ -33,6 +33,24 @@ var markSeenLast = function(thread, userId) {
   });
 };
 
+var markSeen = function(thread, userId) {
+  var found = false;
+  if (typeof thread.seenBy === 'undefined') {
+    thread.seenBy = [];
+  }
+  _.each(thread.seenBy, function(seen) {
+    if (seen.user == userId) {
+      seen.when = new Date();
+      found = true;
+      return;
+    }
+  });
+  if (!found) {
+    thread.seenBy.push({user:userId, when: new Date()});
+  }
+};
+
+
 // Get list of threads
 // query: startdate, enddate, limit
 exports.index = function(req, res) {
@@ -40,25 +58,17 @@ exports.index = function(req, res) {
   var startDate = null;  // find startDate --> older <-- endDate
   var endDate = null;
   
-//  console.log(req.query);
-  
   if (typeof req.query.startdate !== 'undefined') {
     startDate = new Date(parseInt(req.query.startdate));
-//    startDate = parseInt(req.query.startdate);
   } else {
     startDate = new Date();
   }
   
   if (typeof req.query.enddate !== 'undefined') {
     endDate = new Date(parseInt(req.query.enddate));
-//    endDate = parseInt(req.query.enddate);
   } else {
     endDate = new Date(0);
   }
-//  if (startDate === null && endDate === null) {
-//    startDate = new Date().getTime();
-  //  startDate = new Date();
-  //} 
   
   var limit;
   if (typeof req.query.limit !== 'undefined') {
@@ -71,7 +81,6 @@ exports.index = function(req, res) {
   }
   
   // TODO:: TEMP CODE 
-  
   Thread.find({ lastUpdate: {$exists: false} }).exec(function (err, threads) {
     if(!err) {
       threads = _.each(threads, function(thread) {
@@ -81,7 +90,6 @@ exports.index = function(req, res) {
       });
     }
   });
-  
   // TODO:: End temp code.
   
   Thread.find({ 
@@ -94,7 +102,6 @@ exports.index = function(req, res) {
     if(err) {
       return handleError(res, err);
     }
-    
     threads = _.map(threads, function(thread) {
       thread = thread.toObject();
       markSeenLast(thread, req.user._id);
@@ -128,10 +135,6 @@ exports.show = function(req, res) {
 };
 
 exports.seen = function(req, res) {
-  
-  // TODO:: This is not going to work because of modified...
-  // So I think i need to make a lastUpdate field...
-  
   Thread.findById(req.params.id, function (err, thread) {
     if(err) {
       return handleError(res, err);
@@ -139,18 +142,7 @@ exports.seen = function(req, res) {
     if(!thread) {
       return res.send(404);
     }
-    var userId = req.user._id;
-    var found = false;
-    _.each(thread.seenBy, function(seen) {
-      if (seen.user == userId) {
-        seen.when = new Date();
-        found = true;
-        return;
-      }
-    });
-    if (!found) {
-      thread.seenBy.push({user:userId, when: new Date()});
-    }
+    markSeen(thread, req.user._id);
     thread.save(function (err) {
       if (err) {
         return handleError(res, err);
@@ -162,7 +154,6 @@ exports.seen = function(req, res) {
 
 // Creates a new thread in the DB.
 exports.create = function(req, res) {
-  
   var thread = {
     author: {
       id: req.user._id, // TODO need to get the rest of the details around the author and jam them in here.
@@ -173,7 +164,8 @@ exports.create = function(req, res) {
     title: req.body.title,
     markdown: req.body.markdown
   };
-  
+  markSeen(thread, req.user._id);
+    
   Thread.create(thread, function(err, thread) {
     if(err) {
       return handleError(res, err);
@@ -206,6 +198,7 @@ exports.update = function(req, res) {
     }
     
     req.body.lastUpdate = new Date();
+    markSeen(thread, req.user._id);
     
     var updated = _.merge(thread, req.body);
     updated.save(function (err) {
@@ -260,7 +253,13 @@ exports.createReply = function(req, res) {
     if(err) {
       return handleError(res, err);
     }
-    return res.json(201, thread);
+    markSeen(thread, req.user._id);
+    thread.save(function (err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.json(201, thread);
+    });
   });
 
 };

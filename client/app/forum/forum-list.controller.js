@@ -57,7 +57,6 @@ angular.module('plankApp')
         });
         
         $scope.loading = false;
-        console.log('loading is false');
       });
       /*
       $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {
