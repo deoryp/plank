@@ -18,8 +18,6 @@ angular.module('plankApp')
       
       // TODO:: check the results are valid.
 
-      console.log($scope.thread);
-      
       var forum = $scope.thread.topic;
       var threadId = $scope.thread._id;
       

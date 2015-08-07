@@ -2,13 +2,15 @@
 
 <div class="container">
   <a href="{{back.href}}">
-    <h1 class="page-header"><small class="link"><span class="glyphicon glyphicon-chevron-left"></span></small> {{back.title}}</h1>
+    <h1 class="page-header">
+      <small class="link"><span class="glyphicon glyphicon-chevron-left"></span></small>
+      {{back.title}}
+    </h1>
   </a>
   
   <span ng-show="loading" class="glyphicon glyphicon-refresh spinning"></span>
   <forum-thread thread="thread"></forum-thread>
   
 </div>
-
 
 <footer class="footer" ng-include="'components/footer/footer.html'"></footer>

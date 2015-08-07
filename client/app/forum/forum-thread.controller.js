@@ -4,7 +4,7 @@ angular.module('plankApp')
   .controller('ForumThreadCtrl', function ($scope, $stateParams, $http, $interval) {
     
     $scope.thread = null;
-    $scope.loading = true;        console.log('loading is true');
+    $scope.loading = true;
     
     $http.get('/api/users/me').success(function(user) {
       $scope.user = user;
@@ -43,9 +43,6 @@ angular.module('plankApp')
           }
         }
         
-        // TODO:: this is not working. it is also really hard to test but I think the last seen date is coming in as always newer than existing. so we need to make sure that the date is always the true date of the last visit rather than the current time. 
-        // on second thought, it might be working, but the mark seen is working too well.
-        
         // And fix up each reply
         //
         _.each(thread.reply, function(reply) {
@@ -61,12 +58,10 @@ angular.module('plankApp')
           }
         });
         $scope.thread = thread;
-        $scope.loading = false;         console.log('loading is false');
+        $scope.loading = false;
       });
       
-      $http.post('/api/thread/' + $stateParams.forum + '/' + $stateParams.id + '/seen').success(function() {
-        console.log('marked seen.');
-      });
+      $http.post('/api/thread/' + $stateParams.forum + '/' + $stateParams.id + '/seen').success(function() {});
       
     };
     updateThread();
@@ -77,6 +72,5 @@ angular.module('plankApp')
     $scope.$on('$destroy', function () {
       $interval.cancel(intervalPromise);
     });
-    
     
   });
