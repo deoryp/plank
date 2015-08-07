@@ -76,7 +76,7 @@ exports.index = function(req, res) {
     if(!err) {
       threads = _.each(threads, function(thread) {
         console.log('found lastUpdate null');
-        thread.lastUpdate = new Date();
+        thread.lastUpdate = new Date(0);
         thread.save();
       });
     }

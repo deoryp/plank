@@ -19,6 +19,22 @@ small.link {
   transition: border .2s ease-in-out;
 }
 
+.media-callout {
+  padding: 0px 0px 0px 0px;
+  border: 0px solid #fff;
+  border-right-width: 5px;
+  border-radius: 3px;
+}
+.media-callout-new {
+  border-right-color: #337ab7;
+}
+.media-callout:hover { 
+  border: 0px solid #eee;
+  border-right-width: 5px;
+  border-radius: 3px;
+  transition: border .2s ease-in-out;
+}
+
 .btn-create {
   color: #fff;
   background-color: #ff9933;

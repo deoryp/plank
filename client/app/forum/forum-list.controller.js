@@ -2,7 +2,11 @@
 
 angular.module('plankApp')
   .controller('ForumCtrl', function ($scope, $stateParams, $http, $interval, ThreadModal) {
-      
+    
+    $scope.threads = [];
+    
+    $scope.loading = true;
+    
     $http.get('/api/users/me').success(function(user) {
       $scope.user = user;
     });
@@ -42,17 +46,18 @@ angular.module('plankApp')
           }
           if (!thread.me.seen) {
             thread.me.updates = true;
-            console.log('updates.')
           } else {
             thread.me.seen = new Date(thread.me.seen);
             thread.lastUpdate = new Date(thread.lastUpdate);
             
             if (thread.me.seen < thread.lastUpdate) {
               thread.me.updates = true;
-              console.log('unseen updates.')
             }
           }
         });
+        
+        $scope.loading = false;
+        console.log('loading is false');
       });
       /*
       $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {
