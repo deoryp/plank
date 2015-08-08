@@ -3,9 +3,10 @@
     <a href="#">
       <img class="media-object img-circle" ng-src="{{reply.author.photo}}&sz=64" alt="{{reply.author.handle}}" title="{{reply.author.handle}}" style="width: 64px; height: 64px;">
     </a>
+    <span class="media-object-sub">{{reply.author.handle}}</span>
   </div>
   <div class="media-body">
-    <h2 class="media-heading"><small>{{reply.created | date:'medium'}}</small></h2>
+    <h2 class="media-heading"><small class="txt-xs">{{reply.created | date:'medium'}}</small></h2>
     <p ng-bind-html="markdownHtml"></p>
   </div>
 </div>

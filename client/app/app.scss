@@ -47,10 +47,11 @@ html {
   
 body {
   /* Move down content because we have a fixed navbar that is 50px tall */
-  padding-top: 270px;
+  padding-top: 50px;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 
 nav.theforumheader {
   height: 250px;

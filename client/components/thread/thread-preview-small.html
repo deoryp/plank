@@ -4,11 +4,12 @@
       <a href="#">
         <img class="media-object img-circle" ng-src="{{thread.author.photo}}&sz=64" alt="{{thread.author.handle}}" style="width: 64px; height: 64px;" title="{{thread.author.handle}}">
       </a>
+      <span class="media-object-sub">{{thread.author.handle}}</span>
     </div>
     <div class="media-body">
       <h2 class="media-heading">{{thread.title}} 
         <span ng-if="thread.reply.length > 0" class="badge">{{thread.reply.length}}</span>
-        <small class="pull-right">{{thread.created | date:'medium'}}</small>
+        <small class="pull-right txt-xs">{{thread.created | date:'medium'}}</small>
       </h2>
       <p>
         <img class="img-circle" 

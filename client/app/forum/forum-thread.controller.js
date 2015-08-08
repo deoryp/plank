@@ -1,5 +1,7 @@
 'use strict';
 
+var autoUpdate = false; // TODO:: TRUE for prod.
+ 
 angular.module('plankApp')
   .controller('ForumThreadCtrl', function (_, $scope, $stateParams, $http, $interval) {
     
@@ -66,11 +68,13 @@ angular.module('plankApp')
     };
     updateThread();
     
-    var intervalPromise = $interval(function () {
-      updateThread(); 
-    }, 1000 * 60 * 2);
-    $scope.$on('$destroy', function () {
-      $interval.cancel(intervalPromise);
-    });
+    if (autoUpdate) {
+      var intervalPromise = $interval(function () {
+        updateThread(); 
+      }, 1000 * 60 * 2);
+      $scope.$on('$destroy', function () {
+        $interval.cancel(intervalPromise);
+      });
+    }
     
   });

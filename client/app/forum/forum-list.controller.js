@@ -1,5 +1,7 @@
 'use strict';
 
+var autoUpdate = false; // TODO:: TRUE for prod.
+
 angular.module('plankApp')
   .controller('ForumCtrl', function (_, $scope, $stateParams, $http, $interval, ThreadModal, forumListService) {
     
@@ -29,58 +31,22 @@ angular.module('plankApp')
     var forum = $scope.forum = $stateParams.forum;
     
     var updateList = function() {
-      
       forumListService.getList(forum, function(threads) {
         $scope.threads = threads;
         $scope.loading = false;
       });
-/*      
-      var lastSeen;
-      if (typeof $scope.threads !== 'undefined' && $scope.threads.length > 0 && typeof $scope.threads[0].created !== 'undefined') {
-        lastSeen = new Date($scope.threads[0].created);
-        lastSeen.setSeconds(lastSeen.getSeconds() + 1);
-      } else {
-        lastSeen = new Date(0);
-      }
-      lastSeen = lastSeen.getTime();
-    
-      $http.get('/api/thread/' + $stateParams.forum + '/?enddate=' + lastSeen).success(function(threads) {
-        $scope.threads = threads.concat($scope.threads);
-        
-        _.each($scope.threads, function(thread) {
-          if (typeof thread.me === 'undefined') {
-            thread.me = {};
-          }
-          if (!thread.me.seen) {
-            thread.me.updates = true;
-          } else {
-            thread.me.seen = new Date(thread.me.seen);
-            thread.lastUpdate = new Date(thread.lastUpdate);
-            
-            if (thread.me.seen < thread.lastUpdate) {
-              thread.me.updates = true;
-            }
-          }
-        });
-        
-        $scope.loading = false;
-      });
-*/
-      /*
-      $http.get('/api/thread/' + $stateParams.forum + '/').success(function(threads) {
-        $scope.threads = threads;
-      });
-      */
     };
     
     updateList();
     
-    var intervalPromise = $interval(function () {
-      updateList(); 
-    }, 1000 * 60 * 1);
-    $scope.$on('$destroy', function () {
-      $interval.cancel(intervalPromise);
-    });
+    if (autoUpdate) {
+      var intervalPromise = $interval(function () {
+        updateList(); 
+      }, 1000 * 60 * 1);
+      $scope.$on('$destroy', function () {
+        $interval.cancel(intervalPromise);
+      });
+    }
     
     
     $scope.createNewThread = ThreadModal.create.thread(function (event, args) {
