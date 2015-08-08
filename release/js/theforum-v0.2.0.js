@@ -84,12 +84,13 @@ require('../app/main/main');
 require('../app/main/main.controller');
 require('../app/forum/forum');
 require('../app/forum/forum-thread.controller');
+require('../app/forum/forum-list.service');
 require('../app/forum/forum-list.controller');
 require('../app/admin/admin');
 require('../app/admin/admin.controller');
 require('../app/account/account');
 
-},{"../../package.json":51,"../../release/js/partials-app":52,"../../release/js/partials-components":53,"../app/account/account":2,"../app/account/login/login.controller":3,"../app/account/settings/settings.controller":4,"../app/admin/admin":6,"../app/admin/admin.controller":5,"../app/app.js":7,"../app/forum/forum":10,"../app/forum/forum-list.controller":8,"../app/forum/forum-thread.controller":9,"../app/forum/modal/modal.service":11,"../app/main/main":13,"../app/main/main.controller":12,"../bower_components/angular-bootstrap/ui-bootstrap-tpls":14,"../bower_components/json3/lib/json3":15,"../bower_components/lodash/dist/lodash.compat":16,"../components/auth/auth.service":17,"../components/auth/invite.service":18,"../components/auth/user.service":19,"../components/bootstrap-markdown/bootstrap-markdown":20,"../components/footer/footer.controller":21,"../components/modal/modal.service":22,"../components/mongoose-error/mongoose-error.directive":23,"../components/navbar/navbar.controller":24,"../components/slabtext/slabtext":25,"../components/thread/thread-preview.controller":26,"../components/thread/thread-reply.controller":27,"../components/thread/thread.controller":28,"angular":41,"angular-animate":30,"angular-cookies":32,"angular-resource":34,"angular-sanitize":36,"angular-touch":38,"angular-ui-router":39,"jquery":43,"marked":44,"to-markdown":45,"underscore":50}],2:[function(require,module,exports){
+},{"../../package.json":52,"../../release/js/partials-app":53,"../../release/js/partials-components":54,"../app/account/account":2,"../app/account/login/login.controller":3,"../app/account/settings/settings.controller":4,"../app/admin/admin":6,"../app/admin/admin.controller":5,"../app/app.js":7,"../app/forum/forum":11,"../app/forum/forum-list.controller":8,"../app/forum/forum-list.service":9,"../app/forum/forum-thread.controller":10,"../app/forum/modal/modal.service":12,"../app/main/main":14,"../app/main/main.controller":13,"../bower_components/angular-bootstrap/ui-bootstrap-tpls":15,"../bower_components/json3/lib/json3":16,"../bower_components/lodash/dist/lodash.compat":17,"../components/auth/auth.service":18,"../components/auth/invite.service":19,"../components/auth/user.service":20,"../components/bootstrap-markdown/bootstrap-markdown":21,"../components/footer/footer.controller":22,"../components/modal/modal.service":23,"../components/mongoose-error/mongoose-error.directive":24,"../components/navbar/navbar.controller":25,"../components/slabtext/slabtext":26,"../components/thread/thread-preview.controller":27,"../components/thread/thread-reply.controller":28,"../components/thread/thread.controller":29,"angular":42,"angular-animate":31,"angular-cookies":33,"angular-resource":35,"angular-sanitize":37,"angular-touch":39,"angular-ui-router":40,"jquery":44,"marked":45,"to-markdown":46,"underscore":51}],2:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -390,6 +391,64 @@ angular.module('plankApp')
 'use strict';
 
 angular.module('plankApp')
+  .factory('forumListService', function (_, $http, $cacheFactory) {
+    
+    var getForumList = function(forum, callback) {
+      var lastSeen = new Date(0);
+      lastSeen = lastSeen.getTime();
+    
+      $http.get('/api/thread/' + forum + '/?enddate=' + lastSeen).success(function(threads) {
+        _.each(threads, function(thread) {
+          if (typeof thread.me === 'undefined') {
+            thread.me = {};
+          }
+          if (!thread.me.seen) {
+            thread.me.updates = true;
+          } else {
+            thread.me.seen = new Date(thread.me.seen);
+            thread.lastUpdate = new Date(thread.lastUpdate);
+            
+            if (thread.me.seen < thread.lastUpdate) {
+              thread.me.updates = true;
+            }
+          }
+        });
+        callback(threads);
+      });
+    };
+    
+    var updateForumList = function(threads, forum, callback) {
+      // TODO update the list but be careful about dups.
+    };
+    
+    var forumCache = $cacheFactory('forums');
+    
+    return {
+      getList: function(forum, callback) {
+        var threads = forumCache.get(forum);
+        if (typeof threads === 'undefined') {
+          getForumList(forum, function(threads) {
+            forumCache.put(forum, threads);
+            callback(threads);
+          });
+        } else {
+          // updateForumList(forumList, forum); // TODO be a bit better about the update. 
+          callback(threads);
+          // update
+          getForumList(forum, function(threads) {
+            forumCache.put(forum, threads);
+            callback(threads);
+          });
+        }
+      }
+    };
+    
+  });
+
+},{}],10:[function(require,module,exports){
+'use strict';
+
+angular.module('plankApp')
   .controller('ForumThreadCtrl', function (_, $scope, $stateParams, $http, $interval) {
     
     $scope.thread = null;
@@ -464,7 +523,7 @@ angular.module('plankApp')
     
   });
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -481,7 +540,7 @@ angular.module('plankApp')
         controller: 'ForumThreadCtrl'
       });
   });
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -671,7 +730,7 @@ angular.module('plankApp')
     };
   });
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -710,7 +769,7 @@ angular.module('plankApp')
 
   });
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -722,7 +781,7 @@ angular.module('plankApp')
         controller: 'MainCtrl'
       });
   });
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /*
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
@@ -5563,7 +5622,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style>');
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 ;(function () {
@@ -6470,7 +6529,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -13633,7 +13692,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -13708,7 +13767,7 @@ angular.module('plankApp')
     };
   });
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -13725,7 +13784,7 @@ angular.module('plankApp')
 	  });
   });
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -13746,7 +13805,7 @@ angular.module('plankApp')
 	  });
   });
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /* ===================================================
  * bootstrap-markdown.js v2.9.0
  * http://github.com/toopay/bootstrap-markdown
@@ -15110,14 +15169,14 @@ angular.module('plankApp').run(function($, marked, toMarkdown) {
 
 });
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
   .controller('FooterCtrl', function ($scope, $location, version) {
     $scope.version = version;
   });
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -15196,7 +15255,7 @@ angular.module('plankApp')
     };
   });
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 /**
@@ -15214,7 +15273,7 @@ angular.module('plankApp')
       }
     };
   });
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 var shrinkHeader_small = 50;
@@ -15278,7 +15337,7 @@ angular.module('plankApp')
     };
     
   });
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*! jQuery slabtext plugin v2.2 MIT/GPL2 @freqdec */
 
 
@@ -15521,7 +15580,7 @@ angular.module('plankApp').run(function($) {
     });
   };
 });
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -15544,7 +15603,7 @@ angular.module('plankApp')
     };
   });
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -15568,7 +15627,7 @@ angular.module('plankApp')
     };
   });
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 angular.module('plankApp')
@@ -15618,7 +15677,7 @@ angular.module('plankApp')
     };
   });
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.2
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -19329,11 +19388,11 @@ angular.module('ngAnimate', [])
 
 })(window, window.angular);
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":29}],31:[function(require,module,exports){
+},{"./angular-animate":30}],32:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.2
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -19656,11 +19715,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":31}],33:[function(require,module,exports){
+},{"./angular-cookies":32}],34:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.2
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -20331,11 +20390,11 @@ angular.module('ngResource', ['ng']).
 
 })(window, window.angular);
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 require('./angular-resource');
 module.exports = 'ngResource';
 
-},{"./angular-resource":33}],35:[function(require,module,exports){
+},{"./angular-resource":34}],36:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.2
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -21020,11 +21079,11 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 })(window, window.angular);
 
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 require('./angular-sanitize');
 module.exports = 'ngSanitize';
 
-},{"./angular-sanitize":35}],37:[function(require,module,exports){
+},{"./angular-sanitize":36}],38:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.2
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -21654,11 +21713,11 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
 
 })(window, window.angular);
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 require('./angular-touch');
 module.exports = 'ngTouch';
 
-},{"./angular-touch":37}],39:[function(require,module,exports){
+},{"./angular-touch":38}],40:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -26029,7 +26088,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.2
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -54396,13 +54455,13 @@ var minlengthDirective = function() {
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":40}],42:[function(require,module,exports){
+},{"./angular":41}],43:[function(require,module,exports){
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -63614,7 +63673,7 @@ return jQuery;
 
 }));
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -64891,7 +64950,7 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /*
  * to-markdown - an HTML to Markdown converter
  *
@@ -65174,7 +65233,7 @@ toMarkdown.outer = outer;
 
 module.exports = toMarkdown;
 
-},{"./lib/gfm-converters":46,"./lib/md-converters":47,"collapse-whitespace":49,"jsdom":42}],46:[function(require,module,exports){
+},{"./lib/gfm-converters":47,"./lib/md-converters":48,"collapse-whitespace":50,"jsdom":43}],47:[function(require,module,exports){
 'use strict';
 
 function cell(content, node) {
@@ -65286,7 +65345,7 @@ module.exports = [
   }
 ];
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 module.exports = [
@@ -65438,7 +65497,7 @@ module.exports = [
     }
   }
 ];
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 /**
  * This file automatically generated from `build.js`.
  * Do not manually edit.
@@ -65480,7 +65539,7 @@ module.exports = [
   "video"
 ];
 
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 var blocks = require('block-elements').map(function (name) {
@@ -65600,7 +65659,7 @@ function whitespace (root, isBlock) {
 
 module.exports = whitespace
 
-},{"block-elements":48}],50:[function(require,module,exports){
+},{"block-elements":49}],51:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -67150,7 +67209,7 @@ module.exports = whitespace
   }
 }.call(this));
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 module.exports={
   "name": "plank",
   "version": "0.2.0",
@@ -67303,7 +67362,7 @@ module.exports={
   "private": true
 }
 
-},{}],52:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 angular.module("plankApp").run(["$templateCache", function($templateCache) {$templateCache.put("app/admin/admin.html","<div ng-include=\"\'components/navbar/navbar.html\'\"></div><div class=\"container\"><h1>Users</h1><ul class=\"list-group\"><li class=\"list-group-item\" ng-repeat=\"user in users\"><strong>{{user.name}}</strong><br><span class=\"text-muted\">{{user.email}}</span> <a ng-click=\"delete(user)\" class=\"trash\"><span class=\"glyphicon glyphicon-trash pull-right\"></span></a></li></ul><h1>Invites</h1><ul class=\"list-group\"><li class=\"list-group-item\" ng-repeat=\"invited in invites\"><strong>{{invited.email}}</strong><br><span class=\"text-muted\">{{invited.role}}</span> <a ng-click=\"uninvite(invited)\" class=\"trash\"><span class=\"glyphicon glyphicon-trash pull-right\"></span></a></li></ul><h1>Invite</h1><form class=\"form\" name=\"form\" ng-submit=\"invite(form)\"><div class=\"row\"><div class=\"col-lg-3\"><div class=\"input-group\"><span class=\"input-group-addon\">Role</span> <input type=\"text\" class=\"form-control\" ng-model=\"user.role\" placeholder=\"user\"></div></div><div class=\"col-lg-3\"><div class=\"input-group\"><span class=\"input-group-addon\">Email</span> <input type=\"text\" class=\"form-control\" ng-model=\"user.email\" placeholder=\"email\"></div></div><div class=\"col-lg-3\"><div class=\"input-group\"><button class=\"btn btn-primary\" type=\"submit\">Invite</button></div></div></div></form></div>");
 $templateCache.put("app/forum/list.html","<div ng-include=\"\'components/navbar/navbar.html\'\"></div><div class=\"container\"><h1 id=\"list-group\" class=\"page-header\">{{title}} <small class=\"pull-right\"><a class=\"btn btn-create\" ng-click=\"createNewThread(forum)\" role=\"button\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span></a></small></h1><div ng-repeat=\"thread in threads\"><forum-thread-preview thread=\"thread\"></forum-thread-preview></div><div class=\"row\"><nav><ul class=\"pager\"><li class=\"previous disabled\"><a href=\"#\"><span aria-hidden=\"true\">←</span> Older</a></li><span ng-show=\"loading\" class=\"glyphicon glyphicon-refresh spinning\"></span><li class=\"next disabled\"><a href=\"#\">Newer <span aria-hidden=\"true\">→</span></a></li></ul></nav></div></div><footer class=\"footer\" ng-include=\"\'components/footer/footer.html\'\"></footer>");
 $templateCache.put("app/forum/thread.html","<div ng-include=\"\'components/navbar/navbar.html\'\"></div><div class=\"container\"><a href=\"{{back.href}}\"><h1 class=\"page-header\"><small class=\"link\"><span class=\"glyphicon glyphicon-chevron-left\"></span></small> {{back.title}}</h1></a> <span ng-show=\"loading\" class=\"glyphicon glyphicon-refresh spinning\"></span><forum-thread ng-hide=\"loading\" thread=\"thread\"></forum-thread></div><footer class=\"footer\" ng-include=\"\'components/footer/footer.html\'\"></footer>");
@@ -67314,7 +67373,7 @@ $templateCache.put("app/forum/modal/modal.html","<div class=\"modal-header\"><bu
 $templateCache.put("app/forum/modal/reply-create.modal.html","<form><textarea id=\"markdown-modal\" name=\"content\" rows=\"20\" ng-model=\"markdown\"></textarea></form>");
 $templateCache.put("app/forum/modal/thread-create.modal.html","<form><div class=\"form-group\"><label for=\"title\">Title</label> <input name=\"title\" type=\"text\" class=\"form-control\" id=\"title-modal\" placeholder=\"Title?\" ng-model=\"title\"></div><textarea id=\"markdown-modal\" name=\"content\" rows=\"20\" ng-model=\"markdown\"></textarea></form>");
 $templateCache.put("app/forum/modal/thread.modal.html","<div class=\"modal-header\"><button ng-if=\"modal.dismissable\" type=\"button\" ng-click=\"$dismiss()\" class=\"close\">&times;</button><h4 ng-if=\"modal.title\" ng-bind=\"modal.title\" class=\"modal-title\"></h4></div><div class=\"modal-body\"><p ng-if=\"modal.text\" ng-bind=\"modal.text\"></p><div ng-if=\"modal.html\" ng-bind-html=\"modal.html\"></div><div ng-if=\"modal.templateUrl\" ng-include=\"modal.templateUrl\"></div></div><div class=\"modal-footer\"><button ng-repeat=\"button in modal.buttons\" ng-class=\"button.classes\" ng-click=\"button.click($event)\" ng-bind=\"button.text\" class=\"btn\"></button></div>");}]);
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 angular.module("plankApp").run(["$templateCache", function($templateCache) {$templateCache.put("components/footer/footer.html","<div class=\"container\" ng-controller=\"FooterCtrl\"><p><a href=\"https://github.com/deoryp/plank\">Plank v{{version}}</a> | <a href=\"https://twitter.com/n3wscott\">@n3wscott</a> | <a href=\"https://github.com/deoryp/plank/issues?state=open\">Issues</a></p></div>");
 $templateCache.put("components/modal/modal.html","<div class=\"modal-header\"><button ng-if=\"modal.dismissable\" type=\"button\" ng-click=\"$dismiss()\" class=\"close\">&times;</button><h4 ng-if=\"modal.title\" ng-bind=\"modal.title\" class=\"modal-title\"></h4></div><div class=\"modal-body\"><p ng-if=\"modal.text\" ng-bind=\"modal.text\"></p><div ng-if=\"modal.html\" ng-bind-html=\"modal.html\"></div></div><div class=\"modal-footer\"><button ng-repeat=\"button in modal.buttons\" ng-class=\"button.classes\" ng-click=\"button.click($event)\" ng-bind=\"button.text\" class=\"btn\"></button></div>");
 $templateCache.put("components/navbar/navbar.html","<nav class=\"navbar navbar-inverse navbar-fixed-top theforumheader\" ng-controller=\"NavbarCtrl\"><div class=\"container\"><div class=\"navbar-header\"><button class=\"navbar-toggle collapsed\" type=\"button\" ng-click=\"isCollapsed = !isCollapsed\"><span class=\"sr-only\">Toggle navigation</span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span></button> <a href=\"/\" class=\"navbar-brand theforumheader\"><div class=\"slab\" id=\"theforumheader\"><span class=\"slabtext\">THE</span> <span class=\"slabtext\">FORUM</span></div></a></div><div class=\"navbar-collapse\" id=\"navbar-main\" collapse=\"isCollapsed\"><ul class=\"nav navbar-nav navbar-right\"><li ng-hide=\"isLoggedIn()\" ng-class=\"{active: isActive(\'/login\')}\"><a href=\"/login\"><span class=\"glyphicon glyphicon-log-in\"></span></a></li><li ng-show=\"isLoggedIn()\"><p class=\"navbar-text\"><img ng-src=\"{{getCurrentUser().google.image.url}}&sz=16\" class=\"img-circle\" style=\"width: 16px; height: 16px;\"></p></li><li ng-show=\"isLoggedIn()\" ng-class=\"{active: isActive(\'/settings\')}\"><a href=\"/settings\"><span class=\"glyphicon glyphicon-cog\"></span></a></li><li ng-show=\"isAdmin()\" ng-class=\"{active: isActive(\'/admin\')}\"><a href=\"/admin\"><span class=\"glyphicon glyphicon-sunglasses\"></span></a></li><li ng-show=\"isLoggedIn()\" ng-class=\"{active: isActive(\'/logout\')}\"><a ng-click=\"logout()\"><span class=\"glyphicon glyphicon-log-out\"></span></a></li></ul></div></div></nav>");

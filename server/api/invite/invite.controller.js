@@ -13,7 +13,7 @@ var validationError = function(res, err) {
 exports.index = function(req, res) {
   Invite.find({}, function (err, invites) {
     if(err) return res.send(500, err);
-    res.json(200, invites);
+    res.status(200).json(invites);
   });
 };
 
@@ -38,7 +38,7 @@ exports.create = function (req, res, next) {
 exports.destroy = function(req, res) {
   Invite.findByIdAndRemove(req.params.id, function(err, user) {
     if(err) return res.send(500, err);
-    return res.send(204);
+    return res.sendStatus(204);
   });
   /*
   Invite.find({email:req.params.email}).remove(function(err) {

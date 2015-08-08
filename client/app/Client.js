@@ -15,7 +15,7 @@ require('angular-ui-router');
 
 require('../bower_components/angular-bootstrap/ui-bootstrap-tpls');
 
-require('../bower_components/lodash/dist/lodash.compat');
+//require('lodash.compat');
 
 require('angular-animate');
 require('angular-touch');
@@ -61,8 +61,8 @@ angular.module('plankApp')
 /* App Files */
 
 
-require('../../release/js/partials-app');        // TODO:: these need to be versioned?
-require('../../release/js/partials-components'); // TODO:: these need to be versioned?
+require('../../release/js/partials-app');
+require('../../release/js/partials-components');
 
 require('../components/slabtext/slabtext');
 require('../components/bootstrap-markdown/bootstrap-markdown');
@@ -83,6 +83,7 @@ require('../app/main/main');
 require('../app/main/main.controller');
 require('../app/forum/forum');
 require('../app/forum/forum-thread.controller');
+require('../app/forum/forum-list.service');
 require('../app/forum/forum-list.controller');
 require('../app/admin/admin');
 require('../app/admin/admin.controller');

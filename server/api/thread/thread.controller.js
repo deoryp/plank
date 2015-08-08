@@ -80,18 +80,6 @@ exports.index = function(req, res) {
     limit = 100;
   }
   
-  // TODO:: TEMP CODE 
-  Thread.find({ lastUpdate: {$exists: false} }).exec(function (err, threads) {
-    if(!err) {
-      threads = _.each(threads, function(thread) {
-        console.log('found lastUpdate null');
-        thread.lastUpdate = new Date(0);
-        thread.save();
-      });
-    }
-  });
-  // TODO:: End temp code.
-  
   Thread.find({ 
     topic: req.params.topic
   })
@@ -110,7 +98,7 @@ exports.index = function(req, res) {
     
     // TODO:: trim down threads to just the min info we need to list threads.
     
-    return res.json(200, threads);
+    return res.status(200).json(threads);
   });
 };
 
@@ -130,7 +118,7 @@ exports.show = function(req, res) {
     delete thread.seenBy;
     
     // TODO:: trim down thread to only what we want to display.
-    return res.json(thread);
+    return res.status(200).json(thread);
   });
 };
 
@@ -147,7 +135,7 @@ exports.seen = function(req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.json(200);
+      return res.sendStatus(200);
     });
   });
 };
@@ -171,7 +159,7 @@ exports.create = function(req, res) {
       return handleError(res, err);
     }
     // TODO:: trim down thread to only what we want to display.
-    return res.json(201, thread);
+    return res.status(201).json(thread);
   });
 };
 
@@ -191,10 +179,10 @@ exports.update = function(req, res) {
       return handleError(res, err);
     }
     if(!thread) {
-      return res.send(404);
+      return res.sendStatus(404);
     }
     if (thread.author.id !== req.user._id && !config.hasRole(req.user.role, 'admin')) {
-      return res.send(403);
+      return res.sendStatus(403);
     }
     
     req.body.lastUpdate = new Date();
@@ -206,7 +194,7 @@ exports.update = function(req, res) {
         return handleError(res, err);
       }
       // TODO:: trim down thread to only what we want to display.
-      return res.json(200, thread);
+      return res.status(200).json(thread);
     });
   });
 };
@@ -218,17 +206,17 @@ exports.destroy = function(req, res) {
       return handleError(res, err);
     }
     if(!thread) {
-      return res.send(404);
+      return res.sendStatus(404);
     }
     if (thread.author.id !== req.user._id && !config.hasRole(req.user.role, 'admin')) {
-      return res.send(403);
+      return res.sendStatus(403);
     }
     
     thread.remove(function(err) {
       if(err) {
         return handleError(res, err);
       }
-      return res.send(204);
+      return res.sendStatus(204);
     });
   });
 };
@@ -258,7 +246,7 @@ exports.createReply = function(req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.json(201, thread);
+      return res.status(201).json(thread);
     });
   });
 
@@ -278,7 +266,7 @@ exports.updateReply = function(req, res) {
     });
   });
   */
-  return res.send(504);
+  return res.sendStatus(504);
 };
 
 // Deletes a thing from the DB.
@@ -293,7 +281,7 @@ exports.destroyReply = function(req, res) {
     });
   });
   */
-  return res.send(504);
+  return res.sendStatus(504);
 };
 
 /*
