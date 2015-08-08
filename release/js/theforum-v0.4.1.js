@@ -8607,7 +8607,7 @@ angular.module('plankApp')
 'use strict';
 
 var shrinkHeader_small = 50;
-var shrinkHeader_large = 200;
+var shrinkHeader_large = 170;
 var scale_factor = 1.3;
 
 function getCurrentScroll() {
