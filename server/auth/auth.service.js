@@ -28,7 +28,7 @@ function isAuthenticated_old() {
     .use(function(req, res, next) {
       User.findById(req.user._id, function (err, user) {
         if (err) return next(err);
-        if (!user) return res.send(401);
+        if (!user) return res.sendStatus(401);
         req.user = user;
         next();
       });
@@ -49,7 +49,7 @@ function isAuthenticated() {
     .use(function(req, res, next) {
       User.findById(req.user._id, function (err, user) {
         if (err) return next(err);
-        if (!user) return res.send(401);
+        if (!user) return res.sendStatus(401);
         Invite.find({ email: user.email.toLowerCase() }, function (err, invites) {
           if (err) return next(err);
           if (invites && invites.length === 1) {
@@ -57,7 +57,7 @@ function isAuthenticated() {
             req.user = user;
             next();
           } else {
-            return res.send(401);
+            return res.sendStatus(401);
           }
         });
       });
@@ -73,13 +73,10 @@ function hasRole(roleRequired) {
   return compose()
     .use(isAuthenticated())
     .use(function meetsRequirements(req, res, next) {
-      
-      console.log(req);
-      
       if (config.userRoles.indexOf(req.user.role) >= config.userRoles.indexOf(roleRequired)) {
         next();
       } else {
-        res.send(403);
+        res.sendStatus(403);
       }
     });
 }
@@ -95,7 +92,7 @@ function signToken(id) {
  * Set token cookie directly for oAuth strategies
  */
 function setTokenCookie(req, res) {
-  if (!req.user) return res.json(404, { message: 'Something went wrong, please try again.'});
+  if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
   res.redirect(config.host);
