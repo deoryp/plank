@@ -3,10 +3,11 @@
     <a href="#">
       <img class="media-object img-circle" ng-src="{{thread.author.photo}}" alt="{{thread.author.handle}}" title="{{thread.author.handle}}" style="width: 64px; height: 64px;">
     </a>
+    <span class="media-object-sub">{{thread.author.handle}}</span>
   </div>
   <div class="media-body">
     <h2 class="media-heading">{{thread.title}} 
-      <small class="pull-right">{{thread.created | date:'medium'}}</small>
+      <small class="pull-right txt-xs">{{thread.created | date:'medium'}}</small>
     </h2>
     <p ng-bind-html="markdownHtml"></p>
     

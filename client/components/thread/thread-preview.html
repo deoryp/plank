@@ -8,7 +8,7 @@
     <div class="media-body">
       <h2 class="media-heading">{{thread.title}} 
         <span ng-if="thread.reply.length > 0" class="badge">{{thread.reply.length}}</span>
-        <small class="pull-right">{{thread.created | date:'medium'}}</small>
+        <small class="pull-right txt-xs">{{thread.created | date:'medium'}}</small>
       </h2>
       <p ng-bind-html="markdownHtml"></p>
     </div>

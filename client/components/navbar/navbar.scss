@@ -2,12 +2,9 @@
   width: 250px;
   height: 250px;
 }
-  
-body {
-  /* Move down content because we have a fixed navbar that is 50px tall */
+
+body.squishy {
   padding-top: 270px;
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
 }
 
 .navbar-collapse {
