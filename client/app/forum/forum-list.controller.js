@@ -1,6 +1,6 @@
 'use strict';
 
-var autoUpdate = false; // TODO:: TRUE for prod.
+var autoUpdate = true; //false; // TODO:: TRUE for prod.
 
 angular.module('plankApp')
   .controller('ForumCtrl', function (_, $scope, $stateParams, $http, $interval, ThreadModal, forumListService) {

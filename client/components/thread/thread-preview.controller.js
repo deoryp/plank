@@ -15,7 +15,7 @@ angular.module('plankApp')
       scope: {
         thread: '='
       },
-      templateUrl: 'components/thread/thread-preview-small2.html',
+      templateUrl: 'components/thread/thread-preview-small.html',
       controller: 'ForumThreadPreviewCtrl'
     };
   });
