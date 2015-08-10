@@ -66,6 +66,7 @@ require('../../release/js/partials-components');
 
 require('../components/slabtext/slabtext');
 require('../components/bootstrap-markdown/bootstrap-markdown');
+require('../components/timestamp/timestamp.controller');
 require('../components/thread/thread.controller');
 require('../components/thread/thread-reply.controller');
 require('../components/thread/thread-preview.controller');

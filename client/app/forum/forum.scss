@@ -30,6 +30,11 @@ small.txt-xs {
   transition: border .2s ease-in-out;
 }
 
+.thread-preview {
+  padding: 5px 0px 0px 0px;
+//  margin:0px;
+}
+
 .media-callout {
   padding: 0px 0px 0px 0px;
   border: 0px solid #fff;
@@ -51,3 +56,56 @@ small.txt-xs {
   background-color: #ff9933;
   border-color: #e68a2e;
 }
+
+
+.show-grid {
+    margin-bottom: 15px
+}
+
+.show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2)
+}
+
+
+.date-stamp { 
+  float:right;
+  position:relative;
+  padding: 1.5em .1em 1em;
+  margin-left:1em;
+  font-size: 0.8em;
+} 
+.date-stamp .month {
+  text-transform: uppercase;
+  font-size:1.5em;
+  color: $date-month-color;
+}
+.date-stamp .day {
+  font-size:2em;
+  line-height:1em;
+  position:absolute; 
+  left:0em; 
+  top:0em;
+  color: $date-day-color;
+}
+.date-stamp .year { 
+  display:block; 
+  position:absolute; 
+  right:-0.2em;
+  top:0.4em;
+  transform: rotate(-90deg);
+  color: $date-year-color;
+}
+.date-stamp .time {
+  font-size: 0.5em;
+  line-height: 1.2em;
+  position: absolute;
+  left: 0px;
+  top: 6.2em;
+  color: $date-time-color;
+}
+
