@@ -7,7 +7,9 @@
   </div>
   <div class="media-body">
     <h2 class="media-heading">{{thread.title}} 
-      <small class="pull-right txt-xs">{{thread.created | date:'medium'}}</small>
+      <small class="pull-right txt-xs">
+        <timestamp time="thread.lastUpdate"></timestamp>
+      </small>
     </h2>
     <p ng-bind-html="markdownHtml"></p>
     
