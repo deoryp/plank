@@ -22,9 +22,7 @@ var ThreadSchema = new Schema({
   },
   title: String,
   author: {
-    id: String,
-    handle: String,
-    photo: String,
+    id: String
   },
   markdown: String,
   seenBy: [{
@@ -44,9 +42,7 @@ var ThreadSchema = new Schema({
         default: Date.now
     },
     author: {
-      id: String,
-      handle: String,
-      photo: String,
+      id: String
     },
     markdown: String
   }]

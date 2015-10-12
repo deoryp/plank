@@ -3,7 +3,6 @@
 
 /* Dependent Files */
 var $ = require('jquery');
-var jQuery = $;
 var _ = require('underscore');
 
 var angular = require('angular');

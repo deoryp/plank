@@ -16,6 +16,8 @@ var _ = require('lodash');
 var Thread = require('./thread.model');
 var config = require('../../config/environment');
 
+var userCache = require('../user/user.controller').cached;
+
 //
 // TODO:: need to filter out the seenBy field and replace it with the me field...
 //
@@ -50,6 +52,24 @@ var markSeen = function(thread, userId) {
   }
 };
 
+var applyAuthorDetails = function(thread) {
+  // get the authors details.
+  //
+  userCache.users(function(users) {
+    if (users[thread.author.id]) {
+      thread.author.photo = users[thread.author.id].photo;
+      thread.author.handle = users[thread.author.id].handle;
+    }
+    if (thread.reply) {
+      _.each(thread.reply, function(reply) {
+        if (users[reply.author.id]) {
+          reply.author.photo = users[reply.author.id].photo;
+          reply.author.handle = users[reply.author.id].handle;
+        }
+      });
+    }
+  });
+};
 
 // Get list of threads
 // query: startdate, enddate, limit
@@ -93,10 +113,14 @@ exports.index = function(req, res) {
     threads = _.map(threads, function(thread) {
       thread = thread.toObject();
       markSeenLast(thread, req.user._id);
+      applyAuthorDetails(thread);
+      
       return thread;
     });
     
     // TODO:: trim down threads to just the min info we need to list threads.
+    
+    
     
     return res.status(200).json(threads);
   });
@@ -117,7 +141,8 @@ exports.show = function(req, res) {
     markSeenLast(thread, req.user._id);
     delete thread.seenBy;
     
-    // TODO:: trim down thread to only what we want to display.
+    applyAuthorDetails(thread);
+    
     return res.status(200).json(thread);
   });
 };
