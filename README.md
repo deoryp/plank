@@ -23,13 +23,13 @@ Boards for Friends
       host: 'localhost',
       port: 8000, 
       mongo: {
-        db: 'mongodb://username:password:mongoserver:port/table'
+        db: 'mongodb://username:password@mongoserver:port/table'
       },
       google: {
           clientId: '<clientId>.apps.googleusercontent.com',
           email: '<email>@developer.gserviceaccount.com',
-          clientSecret: '<clientSecret>'
-          callback: 'http://localhost:1337/auth/google/callback'})
+          clientSecret: '<clientSecret>',
+          callback: 'http://localhost:1337/auth/google/callback'}
     };
   ```
   
