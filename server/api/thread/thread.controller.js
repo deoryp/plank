@@ -16,12 +16,11 @@ var _ = require('lodash');
 var Thread = require('./thread.model');
 var config = require('../../config/environment');
 
-var userCache = require('../user/user.controller').cached;
+var Users = require('../user/user.controller');
 
 //
 // TODO:: need to filter out the seenBy field and replace it with the me field...
 //
-
 
 var markSeenLast = function(thread, userId) {
   if (typeof thread.me === 'undefined') {
@@ -52,23 +51,16 @@ var markSeen = function(thread, userId) {
   }
 };
 
-var applyAuthorDetails = function(thread) {
-  // get the authors details.
-  //
-  userCache.users(function(users) {
-    if (users[thread.author.id]) {
-      thread.author.photo = users[thread.author.id].photo;
-      thread.author.handle = users[thread.author.id].handle;
-    }
-    if (thread.reply) {
-      _.each(thread.reply, function(reply) {
-        if (users[reply.author.id]) {
-          reply.author.photo = users[reply.author.id].photo;
-          reply.author.handle = users[reply.author.id].handle;
-        }
-      });
-    }
-  });
+var mapAuthorToUser = function(obj, users) {
+  console.log('author before:');
+  console.log(obj.author);
+  if (users[obj.author.id]) {
+    _.extend(obj.author, users[obj.author.id]);
+    _.extend(obj.author, {wtf:'works'});
+  }
+  console.log('author after:');
+  console.log(obj.author);
+  
 };
 
 // Get list of threads
@@ -110,17 +102,21 @@ exports.index = function(req, res) {
     if(err) {
       return handleError(res, err);
     }
-    threads = _.map(threads, function(thread) {
-      thread = thread.toObject();
-      markSeenLast(thread, req.user._id);
-      applyAuthorDetails(thread);
-      
-      return thread;
+    Users.cache(function(users) {
+      threads = _.map(threads, function(thread) {
+        thread = thread.toObject();
+        console.log('calling...')
+        mapAuthorToUser(thread, users);
+        _.each(thread.reply, function(reply) {
+          mapAuthorToUser(reply, users);
+        });
+        markSeenLast(thread, req.user._id);
+        delete thread.seenBy;
+        return thread;
+      });
     });
     
     // TODO:: trim down threads to just the min info we need to list threads.
-    
-    
     
     return res.status(200).json(threads);
   });
@@ -141,8 +137,7 @@ exports.show = function(req, res) {
     markSeenLast(thread, req.user._id);
     delete thread.seenBy;
     
-    applyAuthorDetails(thread);
-    
+    // TODO:: trim down thread to only what we want to display.
     return res.status(200).json(thread);
   });
 };

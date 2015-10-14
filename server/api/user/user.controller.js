@@ -27,29 +27,27 @@ exports.index = function(req, res) {
 
 var cache = {};
 
-exports.cached = {
-  users: function(callback) {
-    var fresh = false;
-    if (typeof cache.users != 'undefined') {
-      callback(cache.users);
-    } else {
-      cache.users = {};
-      fresh = true;
-    }
-    // Update users cache.
-    User.find({}, '-salt -hashedPassword', function (err, users) {
-      _.each(users, function (user) {
-        cache.users[user._id] = {
-          photo: user.google.image.url,
-          handle: user.google.displayName
-        };
-      });
-      var id = '';
-      if (fresh) {
-        callback(cache.users);
-      }
-    });
+exports.cache = function(callback) {
+  var fresh = false;
+  if (typeof cache.users != 'undefined') {
+    callback(cache.users);
+  } else {
+    cache.users = {};
+    fresh = true;
   }
+  // Update users cache.
+  User.find({}, '-salt -hashedPassword', function (err, users) {
+    _.each(users, function (user) {
+      cache.users[user._id] = {
+        photo: user.google.image.url,
+        handle: user.google.displayName
+      };
+    });
+    var id = '';
+    if (fresh) {
+      callback(cache.users);
+    }
+  });
 }
 
 /*
