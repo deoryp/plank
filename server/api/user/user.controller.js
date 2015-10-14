@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('lodash');
+
 var User = require('./user.model');
 
 var Invite = require('../invite/invite.model');
@@ -22,6 +24,31 @@ exports.index = function(req, res) {
     res.status(200).json(users);
   });
 };
+
+var cache = {};
+
+exports.cache = function(callback) {
+  var fresh = false;
+  if (typeof cache.users != 'undefined') {
+    callback(cache.users);
+  } else {
+    cache.users = {};
+    fresh = true;
+  }
+  // Update users cache.
+  User.find({}, '-salt -hashedPassword', function (err, users) {
+    _.each(users, function (user) {
+      cache.users[user._id] = {
+        photo: user.google.image.url,
+        handle: user.google.displayName
+      };
+    });
+    var id = '';
+    if (fresh) {
+      callback(cache.users);
+    }
+  });
+}
 
 /*
 
@@ -77,11 +104,43 @@ exports.destroy = function(req, res) {
   });
 };
 
+var updateGoogleUser = function(userId, callback) {
+  process.nextTick(function() {
+    
+/*
+  
+var google = require('googleapis');
+var plus = google.plus('v1');
+var OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+
+// Retrieve tokens via token exchange explained above or set them:
+oauth2Client.setCredentials({
+  access_token: 'ACCESS TOKEN HERE',
+  refresh_token: 'REFRESH TOKEN HERE'
+});
+
+plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, response) {
+  // handle err and response
+});
+      
+*/        
+    
+    if (callback) {
+      callback();
+    }
+  });
+};
+
 /**
  * Get my info
  */
 exports.me = function(req, res, next) {
   var userId = req.user._id;
+  
+  // Non Blocking.
+  updateGoogleUser(userId);
+  
   User.findOne({
     _id: userId
   }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt

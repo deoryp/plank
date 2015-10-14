@@ -16,10 +16,11 @@ var _ = require('lodash');
 var Thread = require('./thread.model');
 var config = require('../../config/environment');
 
+var Users = require('../user/user.controller');
+
 //
 // TODO:: need to filter out the seenBy field and replace it with the me field...
 //
-
 
 var markSeenLast = function(thread, userId) {
   if (typeof thread.me === 'undefined') {
@@ -50,6 +51,17 @@ var markSeen = function(thread, userId) {
   }
 };
 
+var mapAuthorToUser = function(obj, users) {
+  console.log('author before:');
+  console.log(obj.author);
+  if (users[obj.author.id]) {
+    _.extend(obj.author, users[obj.author.id]);
+    _.extend(obj.author, {wtf:'works'});
+  }
+  console.log('author after:');
+  console.log(obj.author);
+  
+};
 
 // Get list of threads
 // query: startdate, enddate, limit
@@ -90,10 +102,18 @@ exports.index = function(req, res) {
     if(err) {
       return handleError(res, err);
     }
-    threads = _.map(threads, function(thread) {
-      thread = thread.toObject();
-      markSeenLast(thread, req.user._id);
-      return thread;
+    Users.cache(function(users) {
+      threads = _.map(threads, function(thread) {
+        thread = thread.toObject();
+        console.log('calling...')
+        mapAuthorToUser(thread, users);
+        _.each(thread.reply, function(reply) {
+          mapAuthorToUser(reply, users);
+        });
+        markSeenLast(thread, req.user._id);
+        delete thread.seenBy;
+        return thread;
+      });
     });
     
     // TODO:: trim down threads to just the min info we need to list threads.

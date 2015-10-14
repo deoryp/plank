@@ -38,7 +38,7 @@ var server = http.createServer(function(req, res) {
   } else {
     proxy.web(req, res, {
       //target: 'http://127.0.0.1:3000'
-      target: 'http://126.0.0.1:5000'
+      target: 'http://127.0.0.1:5000'
     });
   }
   
