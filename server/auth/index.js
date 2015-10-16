@@ -14,6 +14,4 @@ var router = express.Router();
 router.use('/local', require('./local'));
 router.use('/google', require('./google'));
 
-console.log('was here');
-
 module.exports = router;

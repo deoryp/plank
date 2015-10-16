@@ -93,6 +93,11 @@ function signToken(id) {
  */
 function setTokenCookie(req, res) {
   if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
+  
+  // TODO:: here is where we can save new photo date.
+  
+  console.log("This is the good stuff: " + JSON.stringify(req.user));
+  
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
   res.redirect(config.host);

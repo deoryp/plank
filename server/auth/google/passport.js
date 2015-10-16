@@ -8,6 +8,9 @@ exports.setup = function (User, config) {
       callbackURL: config.google.callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
+      
+      console.log('profile:' + JSON.stringify(profile));
+      
       User.findOne({
         'google.id': profile.id
       }, function(err, user) {
@@ -25,6 +28,28 @@ exports.setup = function (User, config) {
             return done(err, user);
           });
         } else {
+          var shouldSave = false;
+          if (user.name !== profile.displayName) {
+            user.name = profile.displayName;
+            shouldSave = true;
+          }
+          if (user.google.displayName !== profile._json.displayName) {
+            user.google.displayName = profile._json.displayName;
+            shouldSave = true;
+          }
+          profile._json.image.url = profile._json.image.url.replace('?sz=50', '');
+          if (user.google.image.url !== profile._json.image.url) {
+            user.google.image.url = profile._json.image.url;
+            shouldSave = true;
+          }
+          if (shouldSave) {
+            console.log('updating user...');
+            user.save(function(err) {
+              if (err) done(err);
+              return done(err, user);
+            });
+          }
+          
           return done(err, user);
         }
       });
