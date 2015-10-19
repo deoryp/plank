@@ -1,0 +1,86 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-post">
+  <style>
+    paper-icon-button {
+      padding: 0px;
+      border-radius: 3px;
+      margin-left: 10px;
+    
+    }
+  
+    paper-icon-button::shadow #ripple {
+      color: blue;
+    }
+  
+    .with-badge > paper-badge {
+      --paper-badge-margin-left: 0px;
+      --paper-badge-margin-bottom: 0px;
+    }
+    
+    .breaker {
+      border-width: 1px;
+      border-bottom-color: #eaeaea;
+      border-bottom-style: solid;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <template>
+    <theforum-post-author
+      photo="{{post.author.photo}}"
+      name="{{post.author.handle}}"
+      at="{{post.created}}"
+      fresh$="{{post.fresh}}"
+      >
+    </theforum-post-author>
+
+    <div class="horizontal layout">
+      <div class="flex">
+        <marked-element markdown="{{post.markdown}}">
+          <div class="markdown-html"></div>
+        </marked-element>
+      </div>
+      <div class="horizontal end layout">
+        <a on-click="toggle" class="with-badge">
+          <paper-icon-button icon="communication:comment"></paper-icon-button>
+          <template is="dom-if" if="{{_newReplies(post)}}">
+            <paper-badge label="{{_newReplies(post)}}"></paper-badge>
+          </template>
+        </a>
+      </div>
+    </div>
+    <template is="dom-if" if="{{_newReplies(post)}}">
+      <div class="horizontal layout">
+        <span class="flex breaker"></span>
+      </div>
+    </template>
+  </template>
+  <script>
+  Polymer({
+      is: 'theforum-post',
+      properties: {
+        post: {
+          type: Object,
+          observer: '_postChanged'
+        },
+        show: {
+          type: Boolean,
+          value: true,
+          notify: true
+        }
+      },
+      _postChanged: function() {
+        // check it.
+      },
+      _newReplies: function(post) {
+        if (post.reply) {
+          return post.reply.length;
+        }
+      },
+      toggle: function() {
+        this.show = !this.show;
+      }
+    });
+  </script>
+</dom-module>

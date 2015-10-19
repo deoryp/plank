@@ -1,0 +1,77 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-topic">
+  <style include="theforum-theme"></style>
+  <template>
+    <theforum-cookie id="cookie"></theforum-cookie>
+    <iron-ajax
+        auto
+        id="ajax"
+        url="{{_url(topic)}}"
+        handle-as="json"
+        on-response="handleTopic"
+        headers='{{_headers()}}'
+        debounce-duration="300"></iron-ajax>
+
+    <paper-material animated 
+        elevation="{{elevation}}"
+        on-mouseover="onHovered"
+        on-mouseout="onUnhovered">
+      <theforum-post-compose 
+          topic="[[topic]]"
+          user="[[user]]"
+          on-posted="_userPosted"></theforum-post-compose>
+    </paper-material>
+
+    <template is="dom-repeat" items="{{threads}}">
+      <theforum-thread
+          thread="{{item}}"
+          user="{{user}}"
+          on-replied="_userReplied"></theforum-thread>
+    </template>
+
+  </template>
+  <script>
+  Polymer({
+      is: 'theforum-topic',
+      properties: {
+        topic: {
+          type: String
+        },
+        user: {
+          type: Object
+        },
+        threads: {
+          type: Array,
+          value: [],
+          notify: true
+        }
+      },
+      _headers: function() {
+        var token = this.$.cookie.token;
+        return {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        };
+      },
+      _url: function(topic) {
+        return '/api/thread/' + topic;
+      },
+      _userPosted: function() {
+        this.$.ajax.generateRequest();
+      },
+      _userReplied: function() {
+        this.$.ajax.generateRequest();
+      },
+      handleTopic: function(response) {
+        this.threads = response.srcElement.lastResponse;
+      },
+      onHovered: function() {
+        this.elevation = 3;
+      },
+      onUnhovered: function() {
+        this.elevation = 1;
+      },
+    });
+  </script>
+</dom-module>

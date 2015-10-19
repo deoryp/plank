@@ -1,0 +1,108 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-thread">
+  <style include="theforum-theme"></style>
+  <style>
+    .replies {
+      border-width: 1px;
+      border-color: #eaeaea;
+      border-bottom-color: #eaeaea;
+      border-bottom-style: solid;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <template>
+    <paper-material animated elevation="{{elevation}}" class="thread" 
+        on-mouseover='onHovered' 
+        on-mouseout='onUnhovered'>
+      <h2>{{thread.title}}</h2>
+      <theforum-post post="{{thread}}" class="post" show="{{opened}}"></theforum-post>
+      <iron-collapse opened="{{opened}}">
+        <div class="replies">
+          <template is="dom-repeat" items="{{thread.reply}}">
+            <theforum-reply reply="{{item}}"></theforum-reply>
+          </template>
+        </div>
+        <theforum-reply-compose
+            topic="{{thread.topic}}"
+            thread="{{thread._id}}"
+            user="{{user}}"></theforum-reply-compose>
+      </iron-collapse>
+    </paper-material>  
+  </template>
+  <script>
+  
+  // neat.
+  
+  var HighlightBehavior = {
+
+    properties: {
+      isHighlighted: {
+        type: Boolean,
+        value: false,
+        notify: true,
+        observer: '_highlightChanged'
+      }
+    },
+  
+    listeners: {
+      click: '_toggleHighlight'
+    },
+  
+    created: function() {
+//      console.log('Highlighting for ', this, 'enabled!');
+    },
+
+    _toggleHighlight: function() {
+      this.isHighlighted = !this.isHighlighted;
+    },
+  
+    _highlightChanged: function() {
+      this.classList.add('highlight');
+      this.async(function() {
+        this.classList.remove('highlight');
+      }, 300);
+    }
+  };
+  
+  Polymer({
+      is: 'theforum-thread',
+      behaviors: [HighlightBehavior],
+      properties: {
+        user: {
+          type: Object,
+          notify: true
+        },
+        thread: {
+          type: Object,
+          observer: '_threadChanged'
+        }
+      },
+      elevation: 1,
+      onHovered: function() {
+        this.elevation = 3;
+      },
+      onUnhovered: function() {
+        this.elevation = 1;
+      },
+      _threadChanged: function() {
+        // check it.
+      }
+    });
+  </script>
+</dom-module>
+
+
+
+<!-- 
+
+compose a message:
+
+a thread holds a post and replies.
+
+a post is an author, title, a time and a message
+
+a reply is an author, and a time
+
+-->

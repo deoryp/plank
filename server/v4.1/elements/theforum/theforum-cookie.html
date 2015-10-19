@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-cookie">
+  <template>
+  </template>
+
+  <script>
+  
+  function readCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for(var i=0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1,c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+        return c.substring(nameEQ.length,c.length);
+      }
+    }
+    return null;
+  }
+  
+  Polymer({
+      is: 'theforum-cookie',
+      properties: {
+        token: {
+          type: String,
+          value: function() {
+            var ct = readCookie('token');
+            if (ct !== null) {
+              ct = decodeURIComponent(ct);
+              ct = ct.substring(1, ct.length - 1);
+              return ct;
+            }
+            return null;
+          }
+        }
+      },
+      hasToken: function() {
+        if (this.token) {
+          return true;
+        }
+        return false;
+      },
+      removeToken: function() {
+        document.cookie = 'token=';
+      }
+    });
+  </script>
+</dom-module>

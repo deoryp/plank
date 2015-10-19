@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-post-entry">
+  <template>
+
+    <theforum-post-author
+      photo="{{post.author.photo}}"
+      name="{{post.author.name}}"
+      at="{{post.created}}"
+      fresh$="{{post.fresh}}"
+      >
+    </theforum-post-author>
+
+    <div>
+      <marked-element markdown="{{post.markdown}}">
+        <div class="markdown-html"></div>
+      </marked-element>
+    </div>
+  </template>
+  <script>
+  Polymer({
+      is: 'theforum-post-entry',
+      properties: {
+        post: {
+          type: Object,
+          observer: '_postChanged'
+        }
+      },
+      _postChanged: function() {
+        // check it.
+      },
+      toggle: function() {
+        this.$['collapse-post'].toggle();
+      }
+    });
+  </script>
+</dom-module>

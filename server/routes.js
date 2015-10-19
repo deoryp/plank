@@ -23,19 +23,20 @@ module.exports = function(app) {
 
   app.use('/release', express.static('release'));
 
+  app.use('/v4.1', express.static(__dirname + '/v4.1'));
 
   app.route('/robots.txt')
     .get(function(req, res) {
-      res.sendfile(path.join(app.get('appPath'), 'robots.txt'));
+      res.sendFile(path.join(app.get('appPath'), 'robots.txt'));
     });
     
   app.route('/favicon.ico')
     .get(function(req, res) {
-      res.sendfile(path.join(app.get('appPath'), 'favicon.ico'));
+      res.sendFile(path.join(app.get('appPath'), 'favicon.ico'));
     });
-    
+
   app.route('/*')
     .get(function(req, res) {
-      res.sendfile(path.join(app.get('appPath'), 'index.html'));
+      res.sendFile(path.join(app.get('appPath'), 'index.html'));
     });
 };

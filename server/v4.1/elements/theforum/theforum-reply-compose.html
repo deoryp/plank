@@ -1,0 +1,74 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-reply-compose">
+  <style>
+    img.author {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border-radius: 50%;
+      border: dashed;
+      border-width: 1px;
+      margin-right: 10px;
+      opacity: .75;
+    }
+    paper-icon-button:hover {
+      background: var(--paper-pink-400);
+      border-radius: 50%;
+    }
+  </style>
+  <template>
+    <theforum-cookie id="cookie"></theforum-cookie>
+    <iron-ajax
+        id="ajax"
+        url="{{_createReplyUrl(topic, thread)}}"
+        method="POST"
+        headers='{{_headers()}}'
+        handle-as="json"
+        on-response="_handleResponse"></iron-ajax>
+    <div class="horizontal layout center">
+      <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
+      <paper-textarea id="bodyText" label="omg..." class="flex center"></paper-textarea>
+      <paper-icon-button icon="reply-all" on-click="reply"></paper-icon-button>
+    </div>
+  </template>
+  <script>
+  Polymer({
+      is: 'theforum-reply-compose',
+      properties: {
+        topic: String,
+        thread: String,
+        user: {
+          type: Object,
+          notify: true
+        }
+      },
+      _createReplyUrl: function(topic, thread) {
+        return '/api/thread/' + topic + '/' + thread + '/reply';
+      },
+      _headers: function() {
+        var token = this.$.cookie.token;
+        return {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        };
+      },
+      _handleResponse: function(e) {
+        console.log('_handleResponse');
+        console.log(e.detail.response);
+        
+        this.async(function() {
+          this.fire('replied', e.detail.response);
+        });
+      },
+      reply: function() {
+        
+        this.$.ajax.body = JSON.stringify({
+          markdown: this.$.bodyText.value
+        });
+        
+        this.$.ajax.generateRequest();
+      }
+    });
+  </script>
+</dom-module>

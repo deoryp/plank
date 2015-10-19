@@ -1,0 +1,76 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-user">
+  <style>
+    img.user {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+  </style>
+  <template>
+    <theforum-cookie id="cookie"></theforum-cookie>
+    <iron-ajax
+        auto
+        url="/api/users/me"
+        handle-as="json"
+        on-response="handleUser"
+        headers='{{_headers()}}'
+        debounce-duration="300"></iron-ajax>
+    <img class="user" src="{{user.photo}}" alt="{{user.handle}}" hidden$="{{!authenticated}}">
+    <iron-icon icon="face" hidden$="{{authenticated}}"></iron-icon>
+  </template>
+  <script>
+  
+  Polymer({
+      is: 'theforum-user',
+      properties: {
+        user: {
+          type: Object,
+          notify: true,
+          observer: '_userChanged'
+        },
+        authenticated: {
+          type: Boolean,
+          notify: true,
+          value: false,
+          observer: '_authenticatedChanged'
+        },
+        initialized: {
+          type: Boolean,
+          value: false,
+          notify: true
+        },
+      },
+      isAuthenticated: function() {
+        return this.authenticated;
+      },
+      _headers: function() {
+        var token = this.$.cookie.token;
+        return {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        };
+      },
+      _userChanged: function() {
+        this.initialized = true;
+        this.set('authenticated', (typeof this.user !== 'undefined'));
+        this.authenticated = (typeof this.user !== 'undefined');
+      },
+      _authenticatedChanged: function(newValue) {
+        console.log('Auth: ' + newValue);
+      },
+      handleUser: function(response) {
+        var user = response.srcElement.lastResponse;
+        var url = user.google.image.url;
+        user.google.image.url = url.substring(0, url.length - 5) + 'sz=35';
+        user.photo = user.google.image.url;
+        user.handle = user.google.handle;
+        this.user = user;
+      },
+      login: function() {
+        window.location  = '/auth/google';
+      }
+    });
+  </script>
+</dom-module>

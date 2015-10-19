@@ -1,0 +1,154 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-post-compose">
+  <style>
+    img.author {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border-radius: 50%;
+      border: dashed;
+      border-width: 1px;
+      margin-right: 10px;
+      opacity: .75;
+    }
+    paper-input.title {
+      margin-right: 40px;
+    }
+    
+  </style>
+  <template>
+    <theforum-cookie id="cookie"></theforum-cookie>
+    <iron-ajax
+        id="ajax"
+        url="{{_createPostUrl(topic)}}"
+        method="POST"
+        headers='{{_headers()}}'
+        handle-as="json"
+        on-response="_handleResponse"></iron-ajax>
+    <paper-input
+        id="titleText"
+        class="title"
+        on-input="_onInput"
+        label="Say What?!"></paper-input>
+    <div class="horizontal layout center">
+      <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
+      <paper-textarea 
+          id="bodyText"
+          class="flex center"
+          on-focus="_onFocus"
+          on-input="_onInput"
+          label="omg..."></paper-textarea>
+      <paper-icon-button
+          icon="create"
+          on-click="post"
+          disabled$="{{!hasContent}}"
+          hidden$="{{!_postable(isWorking, hadSuccess, hadError)}}"></paper-icon-button>
+      <paper-spinner active hidden$="{{!isWorking}}"></paper-spinner>
+      <iron-icon icon="done" hidden$="{{!hadSuccess}}"></iron-icon>
+      <iron-icon icon="error" hidden$="{{!hadError}}"></iron-icon>
+    </div>
+  </template>
+  <script>
+    /* globals Promise */
+    Polymer({
+      is: 'theforum-post-compose',
+      
+      // vents: posted
+      
+      properties: {
+        hasContent: {
+          type: Boolean,
+          value: false
+        },
+        isWorking: {
+          type: Boolean,
+          value: false
+        },
+        hadSuccess: {
+          type: Boolean,
+          value: false
+        },
+        hadError: {
+          type: Boolean,
+          value: false
+        },
+        topic: String,
+        user: {
+          type: Object,
+          notify: true
+        }
+      },
+      _postable: function(working, done, error) {
+        if (working || done || error) {
+          return false;
+        }
+        return true;
+      },
+      _createPostUrl: function(topic) {
+        return '/api/thread/' + topic;
+      },
+      _headers: function() {
+        var token = this.$.cookie.token;
+        return {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        };
+      },
+      _handleResponse: function(e) {
+        
+        var p1 = new Promise(function(resolve, reject) {
+          if (true) {
+            resolve(1);
+          } else {
+            reject(1);
+          }
+        });
+        p1.then(function(val) {
+          console.log('p1 resolved ' + val);
+        }).catch(function(reason) {
+          console.log('Handle rejected promise ('+reason+') here.');
+        });
+        
+        
+        
+        console.log('_handleResponse');
+        console.log(e.detail.response);
+        this.$.titleText.value = '';
+        this.$.bodyText.value = '';
+        this.$.bodyText.rows = 1;
+        this.isWorking = false;
+        this.hadSuccess = true;
+        this.hadError = false;
+        this.async(function() {
+          this.hadSuccess = false;
+        }, 2000);
+        this.async(function() {
+          this.fire('posted', e.detail.response);
+        });
+      },
+      _onFocus: function() {
+        this.$.bodyText.rows = 2;
+      },
+      _onInput: function() {
+        if (this.$.titleText && this.$.bodyText &&
+              this.$.titleText.value && this.$.bodyText.value) {
+          this.hasContent = (
+              this.$.titleText.value.length > 0 &&
+              this.$.bodyText.value.length > 0
+          );
+        }
+      },
+      post: function() {
+        this.hadSuccess = false;
+        this.hadError = false;
+        this.isWorking = true;
+        this.$.ajax.body = JSON.stringify({
+          title: this.$.titleText.value,
+          markdown: this.$.bodyText.value
+        });
+        this.$.ajax.generateRequest();
+      }
+    });
+  </script>
+</dom-module>
