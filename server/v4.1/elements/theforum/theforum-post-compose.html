@@ -12,10 +12,6 @@
       margin-right: 10px;
       opacity: .75;
     }
-    paper-input.title {
-      margin-right: 40px;
-    }
-    
   </style>
   <template>
     <theforum-cookie id="cookie"></theforum-cookie>
@@ -26,22 +22,31 @@
         headers='{{_headers()}}'
         handle-as="json"
         on-response="_handleResponse"></iron-ajax>
+    <div class="horizontal end-justified layout">
+      <paper-icon-button
+          icon="close"
+          on-click="_cancel"></paper-icon-button>
+    </div>
     <paper-input
         id="titleText"
         class="title"
         on-input="_onInput"
-        label="Say What?!"></paper-input>
-    <div class="horizontal layout center">
+        label="Title"></paper-input>
+    <div class="horizontal layout start">
       <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
       <paper-textarea 
           id="bodyText"
           class="flex center"
+          rows="8"
+          max-rows="8"
           on-focus="_onFocus"
           on-input="_onInput"
           label="omg..."></paper-textarea>
-      <paper-icon-button
+    </div>
+    <div class="horizontal end-justified layout">
+      <paper-fab
           icon="create"
-          on-click="post"
+          on-click="_post"
           disabled$="{{!hasContent}}"
           hidden$="{{!_postable(isWorking, hadSuccess, hadError)}}"></paper-icon-button>
       <paper-spinner active hidden$="{{!isWorking}}"></paper-spinner>
@@ -54,7 +59,7 @@
     Polymer({
       is: 'theforum-post-compose',
       
-      // vents: posted
+      // vents: posted, cancelled
       
       properties: {
         hasContent: {
@@ -109,14 +114,8 @@
         }).catch(function(reason) {
           console.log('Handle rejected promise ('+reason+') here.');
         });
-        
-        
-        
-        console.log('_handleResponse');
-        console.log(e.detail.response);
         this.$.titleText.value = '';
         this.$.bodyText.value = '';
-        this.$.bodyText.rows = 1;
         this.isWorking = false;
         this.hadSuccess = true;
         this.hadError = false;
@@ -128,7 +127,6 @@
         });
       },
       _onFocus: function() {
-        this.$.bodyText.rows = 2;
       },
       _onInput: function() {
         if (this.$.titleText && this.$.bodyText &&
@@ -139,7 +137,7 @@
           );
         }
       },
-      post: function() {
+      _post: function() {
         this.hadSuccess = false;
         this.hadError = false;
         this.isWorking = true;
@@ -148,6 +146,12 @@
           markdown: this.$.bodyText.value
         });
         this.$.ajax.generateRequest();
+      },
+      _cancel: function() {
+        console.log('cancel post');
+        this.async(function() {
+          this.fire('canceled', {});
+        });
       }
     });
   </script>

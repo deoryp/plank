@@ -12,10 +12,6 @@
       margin-right: 10px;
       opacity: .75;
     }
-    paper-icon-button:hover {
-      background: var(--paper-pink-400);
-      border-radius: 50%;
-    }
   </style>
   <template>
     <theforum-cookie id="cookie"></theforum-cookie>
@@ -26,22 +22,70 @@
         headers='{{_headers()}}'
         handle-as="json"
         on-response="_handleResponse"></iron-ajax>
-    <div class="horizontal layout center">
+    <div class="horizontal end-justified layout">
+      <paper-icon-button
+          icon="close"
+          on-click="_cancel"></paper-icon-button>
+    </div>
+    <h2>{{_title(title)}}</h2>
+    <div class="horizontal layout start">
       <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
-      <paper-textarea id="bodyText" label="omg..." class="flex center"></paper-textarea>
-      <paper-icon-button icon="reply-all" on-click="reply"></paper-icon-button>
+      <paper-textarea 
+          id="bodyText"
+          class="flex center"
+          rows="8"
+          max-rows="8"
+          on-focus="_onFocus"
+          on-input="_onInput"
+          label="omg..."></paper-textarea>
+    </div>
+    <div class="horizontal end-justified layout">
+      <paper-fab
+          icon="create"
+          on-click="_reply"
+          disabled$="{{!hasContent}}"
+          hidden$="{{!_postable(isWorking, hadSuccess, hadError)}}"></paper-icon-button>
+      <paper-spinner active hidden$="{{!isWorking}}"></paper-spinner>
+      <iron-icon icon="done" hidden$="{{!hadSuccess}}"></iron-icon>
+      <iron-icon icon="error" hidden$="{{!hadError}}"></iron-icon>
     </div>
   </template>
   <script>
-  Polymer({
+    Polymer({
       is: 'theforum-reply-compose',
+      
+      // vents: posted, cancelled
+      
       properties: {
+        hasContent: {
+          type: Boolean,
+          value: false
+        },
+        isWorking: {
+          type: Boolean,
+          value: false
+        },
+        hadSuccess: {
+          type: Boolean,
+          value: false
+        },
+        hadError: {
+          type: Boolean,
+          value: false
+        },
+        title: String,
         topic: String,
         thread: String,
         user: {
           type: Object,
           notify: true
         }
+      },
+      _postable: function(working, done, error) {
+        if (working || done || error) {
+          return false;
+        }
+        return true;
       },
       _createReplyUrl: function(topic, thread) {
         return '/api/thread/' + topic + '/' + thread + '/reply';
@@ -53,21 +97,44 @@
           'Content-Type': 'application/json'
         };
       },
+      _title: function() {
+        return 'Re: ' + this.title;
+      },
       _handleResponse: function(e) {
-        console.log('_handleResponse');
-        console.log(e.detail.response);
-        
+        this.$.bodyText.value = '';
+        this.isWorking = false;
+        this.hadSuccess = true;
+        this.hadError = false;
+        this.async(function() {
+          this.hadSuccess = false;
+        }, 2000);
         this.async(function() {
           this.fire('replied', e.detail.response);
         });
       },
-      reply: function() {
-        
+      _onFocus: function() {
+      },
+      _onInput: function() {
+        if (this.$.bodyText && this.$.bodyText.value) {
+          this.hasContent = (
+              this.$.bodyText.value.length > 0
+          );
+        }
+      },
+      _reply: function() {
+        this.hadSuccess = false;
+        this.hadError = false;
+        this.isWorking = true;
         this.$.ajax.body = JSON.stringify({
           markdown: this.$.bodyText.value
         });
-        
         this.$.ajax.generateRequest();
+      },
+      _cancel: function() {
+        console.log('cancel post');
+        this.async(function() {
+          this.fire('canceled', {});
+        });
       }
     });
   </script>

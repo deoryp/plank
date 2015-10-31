@@ -1,0 +1,121 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-reply2">
+  <style include="theforum-theme"></style>
+  <style>
+    img.author {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+  
+    div.author {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: top;
+      -webkit-align-items: top;
+          -ms-flex-align: top;
+              align-items: top;
+    }
+
+    div.author > span {
+      font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+      margin: 0px 10px 0px 10px;
+      font-size: .8em;
+      line-height: .8em;
+    }
+  
+    div.author > span.name {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      font-weight: bold;
+      font-size: .8em;
+    }
+    
+    div.author > span.date {
+      font-size: .65em;
+    }
+  
+    .markdown-html p {
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+    paper-menu-button {
+      padding: 0px;
+      padding-left: 5px;
+    }
+    
+    paper-icon-button.ghost {
+      color: #9E9E9E;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+    }
+  </style>
+  <template>
+    <paper-item>
+      <div class="horizontal layout flex">
+        <div>
+          <img class="author" src="{{reply.author.photo}}" alt="{{reply.author.name}}">
+        </div>
+        <div class="flex">
+          <div class="vertical layout">
+            <div class="author">
+              <span id="author-name" class="name">{{reply.author.handle}}</span>
+              <span id="author-at" class="date">{{prettyDate(reply.created)}}
+                <template is="dom-if" if="{{_hasOwnership(user, reply)}}">
+                  <paper-menu-button horizontal-align="right">
+                    <paper-icon-button icon="build" class="ghost dropdown-trigger" alt="edit"></paper-icon-button>
+                    <paper-menu class="dropdown-content">
+                      <paper-item>Edit</paper-item>
+                      <paper-item>Delete</paper-item>
+                    </paper-menu>
+                  </paper-menu-button>
+                </template>
+              </span> 
+            </div>
+            <div class="reply">
+              <marked-element markdown="{{reply.markdown}}">
+                <div class="markdown-html"></div>
+              </marked-element>
+            </div>
+          </div>
+        </div>
+      </div>
+    </paper-item>
+    
+  </template>
+  <script>
+  /* globals moment */
+  Polymer({
+      is: 'theforum-reply2',
+      properties: {
+        user: {
+          type: Object,
+          notify: true
+        },
+        reply: {
+          type: Object,
+          observer: '_replyChanged'
+        },
+      },
+      _replyChanged: function() {
+        // check it.
+      },
+      _hasOwnership: function(user, reply) {
+        if (user && reply) {
+          return (this.user._id === this.reply.author.id);
+        }
+        return false;
+      },
+      prettyDate: function(date) {
+        date = new Date(date);
+        return moment(date).fromNow();
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,195 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-thread2">
+  <style include="theforum-theme"></style>
+  <style>
+    :host > paper-card {
+      min-width: 100%;
+      margin-bottom: 20px;
+    }
+    .author > img, img.author {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+    img.ghost {
+      border-radius: 50%;
+      border-radius: 50%;
+      border-color: #9E9E9E;
+      border: dashed;
+      border-width: 1px;
+      opacity: .75;
+    }
+    span.ghost {
+      font-size: .8em;
+      color: #9E9E9E;
+      margin: 10px;
+    }
+    paper-menu-button {
+      padding: 0px;
+      padding-left: 5px;
+    }
+    
+    paper-icon-button.ghost {
+      color: #9E9E9E;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+    }
+    
+    paper-item.author {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    paper-item.author > span {
+      font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+      margin: 10px;
+      font-size: .8em;
+    }
+  
+    paper-item.author > span.name {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      font-weight: bold;
+    }
+    
+    paper-item.author > span.date {
+      font-size: .65em;
+    }
+
+    paper-item.author > iron-icon {
+      color: #9E9E9E;
+      --iron-icon-height: 16px;
+      --iron-icon-width: 16px;
+    }
+  </style>
+  <style is="custom-style">
+    iron-icon.heading-right {
+      color: #9E9E9E;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    
+    .list {
+      padding-top: 12px;
+      background-color: white;
+    }
+  </style>
+  <template>
+    
+    <paper-dialog
+        id="composeReplyDialog"
+        on-iron-overlay-opened="_dialogOpened"
+        on-iron-overlay-closed="_dialogClosed"
+        modal>
+        <theforum-reply-compose
+            title="[[thread.title]]"
+            topic="[[thread.topic]]"
+            thread="[[thread._id]]"
+            user="[[user]]"
+            on-replied="_userReplyPosted"
+            on-canceled="_userReplyCanceled"></theforum-reply-compose>
+    </paper-dialog>
+    
+    <paper-card animated
+        heading="{{thread.title}}"
+        elevation="{{elevation}}"
+        on-mouseover='onHovered' 
+        on-mouseout='onUnhovered'>
+      <iron-icon class="heading-right" icon="star" hidden$="{{!fresh}}"></iron-icon>
+      
+      <paper-item class="author">
+        <img src="{{thread.author.photo}}" alt="{{thread.author.name}}">
+        <span id="author-name" class="name flex">{{thread.author.handle}}</span>
+        
+        <span id="author-at" class="date">{{prettyDate(thread.created)}}
+          <template is="dom-if" if="[[_hasOwnership(user, thread)]]">
+            <paper-menu-button horizontal-align="right">
+              <paper-icon-button icon="build" class="ghost dropdown-trigger" alt="edit"></paper-icon-button>
+              <paper-menu class="dropdown-content">
+                <paper-item>Edit</paper-item>
+                <paper-item>Delete</paper-item>
+              </paper-menu>
+            </paper-menu-button>
+          </template>
+        </span>
+        
+      </paper-item>
+
+      <paper-item class="body">
+        <marked-element markdown="[[thread.markdown]]">
+          <div class="markdown-html"></div>
+        </marked-element>
+      </paper-item>
+      
+      <div role="listbox">
+        <template is="dom-repeat" items="{{thread.reply}}">
+          <theforum-reply2 user="[[user]]" reply="[[item]]"></theforum-reply2>
+        </template>
+      </div>
+      <paper-item class="card-actions reply" on-click="_composeReply">
+        <img class="author ghost" src="[[user.photo]]" alt="{{user.handle}}">
+        <span class="ghost">Add a comment...</span>
+      </paper-item>
+  </template>
+  <script>
+  /* globals moment */
+  Polymer({
+      is: 'theforum-thread2',
+      properties: {
+        user: {
+          type: Object,
+          notify: true
+        },
+        thread: {
+          type: Object,
+          observer: '_threadChanged'
+        }
+      },
+      elevation: 1,
+      onHovered: function() {
+        this.elevation = 3;
+      },
+      onUnhovered: function() {
+        this.elevation = 1;
+      },
+      _threadChanged: function() {
+        // check it.
+      },
+      _hasOwnership: function(user, thread) {
+        if (user && thread) {
+          return (this.user._id === this.thread.author.id);
+        }
+        return false;
+      },
+      prettyDate: function(date) {
+        date = new Date(date);
+        return moment(date).fromNow();
+      },
+      _composeReply: function() {
+        this.$.composeReplyDialog.open();
+      },
+      _dialogOpened: function() {
+        console.log('opened.');
+      },
+      _dialogClosed: function() {
+        console.log('closed.');
+      },
+      _userReplyPosted: function() {
+        this.$.composeReplyDialog.close();
+      },
+      _userReplyCanceled: function() {
+        this.$.composeReplyDialog.close();
+      },
+    });
+  </script>
+</dom-module>

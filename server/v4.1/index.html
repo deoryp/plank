@@ -31,20 +31,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <style is="custom-style">:root {--layout: {display: -ms-flexbox;display: -webkit-flex;display: flex;};--layout-inline: {display: -ms-inline-flexbox;display: -webkit-inline-flex;display: inline-flex;};--layout-horizontal: {/* @apply(--layout); */display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: row;-webkit-flex-direction: row;flex-direction: row;};--layout-horizontal-reverse: {-ms-flex-direction: row-reverse;-webkit-flex-direction: row-reverse;flex-direction: row-reverse;};--layout-vertical: {/* @apply(--layout); */display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: column;-webkit-flex-direction: column;flex-direction: column;};--layout-vertical-reverse: {-ms-flex-direction: column-reverse;-webkit-flex-direction: column-reverse;flex-direction: column-reverse;};--layout-wrap: {-ms-flex-wrap: wrap;-webkit-flex-wrap: wrap;flex-wrap: wrap;};--layout-wrap-reverse: {-ms-flex-wrap: wrap-reverse;-webkit-flex-wrap: wrap-reverse;flex-wrap: wrap-reverse;};--layout-flex-auto: {-ms-flex: 1 1 auto;-webkit-flex: 1 1 auto;flex: 1 1 auto;};--layout-flex-none: {-ms-flex: none;-webkit-flex: none;flex: none;};--layout-flex: {-ms-flex: 1 1 0.000000001px;-webkit-flex: 1;flex: 1;-webkit-flex-basis: 0.000000001px;flex-basis: 0.000000001px;};--layout-flex-2: {-ms-flex: 2;-webkit-flex: 2;flex: 2;};--layout-flex-3: {-ms-flex: 3;-webkit-flex: 3;flex: 3;};--layout-flex-4: {-ms-flex: 4;-webkit-flex: 4;flex: 4;};--layout-flex-5: {-ms-flex: 5;-webkit-flex: 5;flex: 5;};--layout-flex-6: {-ms-flex: 6;-webkit-flex: 6;flex: 6;};--layout-flex-7: {-ms-flex: 7;-webkit-flex: 7;flex: 7;};--layout-flex-8: {-ms-flex: 8;-webkit-flex: 8;flex: 8;};--layout-flex-9: {-ms-flex: 9;-webkit-flex: 9;flex: 9;};--layout-flex-10: {-ms-flex: 10;-webkit-flex: 10;flex: 10;};--layout-flex-11: {-ms-flex: 11;-webkit-flex: 11;flex: 11;};--layout-flex-12: {-ms-flex: 12;-webkit-flex: 12;flex: 12;};/* alignment in cross axis */--layout-start: {-ms-flex-align: start;-webkit-align-items: flex-start;align-items: flex-start;};--layout-center: {-ms-flex-align: center;-webkit-align-items: center;align-items: center;};--layout-end: {-ms-flex-align: end;-webkit-align-items: flex-end;align-items: flex-end;};/* alignment in main axis */--layout-start-justified: {-ms-flex-pack: start;-webkit-justify-content: flex-start;justify-content: flex-start;};--layout-center-justified: {-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;};--layout-end-justified: {-ms-flex-pack: end;-webkit-justify-content: flex-end;justify-content: flex-end;};--layout-around-justified: {-ms-flex-pack: around;-webkit-justify-content: space-around;justify-content: space-around;};--layout-justified: {-ms-flex-pack: justify;-webkit-justify-content: space-between;justify-content: space-between;};--layout-center-center: {/* @apply(--layout-center --layout-center-justified); */-ms-flex-align: center;-webkit-align-items: center;align-items: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;};/* self alignment */--layout-self-start: {-ms-align-self: flex-start;-webkit-align-self: flex-start;align-self: flex-start;};--layout-self-center: {-ms-align-self: center;-webkit-align-self: center;align-self: center;};--layout-self-end: {-ms-align-self: flex-end;-webkit-align-self: flex-end;align-self: flex-end;};--layout-self-stretch: {-ms-align-self: stretch;-webkit-align-self: stretch;align-self: stretch;};/*******************************Other Layout*******************************/--layout-block: {display: block;};--layout-invisible: {visibility: hidden !important;};--layout-relative: {position: relative;};--layout-fit: {position: absolute;top: 0;right: 0;bottom: 0;left: 0;};--layout-scroll: {-webkit-overflow-scrolling: touch;overflow: auto;};/* fixed position */--layout-fixed-top: {position: fixed;top: 0;left: 0;right: 0;};--layout-fixed-right: {position: fixed;top: 0;right: 0;bottom: 0;};--layout-fixed-bottom: {position: fixed;right: 0;bottom: 0;left: 0;};--layout-fixed-left: {position: fixed;top: 0;bottom: 0;left: 0;};}</style>
 
 
+<style is="custom-style">:root {--dark-primary-color: #303f9f;--default-primary-color: #3f51b5;--light-primary-color: #c5cae9;--text-primary-color: #ffffff;--accent-color: #ff4081;--primary-background-color: #ffffff;--primary-text-color: #212121;--secondary-text-color: #757575;--disabled-text-color: #bdbdbd;--divider-color: #e0e0e0;}</style>
+
+
 <style is="custom-style">:root {--shadow-transition: {transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);};--shadow-none: {box-shadow: none;};/* from http://codepen.io/shyndman/pen/c5394ddf2e8b2a5c9185904b57421cdb */--shadow-elevation-2dp: {box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),0 1px 5px 0 rgba(0, 0, 0, 0.12),0 3px 1px -2px rgba(0, 0, 0, 0.2);};--shadow-elevation-3dp: {box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),0 1px 8px 0 rgba(0, 0, 0, 0.12),0 3px 3px -2px rgba(0, 0, 0, 0.4);};--shadow-elevation-4dp: {box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),0 1px 10px 0 rgba(0, 0, 0, 0.12),0 2px 4px -1px rgba(0, 0, 0, 0.4);};--shadow-elevation-6dp: {box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),0 1px 18px 0 rgba(0, 0, 0, 0.12),0 3px 5px -1px rgba(0, 0, 0, 0.4);};--shadow-elevation-8dp: {box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),0 3px 14px 2px rgba(0, 0, 0, 0.12),0 5px 5px -3px rgba(0, 0, 0, 0.4);};--shadow-elevation-16dp: {box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),06px 30px 5px rgba(0, 0, 0, 0.12),08px 10px -5px rgba(0, 0, 0, 0.4);};}</style>
 
 
-<style is="custom-style">:root {--dark-primary-color: #303f9f;--default-primary-color: #3f51b5;--light-primary-color: #c5cae9;--text-primary-color: #ffffff;--accent-color: #ff4081;--primary-background-color: #ffffff;--primary-text-color: #212121;--secondary-text-color: #757575;--disabled-text-color: #bdbdbd;--divider-color: #e0e0e0;}</style>
 <style is="custom-style">:root {/* Material Design color palette for Google products */--google-red-100: #f4c7c3;--google-red-300: #e67c73;--google-red-500: #db4437;--google-red-700: #c53929;--google-blue-100: #c6dafc;--google-blue-300: #7baaf7;--google-blue-500: #4285f4;--google-blue-700: #3367d6;--google-green-100: #b7e1cd;--google-green-300: #57bb8a;--google-green-500: #0f9d58;--google-green-700: #0b8043;--google-yellow-100: #fce8b2;--google-yellow-300: #f7cb4d;--google-yellow-500: #f4b400;--google-yellow-700: #f09300;--google-grey-100: #f5f5f5;--google-grey-300: #e0e0e0;--google-grey-500: #9e9e9e;--google-grey-700: #616161;/* Material Design color palette from online spec document */--paper-red-50: #ffebee;--paper-red-100: #ffcdd2;--paper-red-200: #ef9a9a;--paper-red-300: #e57373;--paper-red-400: #ef5350;--paper-red-500: #f44336;--paper-red-600: #e53935;--paper-red-700: #d32f2f;--paper-red-800: #c62828;--paper-red-900: #b71c1c;--paper-red-a100: #ff8a80;--paper-red-a200: #ff5252;--paper-red-a400: #ff1744;--paper-red-a700: #d50000;--paper-pink-50: #fce4ec;--paper-pink-100: #f8bbd0;--paper-pink-200: #f48fb1;--paper-pink-300: #f06292;--paper-pink-400: #ec407a;--paper-pink-500: #e91e63;--paper-pink-600: #d81b60;--paper-pink-700: #c2185b;--paper-pink-800: #ad1457;--paper-pink-900: #880e4f;--paper-pink-a100: #ff80ab;--paper-pink-a200: #ff4081;--paper-pink-a400: #f50057;--paper-pink-a700: #c51162;--paper-purple-50: #f3e5f5;--paper-purple-100: #e1bee7;--paper-purple-200: #ce93d8;--paper-purple-300: #ba68c8;--paper-purple-400: #ab47bc;--paper-purple-500: #9c27b0;--paper-purple-600: #8e24aa;--paper-purple-700: #7b1fa2;--paper-purple-800: #6a1b9a;--paper-purple-900: #4a148c;--paper-purple-a100: #ea80fc;--paper-purple-a200: #e040fb;--paper-purple-a400: #d500f9;--paper-purple-a700: #aa00ff;--paper-deep-purple-50: #ede7f6;--paper-deep-purple-100: #d1c4e9;--paper-deep-purple-200: #b39ddb;--paper-deep-purple-300: #9575cd;--paper-deep-purple-400: #7e57c2;--paper-deep-purple-500: #673ab7;--paper-deep-purple-600: #5e35b1;--paper-deep-purple-700: #512da8;--paper-deep-purple-800: #4527a0;--paper-deep-purple-900: #311b92;--paper-deep-purple-a100: #b388ff;--paper-deep-purple-a200: #7c4dff;--paper-deep-purple-a400: #651fff;--paper-deep-purple-a700: #6200ea;--paper-indigo-50: #e8eaf6;--paper-indigo-100: #c5cae9;--paper-indigo-200: #9fa8da;--paper-indigo-300: #7986cb;--paper-indigo-400: #5c6bc0;--paper-indigo-500: #3f51b5;--paper-indigo-600: #3949ab;--paper-indigo-700: #303f9f;--paper-indigo-800: #283593;--paper-indigo-900: #1a237e;--paper-indigo-a100: #8c9eff;--paper-indigo-a200: #536dfe;--paper-indigo-a400: #3d5afe;--paper-indigo-a700: #304ffe;--paper-blue-50: #e3f2fd;--paper-blue-100: #bbdefb;--paper-blue-200: #90caf9;--paper-blue-300: #64b5f6;--paper-blue-400: #42a5f5;--paper-blue-500: #2196f3;--paper-blue-600: #1e88e5;--paper-blue-700: #1976d2;--paper-blue-800: #1565c0;--paper-blue-900: #0d47a1;--paper-blue-a100: #82b1ff;--paper-blue-a200: #448aff;--paper-blue-a400: #2979ff;--paper-blue-a700: #2962ff;--paper-light-blue-50: #e1f5fe;--paper-light-blue-100: #b3e5fc;--paper-light-blue-200: #81d4fa;--paper-light-blue-300: #4fc3f7;--paper-light-blue-400: #29b6f6;--paper-light-blue-500: #03a9f4;--paper-light-blue-600: #039be5;--paper-light-blue-700: #0288d1;--paper-light-blue-800: #0277bd;--paper-light-blue-900: #01579b;--paper-light-blue-a100: #80d8ff;--paper-light-blue-a200: #40c4ff;--paper-light-blue-a400: #00b0ff;--paper-light-blue-a700: #0091ea;--paper-cyan-50: #e0f7fa;--paper-cyan-100: #b2ebf2;--paper-cyan-200: #80deea;--paper-cyan-300: #4dd0e1;--paper-cyan-400: #26c6da;--paper-cyan-500: #00bcd4;--paper-cyan-600: #00acc1;--paper-cyan-700: #0097a7;--paper-cyan-800: #00838f;--paper-cyan-900: #006064;--paper-cyan-a100: #84ffff;--paper-cyan-a200: #18ffff;--paper-cyan-a400: #00e5ff;--paper-cyan-a700: #00b8d4;--paper-teal-50: #e0f2f1;--paper-teal-100: #b2dfdb;--paper-teal-200: #80cbc4;--paper-teal-300: #4db6ac;--paper-teal-400: #26a69a;--paper-teal-500: #009688;--paper-teal-600: #00897b;--paper-teal-700: #00796b;--paper-teal-800: #00695c;--paper-teal-900: #004d40;--paper-teal-a100: #a7ffeb;--paper-teal-a200: #64ffda;--paper-teal-a400: #1de9b6;--paper-teal-a700: #00bfa5;--paper-green-50: #e8f5e9;--paper-green-100: #c8e6c9;--paper-green-200: #a5d6a7;--paper-green-300: #81c784;--paper-green-400: #66bb6a;--paper-green-500: #4caf50;--paper-green-600: #43a047;--paper-green-700: #388e3c;--paper-green-800: #2e7d32;--paper-green-900: #1b5e20;--paper-green-a100: #b9f6ca;--paper-green-a200: #69f0ae;--paper-green-a400: #00e676;--paper-green-a700: #00c853;--paper-light-green-50: #f1f8e9;--paper-light-green-100: #dcedc8;--paper-light-green-200: #c5e1a5;--paper-light-green-300: #aed581;--paper-light-green-400: #9ccc65;--paper-light-green-500: #8bc34a;--paper-light-green-600: #7cb342;--paper-light-green-700: #689f38;--paper-light-green-800: #558b2f;--paper-light-green-900: #33691e;--paper-light-green-a100: #ccff90;--paper-light-green-a200: #b2ff59;--paper-light-green-a400: #76ff03;--paper-light-green-a700: #64dd17;--paper-lime-50: #f9fbe7;--paper-lime-100: #f0f4c3;--paper-lime-200: #e6ee9c;--paper-lime-300: #dce775;--paper-lime-400: #d4e157;--paper-lime-500: #cddc39;--paper-lime-600: #c0ca33;--paper-lime-700: #afb42b;--paper-lime-800: #9e9d24;--paper-lime-900: #827717;--paper-lime-a100: #f4ff81;--paper-lime-a200: #eeff41;--paper-lime-a400: #c6ff00;--paper-lime-a700: #aeea00;--paper-yellow-50: #fffde7;--paper-yellow-100: #fff9c4;--paper-yellow-200: #fff59d;--paper-yellow-300: #fff176;--paper-yellow-400: #ffee58;--paper-yellow-500: #ffeb3b;--paper-yellow-600: #fdd835;--paper-yellow-700: #fbc02d;--paper-yellow-800: #f9a825;--paper-yellow-900: #f57f17;--paper-yellow-a100: #ffff8d;--paper-yellow-a200: #ffff00;--paper-yellow-a400: #ffea00;--paper-yellow-a700: #ffd600;--paper-amber-50: #fff8e1;--paper-amber-100: #ffecb3;--paper-amber-200: #ffe082;--paper-amber-300: #ffd54f;--paper-amber-400: #ffca28;--paper-amber-500: #ffc107;--paper-amber-600: #ffb300;--paper-amber-700: #ffa000;--paper-amber-800: #ff8f00;--paper-amber-900: #ff6f00;--paper-amber-a100: #ffe57f;--paper-amber-a200: #ffd740;--paper-amber-a400: #ffc400;--paper-amber-a700: #ffab00;--paper-orange-50: #fff3e0;--paper-orange-100: #ffe0b2;--paper-orange-200: #ffcc80;--paper-orange-300: #ffb74d;--paper-orange-400: #ffa726;--paper-orange-500: #ff9800;--paper-orange-600: #fb8c00;--paper-orange-700: #f57c00;--paper-orange-800: #ef6c00;--paper-orange-900: #e65100;--paper-orange-a100: #ffd180;--paper-orange-a200: #ffab40;--paper-orange-a400: #ff9100;--paper-orange-a700: #ff6500;--paper-deep-orange-50: #fbe9e7;--paper-deep-orange-100: #ffccbc;--paper-deep-orange-200: #ffab91;--paper-deep-orange-300: #ff8a65;--paper-deep-orange-400: #ff7043;--paper-deep-orange-500: #ff5722;--paper-deep-orange-600: #f4511e;--paper-deep-orange-700: #e64a19;--paper-deep-orange-800: #d84315;--paper-deep-orange-900: #bf360c;--paper-deep-orange-a100: #ff9e80;--paper-deep-orange-a200: #ff6e40;--paper-deep-orange-a400: #ff3d00;--paper-deep-orange-a700: #dd2c00;--paper-brown-50: #efebe9;--paper-brown-100: #d7ccc8;--paper-brown-200: #bcaaa4;--paper-brown-300: #a1887f;--paper-brown-400: #8d6e63;--paper-brown-500: #795548;--paper-brown-600: #6d4c41;--paper-brown-700: #5d4037;--paper-brown-800: #4e342e;--paper-brown-900: #3e2723;--paper-grey-50: #fafafa;--paper-grey-100: #f5f5f5;--paper-grey-200: #eeeeee;--paper-grey-300: #e0e0e0;--paper-grey-400: #bdbdbd;--paper-grey-500: #9e9e9e;--paper-grey-600: #757575;--paper-grey-700: #616161;--paper-grey-800: #424242;--paper-grey-900: #212121;--paper-blue-grey-50: #eceff1;--paper-blue-grey-100: #cfd8dc;--paper-blue-grey-200: #b0bec5;--paper-blue-grey-300: #90a4ae;--paper-blue-grey-400: #78909c;--paper-blue-grey-500: #607d8b;--paper-blue-grey-600: #546e7a;--paper-blue-grey-700: #455a64;--paper-blue-grey-800: #37474f;--paper-blue-grey-900: #263238;/* opacity for dark text on a light background */--dark-divider-opacity: 0.12;--dark-disabled-opacity: 0.26; /* or hint text */--dark-secondary-opacity: 0.54; /* or icon */--dark-primary-opacity: 0.87;/* opacity for light text on a dark background */--light-divider-opacity: 0.12;--light-disabled-opacity: 0.3; /* or hint text */--light-secondary-opacity: 0.7; /* or icon */--light-primary-opacity: 1.0;}</style>
-
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
 <style is="custom-style">:root {/* Shared Styles *//*Unfortunately, we can't use nested rulesSee https://github.com/Polymer/polymer/issues/1399*/--paper-font-common-base: {font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;};--paper-font-common-code: {font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;};--paper-font-common-expensive-kerning: {text-rendering: optimizeLegibility;};--paper-font-common-nowrap: {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;};/* Material Font Styles */--paper-font-display4: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 112px;font-weight: 300;letter-spacing: -.044em;line-height: 120px;};--paper-font-display3: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 56px;font-weight: 400;letter-spacing: -.026em;line-height: 60px;};--paper-font-display2: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 45px;font-weight: 400;letter-spacing: -.018em;line-height: 48px;};--paper-font-display1: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 34px;font-weight: 400;letter-spacing: -.01em;line-height: 40px;};--paper-font-headline: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 24px;font-weight: 400;letter-spacing: -.012em;line-height: 32px;};--paper-font-title: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 20px;font-weight: 500;line-height: 28px;};--paper-font-subhead: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;font-size: 16px;font-weight: 400;line-height: 24px;};--paper-font-body2: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 500;line-height: 24px;};--paper-font-body1: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 400;line-height: 20px;};--paper-font-caption: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 12px;font-weight: 400;letter-spacing: 0.011em;line-height: 20px;};--paper-font-menu: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 13px;font-weight: 500;line-height: 24px;};--paper-font-button: {/* @apply(--paper-font-common-base) */font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* @apply(--paper-font-common-expensive-kerning); */text-rendering: optimizeLegibility;/* @apply(--paper-font-common-nowrap); */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 14px;font-weight: 500;letter-spacing: 0.018em;line-height: 24px;text-transform: uppercase;};--paper-font-code2: {/* @apply(--paper-font-common-code); */font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 700;line-height: 20px;};--paper-font-code1: {/* @apply(--paper-font-common-code); */font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;font-size: 14px;font-weight: 500;line-height: 20px;};}</style>
-
-
-
-
 
 
 <style>.paper-font-display4,.paper-font-display3,.paper-font-display2,.paper-font-display1,.paper-font-headline,.paper-font-title,.paper-font-subhead,.paper-font-body2,.paper-font-body1,.paper-font-caption,.paper-font-menu,.paper-font-button {font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;/* OS X subpixel AA bleed bug */}.paper-font-code2,.paper-font-code1 {font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;-webkit-font-smoothing: antialiased;/* OS X subpixel AA bleed bug */}/* Opt for better kerning for headers & other short labels. */.paper-font-display4,.paper-font-display3,.paper-font-display2,.paper-font-display1,.paper-font-headline,.paper-font-title,.paper-font-subhead,.paper-font-menu,.paper-font-button {text-rendering: optimizeLegibility;}/*"Line wrapping only applies to Body, Subhead, Headline, and the smaller Displaystyles. All other styles should exist as single lines."*/.paper-font-display4,.paper-font-display3,.paper-font-title,.paper-font-caption,.paper-font-menu,.paper-font-button {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}.paper-font-display4 {font-size: 112px;font-weight: 300;letter-spacing: -.044em;line-height: 120px;}.paper-font-display3 {font-size: 56px;font-weight: 400;letter-spacing: -.026em;line-height: 60px;}.paper-font-display2 {font-size: 45px;font-weight: 400;letter-spacing: -.018em;line-height: 48px;}.paper-font-display1 {font-size: 34px;font-weight: 400;letter-spacing: -.01em;line-height: 40px;}.paper-font-headline {font-size: 24px;font-weight: 400;letter-spacing: -.012em;line-height: 32px;}.paper-font-title {font-size: 20px;font-weight: 500;line-height: 28px;}.paper-font-subhead {font-size: 16px;font-weight: 400;line-height: 24px;}.paper-font-body2 {font-size: 14px;font-weight: 500;line-height: 24px;}.paper-font-body1 {font-size: 14px;font-weight: 400;line-height: 20px;}.paper-font-caption {font-size: 12px;font-weight: 400;letter-spacing: 0.011em;line-height: 20px;}.paper-font-menu {font-size: 13px;font-weight: 500;line-height: 24px;}.paper-font-button {font-size: 14px;font-weight: 500;letter-spacing: 0.018em;line-height: 24px;text-transform: uppercase;}.paper-font-code2 {font-size: 14px;font-weight: 700;line-height: 20px;}.paper-font-code1 {font-size: 14px;font-weight: 700;line-height: 20px;}</style>
@@ -57,7 +53,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-<style is="custom-style">/*Polymer includes a shim for CSS Custom Properties that we can use for application theming.Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to playwith changing the colors used or generate your own palette of colours at MaterialPalette.com.See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-detailsfor further information on custom CSS properties.*//* Application theme */:root {--dark-primary-color: #303F9F;--default-primary-color: #3F51B5;--light-primary-color: #C5CAE9;--text-primary-color: #ffffff; /*text/icons*/--accent-color: #FF4081;--primary-background-color: #c5cae9;--primary-text-color: #212121;--secondary-text-color: #727272;--disabled-text-color: #bdbdbd;--divider-color: #B6B6B6;/* Components *//* paper-drawer-panel */--drawer-menu-color: #ffffff;--drawer-border-color: 1px solid #ccc;--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);/* paper-menu */--paper-menu-background-color: #fff;--menu-link-color: #111111;}/* General styles */#drawerToolbar {color: var(--secondary-text-color);background-color: var(--drawer-menu-color);border-bottom: var(--drawer-toolbar-border-color);}paper-scroll-header-panel {height: 100%;}paper-material {border-radius: 2px;height: 100%;padding: 16px 0 16px 0;width: calc(98.66% - 16px);margin: 16px auto;background: white;}paper-menu iron-icon {margin-right: 33px;opacity: 0.54;}.paper-menu > .iron-selected {color: var(--default-primary-color);}paper-menu a {text-decoration: none;color: var(--menu-link-color);display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: row;-webkit-flex-direction: row;flex-direction: row;-ms-flex-align: center;-webkit-align-items: center;align-items: center;font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;text-rendering: optimizeLegibility;font-size: 14px;font-weight: 400;line-height: 24px;min-height: 48px;padding: 0 16px;}paper-toolbar.tall .app-name {font-size: 40px;font-weight: 300;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}#mainToolbar .middle-container{height: 100%;margin-left: 48px;}#mainToolbar:not(.tall) .middle {font-size: 18px;padding-bottom: 0;}#mainToolbar .bottom {margin-left: 48px;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}/* Height of the scroll area */.content {height: 900px;}/* Breakpoints *//* Small */@media (max-width: 600px) {paper-material {--menu-container-display: none;width: calc(97.33% - 32px);padding-left: 16px;padding-right: 16px;}paper-toolbar.tall .app-name {font-size: 24px;font-weight: 400;}#drawer .paper-toolbar {margin-left: 16px;}#overlay {min-width: 360px;}.bg {background: white;}}/* Tablet+ */@media (min-width: 601px) {paper-material {width: calc(98% - 46px);margin-bottom: 32px;padding-left: 30px;padding-right: 30px;}#drawer.paper-drawer-panel > [drawer] {border-right: 1px solid rgba(0, 0, 0, 0.14);}iron-pages {padding: 48px 62px;}}/* Material Design Adaptive Breakpoints *//*Below you'll find CSS media queries based on the breakpoint guidancepublished by the Material Design team. You can choose to use, customiseor remove these breakpoints based on your needs.http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints*//* mobile-small */@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }/* mobile-large */@media all and (min-width: 361px) and (orientation: portrait) { }/* mobile-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* mobile-large-landscape */@media all and (min-width: 481px) and (orientation: landscape) { }/* tablet-small-landscape */@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }/* tablet-large-landscape */@media all and (min-width: 961px) and (orientation: landscape) { }/* tablet-small */@media all and (min-width: 600px) and (orientation: portrait) { }/* tablet-large */@media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }/* desktop-x-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* desktop-x-small */@media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }/* desktop-small-landscape */@media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }/* desktop-small */@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }/* desktop-medium-landscape */@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }/* desktop-medium */@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }/* desktop-large */@media all and (min-width: 1281px) and (max-width: 1600px) { }/* desktop-xlarge */@media all and (min-width: 1601px) and (max-width: 1920px) { }</style><style is="custom-style" include="shared-styles"></style></head><body unresolved="" class="fullbleed layout vertical"><div hidden="" by-vulcanize=""><dom-module id="iron-icon" assetpath="bower_components/iron-icon/">
+<style is="custom-style">/*Polymer includes a shim for CSS Custom Properties that we can use for application theming.Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to playwith changing the colors used or generate your own palette of colours at MaterialPalette.com.See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-detailsfor further information on custom CSS properties.*//* Application theme */:root {--dark-primary-color: #303F9F;--default-primary-color: #3F51B5;--light-primary-color: #C5CAE9;--text-primary-color: #ffffff; /*text/icons*/--accent-color: #FF4081;--primary-background-color: #c5cae9;--primary-text-color: #212121;--secondary-text-color: #727272;--disabled-text-color: #bdbdbd;--divider-color: #B6B6B6;/* Components *//* paper-drawer-panel */--drawer-menu-color: #ffffff;--drawer-border-color: 1px solid #ccc;--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);/* paper-menu */--paper-menu-background-color: #fff;--menu-link-color: #111111;}/* General styles */#drawerToolbar {color: var(--secondary-text-color);background-color: var(--drawer-menu-color);border-bottom: var(--drawer-toolbar-border-color);}paper-scroll-header-panel {height: 100%;}paper-material {border-radius: 2px;height: 100%;padding: 16px 0 16px 0;width: calc(98.66% - 16px);margin: 16px auto;background: white;}paper-menu iron-icon {margin-right: 33px;opacity: 0.54;}.paper-menu > .iron-selected {color: var(--default-primary-color);}paper-menu a {text-decoration: none;color: var(--menu-link-color);display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: row;-webkit-flex-direction: row;flex-direction: row;-ms-flex-align: center;-webkit-align-items: center;align-items: center;font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;text-rendering: optimizeLegibility;font-size: 14px;font-weight: 400;line-height: 24px;min-height: 48px;padding: 0 16px;}paper-toolbar.tall .app-name {font-size: 40px;font-weight: 300;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}#mainToolbar .middle-container{height: 100%;margin-left: 48px;}#mainToolbar:not(.tall) .middle {font-size: 18px;padding-bottom: 0;}#mainToolbar .bottom {margin-left: 48px;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}/* Height of the scroll area */.content {height: 900px;}/* Breakpoints *//* Small */@media (max-width: 600px) {paper-material {--menu-container-display: none;width: calc(97.33% - 32px);padding-left: 16px;padding-right: 16px;}paper-toolbar.tall .app-name {font-size: 24px;font-weight: 400;}#drawer .paper-toolbar {margin-left: 16px;}#overlay {min-width: 360px;}.bg {background: white;}}/* Tablet+ */@media (min-width: 601px) {paper-material {width: calc(98% - 46px);margin-bottom: 32px;padding-left: 30px;padding-right: 30px;}#drawer.paper-drawer-panel > [drawer] {border-right: 1px solid rgba(0, 0, 0, 0.14);}iron-pages {padding: 48px 62px;}}/* Material Design Adaptive Breakpoints *//*Below you'll find CSS media queries based on the breakpoint guidancepublished by the Material Design team. You can choose to use, customiseor remove these breakpoints based on your needs.http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints*//* mobile-small */@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }/* mobile-large */@media all and (min-width: 361px) and (orientation: portrait) { }/* mobile-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* mobile-large-landscape */@media all and (min-width: 481px) and (orientation: landscape) { }/* tablet-small-landscape */@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }/* tablet-large-landscape */@media all and (min-width: 961px) and (orientation: landscape) { }/* tablet-small */@media all and (min-width: 600px) and (orientation: portrait) { }/* tablet-large */@media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }/* desktop-x-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* desktop-x-small */@media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }/* desktop-small-landscape */@media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }/* desktop-small */@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }/* desktop-medium-landscape */@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }/* desktop-medium */@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }/* desktop-large */@media all and (min-width: 1281px) and (max-width: 1600px) { }/* desktop-xlarge */@media all and (min-width: 1601px) and (max-width: 1920px) { }</style><style is="custom-style" include="shared-styles"></style></head><body unresolved="" class="fullbleed layout vertical"><div hidden="" by-vulcanize=""><dom-module id="iron-collapse" assetpath="bower_components/iron-collapse/">
+
+  <style>:host {display: block;transition-duration: 300ms;}:host(.iron-collapse-closed) {display: none;}:host(:not(.iron-collapse-opened)) {overflow: hidden;}</style>
+
+  <template>
+
+    <content></content>
+
+  </template>
+
+</dom-module>
+
+<dom-module id="iron-icon" assetpath="bower_components/iron-icon/">
 
   <style>:host {@apply(--layout-inline);@apply(--layout-center-center);position: relative;vertical-align: middle;fill: currentcolor;width: var(--iron-icon-width, 24px);height: var(--iron-icon-height, 24px);}</style>
 
@@ -65,6 +73,116 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   </dom-module>
+<iron-iconset-svg name="av" size="24">
+<svg><defs>
+<g id="airplay"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><defs><path id="c" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><clipPath id="d" clip-path="url(#b)"><use xlink:href="#c" overflow="visible"></use></clipPath><path d="M6 22h12l-6-6zM21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3V5h18v12h-4v2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" clip-path="url(#d)"></path></g>
+<g id="album"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path></g>
+<g id="av-timer"><path d="M11 17c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1zm0-14v4h2V5.08c3.39.49 6 3.39 6 6.92 0 3.87-3.13 7-7 7s-7-3.13-7-7c0-1.68.59-3.22 1.58-4.42L12 13l1.41-1.41-6.8-6.8v.02C4.42 6.45 3 9.05 3 12c0 4.97 4.02 9 9 9 4.97 0 9-4.03 9-9s-4.03-9-9-9h-1zm7 9c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zM6 12c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1z"></path></g>
+<g id="closed-caption"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"></path></g>
+<g id="equalizer"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"></path></g>
+<g id="explicit"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h4v2h-4v2h4v2H9V7h6v2z"></path></g>
+<g id="fast-forward"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"></path></g>
+<g id="fast-rewind"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"></path></g>
+<g id="forward-10"><defs><path id="a" d="M24 24H0V0h24v24z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M4 13c0 4.4 3.6 8 8 8s8-3.6 8-8h-2c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6v4l5-5-5-5v4c-4.4 0-8 3.6-8 8zm6.8 3H10v-3.3L9 13v-.7l1.8-.6h.1V16zm4.3-1.8c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1.3.2.5.3.2.3.3.6.1.5.1.8v.7zm-.8-.8v-.5s-.1-.2-.1-.3-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5z" clip-path="url(#b)"></path></g>
+<g id="forward-30"><defs><path id="a" d="M24 24H0V0h24v24z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M9.6 13.5h.4c.2 0 .4-.1.5-.2s.2-.2.2-.4v-.2s-.1-.1-.1-.2-.1-.1-.2-.1h-.5s-.1.1-.2.1-.1.1-.1.2v.2h-1c0-.2 0-.3.1-.5s.2-.3.3-.4.3-.2.4-.2.4-.1.5-.1c.2 0 .4 0 .6.1s.3.1.5.2.2.2.3.4.1.3.1.5v.3s-.1.2-.1.3-.1.2-.2.2-.2.1-.3.2c.2.1.4.2.5.4s.2.4.2.6c0 .2 0 .4-.1.5s-.2.3-.3.4-.3.2-.5.2-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.4-.1-.6h.8v.2s.1.1.1.2.1.1.2.1h.5s.1-.1.2-.1.1-.1.1-.2v-.5s-.1-.1-.1-.2-.1-.1-.2-.1h-.6v-.7zm5.7.7c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1.3.2.5.3.2.3.3.6.1.5.1.8v.7zm-.9-.8v-.5s-.1-.2-.1-.3-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5zM4 13c0 4.4 3.6 8 8 8s8-3.6 8-8h-2c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6v4l5-5-5-5v4c-4.4 0-8 3.6-8 8z" clip-path="url(#b)"></path></g>
+<g id="forward-5"><defs><path id="a" d="M24 24H0V0h24v24z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M4 13c0 4.4 3.6 8 8 8s8-3.6 8-8h-2c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6v4l5-5-5-5v4c-4.4 0-8 3.6-8 8zm6.7.9l.2-2.2h2.4v.7h-1.7l-.1.9s.1 0 .1-.1.1 0 .1-.1.1 0 .2 0h.2c.2 0 .4 0 .5.1s.3.2.4.3.2.3.3.5.1.4.1.6c0 .2 0 .4-.1.5s-.1.3-.3.5-.3.2-.5.3-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.3-.1-.5h.8c0 .2.1.3.2.4s.2.1.4.1c.1 0 .2 0 .3-.1l.2-.2s.1-.2.1-.3v-.6l-.1-.2-.2-.2s-.2-.1-.3-.1h-.2s-.1 0-.2.1-.1 0-.1.1-.1.1-.1.1h-.6z" clip-path="url(#b)"></path></g>
+<g id="games"><path d="M15 7.5V2H9v5.5l3 3 3-3zM7.5 9H2v6h5.5l3-3-3-3zM9 16.5V22h6v-5.5l-3-3-3 3zM16.5 9l-3 3 3 3H22V9h-5.5z"></path></g>
+<g id="hd"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 12H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11v6zm2-6h4c.55 0 1 .45 1 1v4c0 .55-.45 1-1 1h-4V9zm1.5 4.5h2v-3h-2v3z"></path></g>
+<g id="hearing"><path d="M17 20c-.29 0-.56-.06-.76-.15-.71-.37-1.21-.88-1.71-2.38-.51-1.56-1.47-2.29-2.39-3-.79-.61-1.61-1.24-2.32-2.53C9.29 10.98 9 9.93 9 9c0-2.8 2.2-5 5-5s5 2.2 5 5h2c0-3.93-3.07-7-7-7S7 5.07 7 9c0 1.26.38 2.65 1.07 3.9.91 1.65 1.98 2.48 2.85 3.15.81.62 1.39 1.07 1.71 2.05.6 1.82 1.37 2.84 2.73 3.55.51.23 1.07.35 1.64.35 2.21 0 4-1.79 4-4h-2c0 1.1-.9 2-2 2zM7.64 2.64L6.22 1.22C4.23 3.21 3 5.96 3 9s1.23 5.79 3.22 7.78l1.41-1.41C6.01 13.74 5 11.49 5 9s1.01-4.74 2.64-6.36zM11.5 9c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5-2.5 1.12-2.5 2.5z"></path></g>
+<g id="high-quality"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 11H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11v6zm7-1c0 .55-.45 1-1 1h-.75v1.5h-1.5V15H14c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v4zm-3.5-.5h2v-3h-2v3z"></path></g>
+<g id="library-add"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"></path></g>
+<g id="library-books"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"></path></g>
+<g id="library-music"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 5h-3v5.5c0 1.38-1.12 2.5-2.5 2.5S10 13.88 10 12.5s1.12-2.5 2.5-2.5c.57 0 1.08.19 1.5.51V5h4v2zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"></path></g>
+<g id="loop"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"></path></g>
+<g id="mic"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"></path></g>
+<g id="mic-none"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2-.66 0-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"></path></g>
+<g id="mic-off"><path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"></path></g>
+<g id="movie"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"></path></g>
+<g id="new-releases"><path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 5h-2v-2h2v2zm0-4h-2V7h2v6z"></path></g>
+<g id="not-interested"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"></path></g>
+<g id="pause"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></g>
+<g id="pause-circle-filled"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"></path></g>
+<g id="pause-circle-outline"><path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"></path></g>
+<g id="play-arrow"><path d="M8 5v14l11-7z"></path></g>
+<g id="play-circle-filled"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></g>
+<g id="play-circle-outline"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
+<g id="playlist-add"><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"></path></g>
+<g id="queue"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"></path></g>
+<g id="queue-music"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"></path></g>
+<g id="radio"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.89 2 2 2h16c1.11 0 2-.9 2-2V8c0-1.11-.89-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM7 20c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-8h-2v-2h-2v2H4V8h16v4z"></path></g>
+<g id="recent-actors"><path d="M21 5v14h2V5h-2zm-4 14h2V5h-2v14zM14 5H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM8 7.75c1.24 0 2.25 1.01 2.25 2.25S9.24 12.25 8 12.25 5.75 11.24 5.75 10 6.76 7.75 8 7.75zM12.5 17h-9v-.75c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z"></path></g>
+<g id="repeat"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path></g>
+<g id="repeat-one"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z"></path></g>
+<g id="replay"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"></path></g>
+<g id="replay-10"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1.1 11H10v-3.3L9 13v-.7l1.8-.6h.1V16zm4.3-1.8c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1c.2.1.3.2.5.3s.2.3.3.6.1.5.1.8v.7zm-.9-.8v-.5s-.1-.2-.1-.3-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5z" clip-path="url(#b)"></path></g>
+<g id="replay-30"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-2.4 8.5h.4c.2 0 .4-.1.5-.2s.2-.2.2-.4v-.2s-.1-.1-.1-.2-.1-.1-.2-.1h-.5s-.1.1-.2.1-.1.1-.1.2v.2h-1c0-.2 0-.3.1-.5s.2-.3.3-.4.3-.2.4-.2.4-.1.5-.1c.2 0 .4 0 .6.1s.3.1.5.2.2.2.3.4.1.3.1.5v.3s-.1.2-.1.3-.1.2-.2.2-.2.1-.3.2c.2.1.4.2.5.4s.2.4.2.6c0 .2 0 .4-.1.5s-.2.3-.3.4-.3.2-.5.2-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.4-.1-.6h.8v.2s.1.1.1.2.1.1.2.1h.5s.1-.1.2-.1.1-.1.1-.2v-.5s-.1-.1-.1-.2-.1-.1-.2-.1h-.6v-.7zm5.7.7c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1.3.2.5.3.2.3.3.6.1.5.1.8v.7zm-.8-.8v-.5c0-.1-.1-.2-.1-.3s-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5z" clip-path="url(#b)"></path></g>
+<g id="replay-5"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1.3 8.9l.2-2.2h2.4v.7h-1.7l-.1.9s.1 0 .1-.1.1 0 .1-.1.1 0 .2 0h.2c.2 0 .4 0 .5.1s.3.2.4.3.2.3.3.5.1.4.1.6c0 .2 0 .4-.1.5s-.1.3-.3.5-.3.2-.4.3-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.3-.1-.5h.8c0 .2.1.3.2.4s.2.1.4.1c.1 0 .2 0 .3-.1l.2-.2s.1-.2.1-.3v-.6l-.1-.2-.2-.2s-.2-.1-.3-.1h-.2s-.1 0-.2.1-.1 0-.1.1-.1.1-.1.1h-.7z" clip-path="url(#b)"></path></g>
+<g id="shuffle"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"></path></g>
+<g id="skip-next"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path></g>
+<g id="skip-previous"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path></g>
+<g id="snooze"><path d="M7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-3-9h3.63L9 15.2V17h6v-2h-3.63L15 10.8V9H9v2z"></path></g>
+<g id="sort-by-alpha"><path d="M14.94 4.66h-4.72l2.36-2.36zm-4.69 14.71h4.66l-2.33 2.33zM6.1 6.27L1.6 17.73h1.84l.92-2.45h5.11l.92 2.45h1.84L7.74 6.27H6.1zm-1.13 7.37l1.94-5.18 1.94 5.18H4.97zm10.76 2.5h6.12v1.59h-8.53v-1.29l5.92-8.56h-5.88v-1.6h8.3v1.26l-5.93 8.6z"></path></g>
+<g id="stop"><path d="M6 6h12v12H6z"></path></g>
+<g id="subtitles"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 12h4v2H4v-2zm10 6H4v-2h10v2zm6 0h-4v-2h4v2zm0-4H10v-2h10v2z"></path></g>
+<g id="surround-sound"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.76 16.24l-1.41 1.41C4.78 16.1 4 14.05 4 12c0-2.05.78-4.1 2.34-5.66l1.41 1.41C6.59 8.93 6 10.46 6 12s.59 3.07 1.76 4.24zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm5.66 1.66l-1.41-1.41C17.41 15.07 18 13.54 18 12s-.59-3.07-1.76-4.24l1.41-1.41C19.22 7.9 20 9.95 20 12c0 2.05-.78 4.1-2.34 5.66zM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g>
+<g id="video-library"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"></path></g>
+<g id="videocam"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path></g>
+<g id="videocam-off"><path d="M21 6.5l-4 4V7c0-.55-.45-1-1-1H9.82L21 17.18V6.5zM3.27 2L2 3.27 4.73 6H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.21 0 .39-.08.54-.18L19.73 21 21 19.73 3.27 2z"></path></g>
+<g id="volume-down"><path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"></path></g>
+<g id="volume-mute"><path d="M7 9v6h4l5 5V4l-5 5H7z"></path></g>
+<g id="volume-off"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></g>
+<g id="volume-up"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></g>
+<g id="web"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"></path></g>
+</defs></svg>
+</iron-iconset-svg>
+<iron-iconset-svg name="communication" size="24">
+<svg><defs>
+<g id="business"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path></g>
+<g id="call"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g>
+<g id="call-end"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"></path></g>
+<g id="call-made"><path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5z"></path></g>
+<g id="call-merge"><path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"></path></g>
+<g id="call-missed"><path d="M19.59 7L12 14.59 6.41 9H11V7H3v8h2v-4.59l7 7 9-9z"></path></g>
+<g id="call-received"><path d="M20 5.41L18.59 4 7 15.59V9H5v10h10v-2H8.41z"></path></g>
+<g id="call-split"><path d="M14 4l2.29 2.29-2.88 2.88 1.42 1.42 2.88-2.88L20 10V4zm-4 0H4v6l2.29-2.29 4.71 4.7V20h2v-8.41l-5.29-5.3z"></path></g>
+<g id="chat"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"></path></g>
+<g id="chat-bubble"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path></g>
+<g id="chat-bubble-outline"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path></g>
+<g id="clear-all"><path d="M5 13h14v-2H5v2zm-2 4h14v-2H3v2zM7 7v2h14V7H7z"></path></g>
+<g id="comment"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path></g>
+<g id="contact-phone"><path d="M22 3H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2zM8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1zm3.85-4h1.64L21 16l-1.99 1.99c-1.31-.98-2.28-2.38-2.73-3.99-.18-.64-.28-1.31-.28-2s.1-1.36.28-2c.45-1.62 1.42-3.01 2.73-3.99L21 8l-1.51 2h-1.64c-.22.63-.35 1.3-.35 2s.13 1.37.35 2z"></path></g>
+<g id="contacts"><path d="M20 0H4v2h16V0zM4 24h16v-2H4v2zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25s-1.01 2.25-2.25 2.25S9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z"></path></g>
+<g id="dialer-sip"><path d="M17 3h-1v5h1V3zm-2 2h-2V4h2V3h-3v3h2v1h-2v1h3V5zm3-2v5h1V6h2V3h-3zm2 2h-1V4h1v1zm0 10.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.27-.26.35-.65.24-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"></path></g>
+<g id="dialpad"><path d="M12 19c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12-8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-6 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g>
+<g id="email"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></g>
+<g id="forum"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path></g>
+<g id="import-export"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></path></g>
+<g id="invert-colors-off"><path d="M20.65 20.87l-2.35-2.35-6.3-6.29-3.56-3.57-1.42-1.41L4.27 4.5 3 5.77l2.78 2.78c-2.55 3.14-2.36 7.76.56 10.69C7.9 20.8 9.95 21.58 12 21.58c1.79 0 3.57-.59 5.03-1.78l2.7 2.7L21 21.23l-.35-.36zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59c0-1.32.43-2.57 1.21-3.6L12 14.77v4.82zM12 5.1v4.58l7.25 7.26c1.37-2.96.84-6.57-1.6-9.01L12 2.27l-3.7 3.7 1.41 1.41L12 5.1z"></path></g>
+<g id="live-help"><path d="M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 16h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 11.9 13 12.5 13 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></g>
+<g id="location-off"><path d="M12 6.5c1.38 0 2.5 1.12 2.5 2.5 0 .74-.33 1.39-.83 1.85l3.63 3.63c.98-1.86 1.7-3.8 1.7-5.48 0-3.87-3.13-7-7-7-1.98 0-3.76.83-5.04 2.15l3.19 3.19c.46-.52 1.11-.84 1.85-.84zm4.37 9.6l-4.63-4.63-.11-.11L3.27 3 2 4.27l3.18 3.18C5.07 7.95 5 8.47 5 9c0 5.25 7 13 7 13s1.67-1.85 3.38-4.35L18.73 21 20 19.73l-3.63-3.63z"></path></g>
+<g id="location-on"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></g>
+<g id="mail"><path d="M21 8V7l-3 2-3-2v1l3 2 3-2zm1-5H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2zM8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1zm8-6h-8V6h8v6z"></path></g>
+<g id="message"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path></g>
+<g id="no-sim"><path d="M18.99 5c0-1.1-.89-2-1.99-2h-7L7.66 5.34 19 16.68 18.99 5zM3.65 3.88L2.38 5.15 5 7.77V19c0 1.1.9 2 2 2h10.01c.35 0 .67-.1.96-.26l1.88 1.88 1.27-1.27L3.65 3.88z"></path></g>
+<g id="phone"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g>
+<g id="phonelink-erase"><path d="M13 8.2l-1-1-4 4-4-4-1 1 4 4-4 4 1 1 4-4 4 4 1-1-4-4 4-4zM19 1H9c-1.1 0-2 .9-2 2v3h2V4h10v16H9v-2H7v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2z"></path></g>
+<g id="phonelink-lock"><path d="M19 1H9c-1.1 0-2 .9-2 2v3h2V4h10v16H9v-2H7v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-8.2 10V9.5C10.8 8.1 9.4 7 8 7S5.2 8.1 5.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3zm-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3V11z"></path></g>
+<g id="phonelink-ring"><path d="M20.1 7.7l-1 1c1.8 1.8 1.8 4.6 0 6.5l1 1c2.5-2.3 2.5-6.1 0-8.5zM18 9.8l-1 1c.5.7.5 1.6 0 2.3l1 1c1.2-1.2 1.2-3 0-4.3zM14 1H4c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H4V4h10v16z"></path></g>
+<g id="phonelink-setup"><path d="M11.8 12.5v-1l1.1-.8c.1-.1.1-.2.1-.3l-1-1.7c-.1-.1-.2-.2-.3-.1l-1.3.4c-.3-.2-.6-.4-.9-.5l-.2-1.3c0-.1-.1-.2-.3-.2H7c-.1 0-.2.1-.3.2l-.2 1.3c-.3.1-.6.3-.9.5l-1.3-.5c-.1 0-.2 0-.3.1l-1 1.7c-.1.1 0 .2.1.3l1.1.8v1l-1.1.8c-.1.2-.1.3-.1.4l1 1.7c.1.1.2.2.3.1l1.4-.4c.3.2.6.4.9.5l.2 1.3c-.1.1.1.2.2.2h2c.1 0 .2-.1.3-.2l.2-1.3c.3-.1.6-.3.9-.5l1.3.5c.1 0 .2 0 .3-.1l1-1.7c.1-.1 0-.2-.1-.3l-1.1-.9zM8 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM19 1H9c-1.1 0-2 .9-2 2v3h2V4h10v16H9v-2H7v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2z"></path></g>
+<g id="portable-wifi-off"><path d="M17.56 14.24c.28-.69.44-1.45.44-2.24 0-3.31-2.69-6-6-6-.79 0-1.55.16-2.24.44l1.62 1.62c.2-.03.41-.06.62-.06 2.21 0 4 1.79 4 4 0 .21-.02.42-.05.63l1.61 1.61zM12 4c4.42 0 8 3.58 8 8 0 1.35-.35 2.62-.95 3.74l1.47 1.47C21.46 15.69 22 13.91 22 12c0-5.52-4.48-10-10-10-1.91 0-3.69.55-5.21 1.47l1.46 1.46C9.37 4.34 10.65 4 12 4zM3.27 2.5L2 3.77l2.1 2.1C2.79 7.57 2 9.69 2 12c0 3.7 2.01 6.92 4.99 8.65l1-1.73C5.61 17.53 4 14.96 4 12c0-1.76.57-3.38 1.53-4.69l1.43 1.44C6.36 9.68 6 10.8 6 12c0 2.22 1.21 4.15 3 5.19l1-1.74c-1.19-.7-2-1.97-2-3.45 0-.65.17-1.25.44-1.79l1.58 1.58L10 12c0 1.1.9 2 2 2l.21-.02.01.01 7.51 7.51L21 20.23 4.27 3.5l-1-1z"></path></g>
+<g id="present-to-all"><path d="M21 3H3c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h18c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 16.02H3V4.98h18v14.04zM10 12H8l4-4 4 4h-2v4h-4v-4z"></path></g>
+<g id="ring-volume"><path d="M23.71 16.67C20.66 13.78 16.54 12 12 12 7.46 12 3.34 13.78.29 16.67c-.18.18-.29.43-.29.71 0 .28.11.53.29.71l2.48 2.48c.18.18.43.29.71.29.27 0 .52-.11.7-.28.79-.74 1.69-1.36 2.66-1.85.33-.16.56-.5.56-.9v-3.1c1.45-.48 3-.73 4.6-.73s3.15.25 4.6.72v3.1c0 .39.23.74.56.9.98.49 1.87 1.12 2.66 1.85.18.18.43.28.7.28.28 0 .53-.11.71-.29l2.48-2.48c.18-.18.29-.43.29-.71 0-.27-.11-.52-.29-.7zM21.16 6.26l-1.41-1.41-3.56 3.55 1.41 1.41s3.45-3.52 3.56-3.55zM13 2h-2v5h2V2zM6.4 9.81L7.81 8.4 4.26 4.84 2.84 6.26c.11.03 3.56 3.55 3.56 3.55z"></path></g>
+<g id="speaker-phone"><path d="M7 7.07L8.43 8.5c.91-.91 2.18-1.48 3.57-1.48s2.66.57 3.57 1.48L17 7.07C15.72 5.79 13.95 5 12 5s-3.72.79-5 2.07zM12 1C8.98 1 6.24 2.23 4.25 4.21l1.41 1.41C7.28 4 9.53 3 12 3s4.72 1 6.34 2.62l1.41-1.41C17.76 2.23 15.02 1 12 1zm2.86 9.01L9.14 10C8.51 10 8 10.51 8 11.14v9.71c0 .63.51 1.14 1.14 1.14h5.71c.63 0 1.14-.51 1.14-1.14v-9.71c.01-.63-.5-1.13-1.13-1.13zM15 20H9v-8h6v8z"></path></g>
+<g id="stay-current-landscape"><path d="M1.01 7L1 17c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H3c-1.1 0-1.99.9-1.99 2zM19 7v10H5V7h14z"></path></g>
+<g id="stay-current-portrait"><path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></g>
+<g id="stay-primary-landscape"><path d="M1.01 7L1 17c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H3c-1.1 0-1.99.9-1.99 2zM19 7v10H5V7h14z"></path></g>
+<g id="stay-primary-portrait"><path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></g>
+<g id="swap-calls"><path d="M18 4l-4 4h3v7c0 1.1-.9 2-2 2s-2-.9-2-2V8c0-2.21-1.79-4-4-4S5 5.79 5 8v7H2l4 4 4-4H7V8c0-1.1.9-2 2-2s2 .9 2 2v7c0 2.21 1.79 4 4 4s4-1.79 4-4V8h3l-4-4z"></path></g>
+<g id="textsms"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"></path></g>
+<g id="voicemail"><path d="M18.5 6C15.46 6 13 8.46 13 11.5c0 1.33.47 2.55 1.26 3.5H9.74c.79-.95 1.26-2.17 1.26-3.5C11 8.46 8.54 6 5.5 6S0 8.46 0 11.5 2.46 17 5.5 17h13c3.04 0 5.5-2.46 5.5-5.5S21.54 6 18.5 6zm-13 9C3.57 15 2 13.43 2 11.5S3.57 8 5.5 8 9 9.57 9 11.5 7.43 15 5.5 15zm13 0c-1.93 0-3.5-1.57-3.5-3.5S16.57 8 18.5 8 22 9.57 22 11.5 20.43 15 18.5 15z"></path></g>
+<g id="vpn-key"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path></g>
+</defs></svg>
+</iron-iconset-svg>
 <iron-iconset-svg name="icons" size="24">
 <svg><defs>
 <g id="3d-rotation"><path d="M7.52 21.48C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32zm.89-6.52c-.19 0-.37-.03-.52-.08-.16-.06-.29-.13-.4-.24-.11-.1-.2-.22-.26-.37-.06-.14-.09-.3-.09-.47h-1.3c0 .36.07.68.21.95.14.27.33.5.56.69.24.18.51.32.82.41.3.1.62.15.96.15.37 0 .72-.05 1.03-.15.32-.1.6-.25.83-.44s.42-.43.55-.72c.13-.29.2-.61.2-.97 0-.19-.02-.38-.07-.56-.05-.18-.12-.35-.23-.51-.1-.16-.24-.3-.4-.43-.17-.13-.37-.23-.61-.31.2-.09.37-.2.52-.33.15-.13.27-.27.37-.42.1-.15.17-.3.22-.46.05-.16.07-.32.07-.48 0-.36-.06-.68-.18-.96-.12-.28-.29-.51-.51-.69-.2-.19-.47-.33-.77-.43C9.1 8.05 8.76 8 8.39 8c-.36 0-.69.05-1 .16-.3.11-.57.26-.79.45-.21.19-.38.41-.51.67-.12.26-.18.54-.18.85h1.3c0-.17.03-.32.09-.45s.14-.25.25-.34c.11-.09.23-.17.38-.22.15-.05.3-.08.48-.08.4 0 .7.1.89.31.19.2.29.49.29.86 0 .18-.03.34-.08.49-.05.15-.14.27-.25.37-.11.1-.25.18-.41.24-.16.06-.36.09-.58.09H7.5v1.03h.77c.22 0 .42.02.6.07s.33.13.45.23c.12.11.22.24.29.4.07.16.1.35.1.57 0 .41-.12.72-.35.93-.23.23-.55.33-.95.33zm8.55-5.92c-.32-.33-.7-.59-1.14-.77-.43-.18-.92-.27-1.46-.27H12v8h2.3c.55 0 1.06-.09 1.51-.27.45-.18.84-.43 1.16-.76.32-.33.57-.73.74-1.19.17-.47.26-.99.26-1.57v-.4c0-.58-.09-1.1-.26-1.57-.18-.47-.43-.87-.75-1.2zm-.39 3.16c0 .42-.05.79-.14 1.13-.1.33-.24.62-.43.85-.19.23-.43.41-.71.53-.29.12-.62.18-.99.18h-.91V9.12h.97c.72 0 1.27.23 1.64.69.38.46.57 1.12.57 1.99v.4zM12 0l-.66.03 3.81 3.81 1.33-1.33c3.27 1.55 5.61 4.72 5.96 8.48h1.5C23.44 4.84 18.29 0 12 0z"></path></g>
@@ -333,116 +451,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <g id="zoom-out"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"></path></g>
 </defs></svg>
 </iron-iconset-svg>
-<iron-iconset-svg name="av" size="24">
-<svg><defs>
-<g id="airplay"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><defs><path id="c" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><clipPath id="d" clip-path="url(#b)"><use xlink:href="#c" overflow="visible"></use></clipPath><path d="M6 22h12l-6-6zM21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3V5h18v12h-4v2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" clip-path="url(#d)"></path></g>
-<g id="album"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path></g>
-<g id="av-timer"><path d="M11 17c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1zm0-14v4h2V5.08c3.39.49 6 3.39 6 6.92 0 3.87-3.13 7-7 7s-7-3.13-7-7c0-1.68.59-3.22 1.58-4.42L12 13l1.41-1.41-6.8-6.8v.02C4.42 6.45 3 9.05 3 12c0 4.97 4.02 9 9 9 4.97 0 9-4.03 9-9s-4.03-9-9-9h-1zm7 9c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zM6 12c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-1 .45-1 1z"></path></g>
-<g id="closed-caption"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"></path></g>
-<g id="equalizer"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"></path></g>
-<g id="explicit"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h4v2h-4v2h4v2H9V7h6v2z"></path></g>
-<g id="fast-forward"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"></path></g>
-<g id="fast-rewind"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"></path></g>
-<g id="forward-10"><defs><path id="a" d="M24 24H0V0h24v24z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M4 13c0 4.4 3.6 8 8 8s8-3.6 8-8h-2c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6v4l5-5-5-5v4c-4.4 0-8 3.6-8 8zm6.8 3H10v-3.3L9 13v-.7l1.8-.6h.1V16zm4.3-1.8c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1.3.2.5.3.2.3.3.6.1.5.1.8v.7zm-.8-.8v-.5s-.1-.2-.1-.3-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5z" clip-path="url(#b)"></path></g>
-<g id="forward-30"><defs><path id="a" d="M24 24H0V0h24v24z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M9.6 13.5h.4c.2 0 .4-.1.5-.2s.2-.2.2-.4v-.2s-.1-.1-.1-.2-.1-.1-.2-.1h-.5s-.1.1-.2.1-.1.1-.1.2v.2h-1c0-.2 0-.3.1-.5s.2-.3.3-.4.3-.2.4-.2.4-.1.5-.1c.2 0 .4 0 .6.1s.3.1.5.2.2.2.3.4.1.3.1.5v.3s-.1.2-.1.3-.1.2-.2.2-.2.1-.3.2c.2.1.4.2.5.4s.2.4.2.6c0 .2 0 .4-.1.5s-.2.3-.3.4-.3.2-.5.2-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.4-.1-.6h.8v.2s.1.1.1.2.1.1.2.1h.5s.1-.1.2-.1.1-.1.1-.2v-.5s-.1-.1-.1-.2-.1-.1-.2-.1h-.6v-.7zm5.7.7c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1.3.2.5.3.2.3.3.6.1.5.1.8v.7zm-.9-.8v-.5s-.1-.2-.1-.3-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5zM4 13c0 4.4 3.6 8 8 8s8-3.6 8-8h-2c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6v4l5-5-5-5v4c-4.4 0-8 3.6-8 8z" clip-path="url(#b)"></path></g>
-<g id="forward-5"><defs><path id="a" d="M24 24H0V0h24v24z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M4 13c0 4.4 3.6 8 8 8s8-3.6 8-8h-2c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6v4l5-5-5-5v4c-4.4 0-8 3.6-8 8zm6.7.9l.2-2.2h2.4v.7h-1.7l-.1.9s.1 0 .1-.1.1 0 .1-.1.1 0 .2 0h.2c.2 0 .4 0 .5.1s.3.2.4.3.2.3.3.5.1.4.1.6c0 .2 0 .4-.1.5s-.1.3-.3.5-.3.2-.5.3-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.3-.1-.5h.8c0 .2.1.3.2.4s.2.1.4.1c.1 0 .2 0 .3-.1l.2-.2s.1-.2.1-.3v-.6l-.1-.2-.2-.2s-.2-.1-.3-.1h-.2s-.1 0-.2.1-.1 0-.1.1-.1.1-.1.1h-.6z" clip-path="url(#b)"></path></g>
-<g id="games"><path d="M15 7.5V2H9v5.5l3 3 3-3zM7.5 9H2v6h5.5l3-3-3-3zM9 16.5V22h6v-5.5l-3-3-3 3zM16.5 9l-3 3 3 3H22V9h-5.5z"></path></g>
-<g id="hd"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 12H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11v6zm2-6h4c.55 0 1 .45 1 1v4c0 .55-.45 1-1 1h-4V9zm1.5 4.5h2v-3h-2v3z"></path></g>
-<g id="hearing"><path d="M17 20c-.29 0-.56-.06-.76-.15-.71-.37-1.21-.88-1.71-2.38-.51-1.56-1.47-2.29-2.39-3-.79-.61-1.61-1.24-2.32-2.53C9.29 10.98 9 9.93 9 9c0-2.8 2.2-5 5-5s5 2.2 5 5h2c0-3.93-3.07-7-7-7S7 5.07 7 9c0 1.26.38 2.65 1.07 3.9.91 1.65 1.98 2.48 2.85 3.15.81.62 1.39 1.07 1.71 2.05.6 1.82 1.37 2.84 2.73 3.55.51.23 1.07.35 1.64.35 2.21 0 4-1.79 4-4h-2c0 1.1-.9 2-2 2zM7.64 2.64L6.22 1.22C4.23 3.21 3 5.96 3 9s1.23 5.79 3.22 7.78l1.41-1.41C6.01 13.74 5 11.49 5 9s1.01-4.74 2.64-6.36zM11.5 9c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5-2.5 1.12-2.5 2.5z"></path></g>
-<g id="high-quality"><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 11H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11v6zm7-1c0 .55-.45 1-1 1h-.75v1.5h-1.5V15H14c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v4zm-3.5-.5h2v-3h-2v3z"></path></g>
-<g id="library-add"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"></path></g>
-<g id="library-books"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"></path></g>
-<g id="library-music"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 5h-3v5.5c0 1.38-1.12 2.5-2.5 2.5S10 13.88 10 12.5s1.12-2.5 2.5-2.5c.57 0 1.08.19 1.5.51V5h4v2zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"></path></g>
-<g id="loop"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"></path></g>
-<g id="mic"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"></path></g>
-<g id="mic-none"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2-.66 0-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"></path></g>
-<g id="mic-off"><path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"></path></g>
-<g id="movie"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"></path></g>
-<g id="new-releases"><path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 5h-2v-2h2v2zm0-4h-2V7h2v6z"></path></g>
-<g id="not-interested"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"></path></g>
-<g id="pause"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></g>
-<g id="pause-circle-filled"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"></path></g>
-<g id="pause-circle-outline"><path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"></path></g>
-<g id="play-arrow"><path d="M8 5v14l11-7z"></path></g>
-<g id="play-circle-filled"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></g>
-<g id="play-circle-outline"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
-<g id="playlist-add"><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"></path></g>
-<g id="queue"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"></path></g>
-<g id="queue-music"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"></path></g>
-<g id="radio"><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.89 2 2 2h16c1.11 0 2-.9 2-2V8c0-1.11-.89-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM7 20c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-8h-2v-2h-2v2H4V8h16v4z"></path></g>
-<g id="recent-actors"><path d="M21 5v14h2V5h-2zm-4 14h2V5h-2v14zM14 5H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM8 7.75c1.24 0 2.25 1.01 2.25 2.25S9.24 12.25 8 12.25 5.75 11.24 5.75 10 6.76 7.75 8 7.75zM12.5 17h-9v-.75c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z"></path></g>
-<g id="repeat"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path></g>
-<g id="repeat-one"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z"></path></g>
-<g id="replay"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"></path></g>
-<g id="replay-10"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1.1 11H10v-3.3L9 13v-.7l1.8-.6h.1V16zm4.3-1.8c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1c.2.1.3.2.5.3s.2.3.3.6.1.5.1.8v.7zm-.9-.8v-.5s-.1-.2-.1-.3-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5z" clip-path="url(#b)"></path></g>
-<g id="replay-30"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-2.4 8.5h.4c.2 0 .4-.1.5-.2s.2-.2.2-.4v-.2s-.1-.1-.1-.2-.1-.1-.2-.1h-.5s-.1.1-.2.1-.1.1-.1.2v.2h-1c0-.2 0-.3.1-.5s.2-.3.3-.4.3-.2.4-.2.4-.1.5-.1c.2 0 .4 0 .6.1s.3.1.5.2.2.2.3.4.1.3.1.5v.3s-.1.2-.1.3-.1.2-.2.2-.2.1-.3.2c.2.1.4.2.5.4s.2.4.2.6c0 .2 0 .4-.1.5s-.2.3-.3.4-.3.2-.5.2-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.4-.1-.6h.8v.2s.1.1.1.2.1.1.2.1h.5s.1-.1.2-.1.1-.1.1-.2v-.5s-.1-.1-.1-.2-.1-.1-.2-.1h-.6v-.7zm5.7.7c0 .3 0 .6-.1.8l-.3.6s-.3.3-.5.3-.4.1-.6.1-.4 0-.6-.1-.3-.2-.5-.3-.2-.3-.3-.6-.1-.5-.1-.8v-.7c0-.3 0-.6.1-.8l.3-.6s.3-.3.5-.3.4-.1.6-.1.4 0 .6.1.3.2.5.3.2.3.3.6.1.5.1.8v.7zm-.8-.8v-.5c0-.1-.1-.2-.1-.3s-.1-.1-.2-.2-.2-.1-.3-.1-.2 0-.3.1l-.2.2s-.1.2-.1.3v2s.1.2.1.3.1.1.2.2.2.1.3.1.2 0 .3-.1l.2-.2s.1-.2.1-.3v-1.5z" clip-path="url(#b)"></path></g>
-<g id="replay-5"><defs><path id="a" d="M0 0h24v24H0V0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path d="M12 5V1L7 6l5 5V7c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H4c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8zm-1.3 8.9l.2-2.2h2.4v.7h-1.7l-.1.9s.1 0 .1-.1.1 0 .1-.1.1 0 .2 0h.2c.2 0 .4 0 .5.1s.3.2.4.3.2.3.3.5.1.4.1.6c0 .2 0 .4-.1.5s-.1.3-.3.5-.3.2-.4.3-.4.1-.6.1c-.2 0-.4 0-.5-.1s-.3-.1-.5-.2-.2-.2-.3-.4-.1-.3-.1-.5h.8c0 .2.1.3.2.4s.2.1.4.1c.1 0 .2 0 .3-.1l.2-.2s.1-.2.1-.3v-.6l-.1-.2-.2-.2s-.2-.1-.3-.1h-.2s-.1 0-.2.1-.1 0-.1.1-.1.1-.1.1h-.7z" clip-path="url(#b)"></path></g>
-<g id="shuffle"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"></path></g>
-<g id="skip-next"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path></g>
-<g id="skip-previous"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path></g>
-<g id="snooze"><path d="M7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-3-9h3.63L9 15.2V17h6v-2h-3.63L15 10.8V9H9v2z"></path></g>
-<g id="sort-by-alpha"><path d="M14.94 4.66h-4.72l2.36-2.36zm-4.69 14.71h4.66l-2.33 2.33zM6.1 6.27L1.6 17.73h1.84l.92-2.45h5.11l.92 2.45h1.84L7.74 6.27H6.1zm-1.13 7.37l1.94-5.18 1.94 5.18H4.97zm10.76 2.5h6.12v1.59h-8.53v-1.29l5.92-8.56h-5.88v-1.6h8.3v1.26l-5.93 8.6z"></path></g>
-<g id="stop"><path d="M6 6h12v12H6z"></path></g>
-<g id="subtitles"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 12h4v2H4v-2zm10 6H4v-2h10v2zm6 0h-4v-2h4v2zm0-4H10v-2h10v2z"></path></g>
-<g id="surround-sound"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.76 16.24l-1.41 1.41C4.78 16.1 4 14.05 4 12c0-2.05.78-4.1 2.34-5.66l1.41 1.41C6.59 8.93 6 10.46 6 12s.59 3.07 1.76 4.24zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm5.66 1.66l-1.41-1.41C17.41 15.07 18 13.54 18 12s-.59-3.07-1.76-4.24l1.41-1.41C19.22 7.9 20 9.95 20 12c0 2.05-.78 4.1-2.34 5.66zM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g>
-<g id="video-library"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"></path></g>
-<g id="videocam"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path></g>
-<g id="videocam-off"><path d="M21 6.5l-4 4V7c0-.55-.45-1-1-1H9.82L21 17.18V6.5zM3.27 2L2 3.27 4.73 6H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.21 0 .39-.08.54-.18L19.73 21 21 19.73 3.27 2z"></path></g>
-<g id="volume-down"><path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"></path></g>
-<g id="volume-mute"><path d="M7 9v6h4l5 5V4l-5 5H7z"></path></g>
-<g id="volume-off"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"></path></g>
-<g id="volume-up"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></g>
-<g id="web"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"></path></g>
-</defs></svg>
-</iron-iconset-svg>
-<iron-iconset-svg name="communication" size="24">
-<svg><defs>
-<g id="business"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path></g>
-<g id="call"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g>
-<g id="call-end"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"></path></g>
-<g id="call-made"><path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5z"></path></g>
-<g id="call-merge"><path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"></path></g>
-<g id="call-missed"><path d="M19.59 7L12 14.59 6.41 9H11V7H3v8h2v-4.59l7 7 9-9z"></path></g>
-<g id="call-received"><path d="M20 5.41L18.59 4 7 15.59V9H5v10h10v-2H8.41z"></path></g>
-<g id="call-split"><path d="M14 4l2.29 2.29-2.88 2.88 1.42 1.42 2.88-2.88L20 10V4zm-4 0H4v6l2.29-2.29 4.71 4.7V20h2v-8.41l-5.29-5.3z"></path></g>
-<g id="chat"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"></path></g>
-<g id="chat-bubble"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path></g>
-<g id="chat-bubble-outline"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path></g>
-<g id="clear-all"><path d="M5 13h14v-2H5v2zm-2 4h14v-2H3v2zM7 7v2h14V7H7z"></path></g>
-<g id="comment"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path></g>
-<g id="contact-phone"><path d="M22 3H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2zM8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1zm3.85-4h1.64L21 16l-1.99 1.99c-1.31-.98-2.28-2.38-2.73-3.99-.18-.64-.28-1.31-.28-2s.1-1.36.28-2c.45-1.62 1.42-3.01 2.73-3.99L21 8l-1.51 2h-1.64c-.22.63-.35 1.3-.35 2s.13 1.37.35 2z"></path></g>
-<g id="contacts"><path d="M20 0H4v2h16V0zM4 24h16v-2H4v2zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25s-1.01 2.25-2.25 2.25S9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z"></path></g>
-<g id="dialer-sip"><path d="M17 3h-1v5h1V3zm-2 2h-2V4h2V3h-3v3h2v1h-2v1h3V5zm3-2v5h1V6h2V3h-3zm2 2h-1V4h1v1zm0 10.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.27-.26.35-.65.24-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"></path></g>
-<g id="dialpad"><path d="M12 19c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 1c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12-8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-6 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g>
-<g id="email"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></g>
-<g id="forum"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path></g>
-<g id="import-export"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></path></g>
-<g id="invert-colors-off"><path d="M20.65 20.87l-2.35-2.35-6.3-6.29-3.56-3.57-1.42-1.41L4.27 4.5 3 5.77l2.78 2.78c-2.55 3.14-2.36 7.76.56 10.69C7.9 20.8 9.95 21.58 12 21.58c1.79 0 3.57-.59 5.03-1.78l2.7 2.7L21 21.23l-.35-.36zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59c0-1.32.43-2.57 1.21-3.6L12 14.77v4.82zM12 5.1v4.58l7.25 7.26c1.37-2.96.84-6.57-1.6-9.01L12 2.27l-3.7 3.7 1.41 1.41L12 5.1z"></path></g>
-<g id="live-help"><path d="M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 16h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 11.9 13 12.5 13 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></g>
-<g id="location-off"><path d="M12 6.5c1.38 0 2.5 1.12 2.5 2.5 0 .74-.33 1.39-.83 1.85l3.63 3.63c.98-1.86 1.7-3.8 1.7-5.48 0-3.87-3.13-7-7-7-1.98 0-3.76.83-5.04 2.15l3.19 3.19c.46-.52 1.11-.84 1.85-.84zm4.37 9.6l-4.63-4.63-.11-.11L3.27 3 2 4.27l3.18 3.18C5.07 7.95 5 8.47 5 9c0 5.25 7 13 7 13s1.67-1.85 3.38-4.35L18.73 21 20 19.73l-3.63-3.63z"></path></g>
-<g id="location-on"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></g>
-<g id="mail"><path d="M21 8V7l-3 2-3-2v1l3 2 3-2zm1-5H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2zM8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1zm8-6h-8V6h8v6z"></path></g>
-<g id="message"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path></g>
-<g id="no-sim"><path d="M18.99 5c0-1.1-.89-2-1.99-2h-7L7.66 5.34 19 16.68 18.99 5zM3.65 3.88L2.38 5.15 5 7.77V19c0 1.1.9 2 2 2h10.01c.35 0 .67-.1.96-.26l1.88 1.88 1.27-1.27L3.65 3.88z"></path></g>
-<g id="phone"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g>
-<g id="phonelink-erase"><path d="M13 8.2l-1-1-4 4-4-4-1 1 4 4-4 4 1 1 4-4 4 4 1-1-4-4 4-4zM19 1H9c-1.1 0-2 .9-2 2v3h2V4h10v16H9v-2H7v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2z"></path></g>
-<g id="phonelink-lock"><path d="M19 1H9c-1.1 0-2 .9-2 2v3h2V4h10v16H9v-2H7v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-8.2 10V9.5C10.8 8.1 9.4 7 8 7S5.2 8.1 5.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3zm-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3V11z"></path></g>
-<g id="phonelink-ring"><path d="M20.1 7.7l-1 1c1.8 1.8 1.8 4.6 0 6.5l1 1c2.5-2.3 2.5-6.1 0-8.5zM18 9.8l-1 1c.5.7.5 1.6 0 2.3l1 1c1.2-1.2 1.2-3 0-4.3zM14 1H4c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H4V4h10v16z"></path></g>
-<g id="phonelink-setup"><path d="M11.8 12.5v-1l1.1-.8c.1-.1.1-.2.1-.3l-1-1.7c-.1-.1-.2-.2-.3-.1l-1.3.4c-.3-.2-.6-.4-.9-.5l-.2-1.3c0-.1-.1-.2-.3-.2H7c-.1 0-.2.1-.3.2l-.2 1.3c-.3.1-.6.3-.9.5l-1.3-.5c-.1 0-.2 0-.3.1l-1 1.7c-.1.1 0 .2.1.3l1.1.8v1l-1.1.8c-.1.2-.1.3-.1.4l1 1.7c.1.1.2.2.3.1l1.4-.4c.3.2.6.4.9.5l.2 1.3c-.1.1.1.2.2.2h2c.1 0 .2-.1.3-.2l.2-1.3c.3-.1.6-.3.9-.5l1.3.5c.1 0 .2 0 .3-.1l1-1.7c.1-.1 0-.2-.1-.3l-1.1-.9zM8 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM19 1H9c-1.1 0-2 .9-2 2v3h2V4h10v16H9v-2H7v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2z"></path></g>
-<g id="portable-wifi-off"><path d="M17.56 14.24c.28-.69.44-1.45.44-2.24 0-3.31-2.69-6-6-6-.79 0-1.55.16-2.24.44l1.62 1.62c.2-.03.41-.06.62-.06 2.21 0 4 1.79 4 4 0 .21-.02.42-.05.63l1.61 1.61zM12 4c4.42 0 8 3.58 8 8 0 1.35-.35 2.62-.95 3.74l1.47 1.47C21.46 15.69 22 13.91 22 12c0-5.52-4.48-10-10-10-1.91 0-3.69.55-5.21 1.47l1.46 1.46C9.37 4.34 10.65 4 12 4zM3.27 2.5L2 3.77l2.1 2.1C2.79 7.57 2 9.69 2 12c0 3.7 2.01 6.92 4.99 8.65l1-1.73C5.61 17.53 4 14.96 4 12c0-1.76.57-3.38 1.53-4.69l1.43 1.44C6.36 9.68 6 10.8 6 12c0 2.22 1.21 4.15 3 5.19l1-1.74c-1.19-.7-2-1.97-2-3.45 0-.65.17-1.25.44-1.79l1.58 1.58L10 12c0 1.1.9 2 2 2l.21-.02.01.01 7.51 7.51L21 20.23 4.27 3.5l-1-1z"></path></g>
-<g id="present-to-all"><path d="M21 3H3c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h18c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 16.02H3V4.98h18v14.04zM10 12H8l4-4 4 4h-2v4h-4v-4z"></path></g>
-<g id="ring-volume"><path d="M23.71 16.67C20.66 13.78 16.54 12 12 12 7.46 12 3.34 13.78.29 16.67c-.18.18-.29.43-.29.71 0 .28.11.53.29.71l2.48 2.48c.18.18.43.29.71.29.27 0 .52-.11.7-.28.79-.74 1.69-1.36 2.66-1.85.33-.16.56-.5.56-.9v-3.1c1.45-.48 3-.73 4.6-.73s3.15.25 4.6.72v3.1c0 .39.23.74.56.9.98.49 1.87 1.12 2.66 1.85.18.18.43.28.7.28.28 0 .53-.11.71-.29l2.48-2.48c.18-.18.29-.43.29-.71 0-.27-.11-.52-.29-.7zM21.16 6.26l-1.41-1.41-3.56 3.55 1.41 1.41s3.45-3.52 3.56-3.55zM13 2h-2v5h2V2zM6.4 9.81L7.81 8.4 4.26 4.84 2.84 6.26c.11.03 3.56 3.55 3.56 3.55z"></path></g>
-<g id="speaker-phone"><path d="M7 7.07L8.43 8.5c.91-.91 2.18-1.48 3.57-1.48s2.66.57 3.57 1.48L17 7.07C15.72 5.79 13.95 5 12 5s-3.72.79-5 2.07zM12 1C8.98 1 6.24 2.23 4.25 4.21l1.41 1.41C7.28 4 9.53 3 12 3s4.72 1 6.34 2.62l1.41-1.41C17.76 2.23 15.02 1 12 1zm2.86 9.01L9.14 10C8.51 10 8 10.51 8 11.14v9.71c0 .63.51 1.14 1.14 1.14h5.71c.63 0 1.14-.51 1.14-1.14v-9.71c.01-.63-.5-1.13-1.13-1.13zM15 20H9v-8h6v8z"></path></g>
-<g id="stay-current-landscape"><path d="M1.01 7L1 17c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H3c-1.1 0-1.99.9-1.99 2zM19 7v10H5V7h14z"></path></g>
-<g id="stay-current-portrait"><path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></g>
-<g id="stay-primary-landscape"><path d="M1.01 7L1 17c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H3c-1.1 0-1.99.9-1.99 2zM19 7v10H5V7h14z"></path></g>
-<g id="stay-primary-portrait"><path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path></g>
-<g id="swap-calls"><path d="M18 4l-4 4h3v7c0 1.1-.9 2-2 2s-2-.9-2-2V8c0-2.21-1.79-4-4-4S5 5.79 5 8v7H2l4 4 4-4H7V8c0-1.1.9-2 2-2s2 .9 2 2v7c0 2.21 1.79 4 4 4s4-1.79 4-4V8h3l-4-4z"></path></g>
-<g id="textsms"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"></path></g>
-<g id="voicemail"><path d="M18.5 6C15.46 6 13 8.46 13 11.5c0 1.33.47 2.55 1.26 3.5H9.74c.79-.95 1.26-2.17 1.26-3.5C11 8.46 8.54 6 5.5 6S0 8.46 0 11.5 2.46 17 5.5 17h13c3.04 0 5.5-2.46 5.5-5.5S21.54 6 18.5 6zm-13 9C3.57 15 2 13.43 2 11.5S3.57 8 5.5 8 9 9.57 9 11.5 7.43 15 5.5 15zm13 0c-1.93 0-3.5-1.57-3.5-3.5S16.57 8 18.5 8 22 9.57 22 11.5 20.43 15 18.5 15z"></path></g>
-<g id="vpn-key"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path></g>
-</defs></svg>
-</iron-iconset-svg>
 <dom-module id="iron-pages" assetpath="bower_components/iron-pages/">
 
   <style>:host {display: block;}:host > ::content > :not(.iron-selected) {display: none !important;}</style>
@@ -455,14 +463,83 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </dom-module>
 
-<dom-module id="iron-collapse" assetpath="bower_components/iron-collapse/">
-
-  <style>:host {display: block;transition-duration: 300ms;}:host(.iron-collapse-closed) {display: none;}:host(:not(.iron-collapse-opened)) {overflow: hidden;}</style>
-
+<dom-module id="paper-badge" assetpath="bower_components/paper-badge/">
   <template>
+    <style>:host {display: block;position: absolute;outline: none;}#badge {@apply(--paper-font-common-base);font-weight: 600;font-size: 12px;border-radius: 50%;margin-left: var(--paper-badge-margin-left, 0px);margin-bottom: var(--paper-badge-margin-bottom, 0px);width: var(--paper-badge-width, 22px);height: var(--paper-badge-height, 22px);background-color: var(--paper-badge-background, --accent-color);opacity: var(--paper-badge-opacity, 1.0);color: var(--paper-badge-text-color, white);@apply(--layout);@apply(--layout-center-center);@apply(--paper-badge);}</style>
+
+    <div id="badge">{{label}}</div>
+  </template>
+
+  </dom-module>
+<dom-module id="paper-material" assetpath="bower_components/paper-material/">
+  <style>:host {display: block;position: relative;}:host([animated]) {@apply(--shadow-transition);}:host([elevation="1"]) {@apply(--shadow-elevation-2dp);}:host([elevation="2"]) {@apply(--shadow-elevation-4dp);}:host([elevation="3"]) {@apply(--shadow-elevation-6dp);}:host([elevation="4"]) {@apply(--shadow-elevation-8dp);}:host([elevation="5"]) {@apply(--shadow-elevation-16dp);}</style>
+  <template>
+    <content></content>
+  </template>
+</dom-module>
+<dom-module id="paper-ripple" assetpath="bower_components/paper-ripple/">
+
+  
+  
+  <template>
+    <style>:host {display: block;position: absolute;border-radius: inherit;overflow: hidden;top: 0;left: 0;right: 0;bottom: 0;}:host([animating]) {/* This resolves a rendering issue in Chrome (as of 40) where theripple is not properly clipped by its parent (which may haverounded corners). See: http://jsbin.com/temexa/4Note: We only apply this style conditionally. Otherwise, the browserwill create a new compositing layer for every ripple element on thepage, and that would be bad. */-webkit-transform: translate(0, 0);transform: translate3d(0, 0, 0);}:host([noink]) {pointer-events: none;}#background,#waves,.wave-container,.wave {pointer-events: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;}#background,.wave {opacity: 0;}#waves,.wave {overflow: hidden;}.wave-container,.wave {border-radius: 50%;}:host(.circle) #background,:host(.circle) #waves {border-radius: 50%;}:host(.circle) .wave-container {overflow: hidden;}</style>
+    
+    <div id="background"></div>
+    <div id="waves"></div>
+  </template>
+</dom-module>
+<dom-module id="paper-button" assetpath="bower_components/paper-button/">
+  <template strip-whitespace="">
+
+    <style include="paper-material">:host {display: inline-block;position: relative;box-sizing: border-box;min-width: 5.14em;margin: 0 0.29em;background: transparent;text-align: center;font: inherit;text-transform: uppercase;outline-width: 0;border-radius: 3px;-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none;user-select: none;cursor: pointer;z-index: 0;padding: 0.7em 0.57em;@apply(--paper-button);}:host([raised].keyboard-focus) {font-weight: bold;@apply(--paper-button-raised-keyboard-focus);}:host(:not([raised]).keyboard-focus) {font-weight: bold;@apply(--paper-button-flat-keyboard-focus);}:host([disabled]) {background: #eaeaea;color: #a8a8a8;cursor: auto;pointer-events: none;@apply(--paper-button-disabled);}paper-ripple {color: var(--paper-button-ink-color);}:host > ::content * {text-transform: inherit;}</style>
+    <content></content>
+  </template>
+</dom-module>
+
+<dom-module id="paper-card" assetpath="bower_components/paper-card/">
+  <template>
+    <style>:host {display: inline-block;position: relative;box-sizing: border-box;background: #fff;border-radius: 2px;@apply(--paper-card);}paper-material {border-radius: inherit;@apply(--layout-fit);}/* IE 10 support for HTML5 hidden attr */[hidden] {display: none !important;}.header {position: relative;@apply(--paper-card-header);}.header img {width: 100%;pointer-events: none;@apply(--paper-card-header-image);}.header .title-text {padding: 16px;font-size: 24px;font-weight: bold;color: var(--paper-card-header-color, #000);@apply(--paper-card-header-text);}.header .title-text.over-image {position: absolute;bottom: 0px;@apply(--paper-card-header-image-text);}:host ::content .card-content {padding: 16px;position:relative;@apply(--paper-card-content);}:host ::content .card-actions {border-top: 1px solid #e8e8e8;padding: 5px 16px;position:relative;@apply(--paper-card-actions);}</style>
+
+    <paper-material animated$="[[animatedShadow]]" elevation="[[elevation]]"></paper-material>
+
+    <div class="header">
+      <img hidden$="[[!image]]" src="[[image]]">
+      <div hidden$="[[!heading]]" class$="[[_computeHeadingClass(image)]]">[[heading]]</div>
+    </div>
 
     <content></content>
+  </template>
 
+</dom-module>
+
+<dom-module id="paper-dialog-scrollable" assetpath="bower_components/paper-dialog-scrollable/">
+
+  <style>:host {display: block;position: relative;}:host(.is-scrolled:not(:first-child))::before {content: '';position: absolute;top: 0;left: 0;right: 0;height: 1px;background: var(--divider-color);}:host(.can-scroll:not(.scrolled-to-bottom):not(:last-child))::after {content: '';position: absolute;bottom: 0;left: 0;right: 0;height: 1px;background: var(--divider-color);}.scrollable {padding: 0 24px;@apply(--layout-scroll);@apply(--paper-dialog-scrollable);}</style>
+
+  <template>
+    <div id="scrollable" class="scrollable">
+      <content></content>
+    </div>
+  </template>
+
+</dom-module>
+
+<dom-module id="iron-overlay-backdrop" assetpath="bower_components/iron-overlay-behavior/">
+
+  <style>:host {position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background-color: var(--iron-overlay-backdrop-background-color, #000);opacity: 0;transition: opacity 0.2s;@apply(--iron-overlay-backdrop);}:host([opened]) {opacity: var(--iron-overlay-backdrop-opacity, 0.6);@apply(--iron-overlay-backdrop-opened);}</style>
+
+  <template>
+    <content></content>
+  </template>
+
+</dom-module>
+
+<dom-module id="paper-dialog" assetpath="bower_components/paper-dialog/">
+
+  <style>/*@licenseCopyright (c) 2015 The Polymer Project Authors. All rights reserved.This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txtThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txtThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txtCode distributed by Google as part of the polymer project is alsosubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt*/:host {display: block;margin: 24px 40px;-webkit-overflow-scrolling: touch;background: var(--paper-dialog-background-color, --primary-background-color);color: var(--paper-dialog-color, --primary-text-color);@apply(--paper-font-body1);@apply(--shadow-elevation-16dp);@apply(--paper-dialog);}:host > ::content > * {margin-top: 20px;padding: 0 24px;}:host > ::content > .no-padding {padding: 0;}:host > ::content > *:first-child {margin-top: 24px;}:host > ::content > *:last-child {margin-bottom: 24px;}:host > ::content h2 {position: relative;margin: 0;@apply(--paper-font-title);@apply(--paper-dialog-title);}:host > ::content .buttons {position: relative;padding: 8px 8px 8px 24px;margin: 0;color: var(--paper-dialog-button-color, --default-primary-color);@apply(--layout-horizontal);@apply(--layout-end-justified);}</style>
+
+  <template>
+    <content></content>
   </template>
 
 </dom-module>
@@ -490,114 +567,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </dom-module>
 
-<dom-module id="paper-material" assetpath="bower_components/paper-material/">
-  <style>:host {display: block;position: relative;}:host([animated]) {@apply(--shadow-transition);}:host([elevation="1"]) {@apply(--shadow-elevation-2dp);}:host([elevation="2"]) {@apply(--shadow-elevation-4dp);}:host([elevation="3"]) {@apply(--shadow-elevation-6dp);}:host([elevation="4"]) {@apply(--shadow-elevation-8dp);}:host([elevation="5"]) {@apply(--shadow-elevation-16dp);}</style>
-  <template>
-    <content></content>
-  </template>
-</dom-module>
-<dom-module id="paper-ripple" assetpath="bower_components/paper-ripple/">
-
-  
-  
-  <template>
-    <style>:host {display: block;position: absolute;border-radius: inherit;overflow: hidden;top: 0;left: 0;right: 0;bottom: 0;}:host([animating]) {/* This resolves a rendering issue in Chrome (as of 40) where theripple is not properly clipped by its parent (which may haverounded corners). See: http://jsbin.com/temexa/4Note: We only apply this style conditionally. Otherwise, the browserwill create a new compositing layer for every ripple element on thepage, and that would be bad. */-webkit-transform: translate(0, 0);transform: translate3d(0, 0, 0);}:host([noink]) {pointer-events: none;}#background,#waves,.wave-container,.wave {pointer-events: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;}#background,.wave {opacity: 0;}#waves,.wave {overflow: hidden;}.wave-container,.wave {border-radius: 50%;}:host(.circle) #background,:host(.circle) #waves {border-radius: 50%;}:host(.circle) .wave-container {overflow: hidden;}</style>
-    
-    <div id="background"></div>
-    <div id="waves"></div>
-  </template>
-</dom-module>
-<dom-module id="paper-button" assetpath="bower_components/paper-button/">
-  <template strip-whitespace="">
-
-    <style include="paper-material">:host {display: inline-block;position: relative;box-sizing: border-box;min-width: 5.14em;margin: 0 0.29em;background: transparent;text-align: center;font: inherit;text-transform: uppercase;outline-width: 0;border-radius: 3px;-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none;user-select: none;cursor: pointer;z-index: 0;padding: 0.7em 0.57em;@apply(--paper-button);}:host([raised].keyboard-focus) {font-weight: bold;@apply(--paper-button-raised-keyboard-focus);}:host(:not([raised]).keyboard-focus) {font-weight: bold;@apply(--paper-button-flat-keyboard-focus);}:host([disabled]) {background: #eaeaea;color: #a8a8a8;cursor: auto;pointer-events: none;@apply(--paper-button-disabled);}paper-ripple {color: var(--paper-button-ink-color);}:host > ::content * {text-transform: inherit;}</style>
-    <content></content>
-  </template>
-</dom-module>
-
-<dom-module id="paper-icon-button" assetpath="bower_components/paper-icon-button/">
-  <template strip-whitespace="">
-    <style>:host {display: inline-block;position: relative;padding: 8px;outline: none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;cursor: pointer;z-index: 0;width: 24px;@apply(--paper-icon-button);}:host #ink {color: var(--paper-icon-button-ink-color, --primary-text-color);opacity: 0.6;}:host([disabled]) {color: var(--paper-icon-button-disabled-text, --disabled-text-color);pointer-events: none;cursor: auto;@apply(--paper-icon-button-disabled);}iron-icon {--iron-icon-width: 100%;--iron-icon-height: 100%;}</style>
-    <iron-icon id="icon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
-  </template>
-
-  </dom-module>
-<dom-module id="paper-spinner" assetpath="bower_components/paper-spinner/">
-
-  <style>/**@licenseCopyright (c) 2015 The Polymer Project Authors. All rights reserved.This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txtThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txtThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txtCode distributed by Google as part of the polymer project is alsosubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt*//**************************//* STYLES FOR THE SPINNER *//**************************//* * Constants: *STROKEWIDTH = 3px *ARCSIZE= 270 degrees (amount of circle the arc takes up) *ARCTIME= 1333ms (time it takes to expand and contract arc) *ARCSTARTROT = 216 degrees (how much the start location of the arc *should rotate each time, 216 gives us a *5 pointed star shape (it's 360/5 * 3). *For a 7 pointed star, we might do *360/7 * 3 = 154.286) *CONTAINERWIDTH = 28px *SHRINK_TIME = 400ms */:host {display: inline-block;position: relative;width: 28px; /* CONTAINERWIDTH */height: 28px; /* CONTAINERWIDTH */}#spinnerContainer {width: 100%;height: 100%;/* The spinner does not have any contents that would have to be* flipped if the direction changes. Always use ltr so that the* style works out correctly in both cases. */direction: ltr;}#spinnerContainer.active {/* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */-webkit-animation: container-rotate 1568ms linear infinite;animation: container-rotate 1568ms linear infinite;}@-webkit-keyframes container-rotate {to { -webkit-transform: rotate(360deg) }}@keyframes container-rotate {to { transform: rotate(360deg) }}.spinner-layer {position: absolute;width: 100%;height: 100%;opacity: 0;}.layer-1 {border-color: var(--paper-spinner-layer-1-color, --google-blue-500);}.layer-2 {border-color: var(--paper-spinner-layer-2-color, --google-red-500);}.layer-3 {border-color: var(--paper-spinner-layer-3-color, --google-yellow-500);}.layer-4 {border-color: var(--paper-spinner-layer-4-color, --google-blue-500);}/** * IMPORTANT NOTE ABOUT CSS ANIMATION PROPERTIES (keanulee): * * iOS Safari (tested on iOS 8.1) does not handle animation-delay very well - it doesn't * guarantee that the animation will start _exactly_ after that value. So we avoid using * animation-delay and instead set custom keyframes for each color (as layer-2undant as it * seems). * * We write out each animation in full (instead of separating animation-name, * animation-duration, etc.) because under the polyfill, Safari does not recognize those * specific properties properly, treats them as -webkit-animation, and overrides the * other animation rules. See https://github.com/Polymer/platform/issues/53. */.active .spinner-layer.layer-1 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .spinner-layer.layer-2 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .spinner-layer.layer-3 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .spinner-layer.layer-4 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}@-webkit-keyframes fill-unfill-rotate {12.5% { -webkit-transform: rotate(135deg);} /* 0.5 * ARCSIZE */25%{ -webkit-transform: rotate(270deg);} /* 1* ARCSIZE */37.5% { -webkit-transform: rotate(405deg);} /* 1.5 * ARCSIZE */50%{ -webkit-transform: rotate(540deg);} /* 2* ARCSIZE */62.5% { -webkit-transform: rotate(675deg);} /* 2.5 * ARCSIZE */75%{ -webkit-transform: rotate(810deg);} /* 3* ARCSIZE */87.5% { -webkit-transform: rotate(945deg);} /* 3.5 * ARCSIZE */to{ -webkit-transform: rotate(1080deg); } /* 4* ARCSIZE */}@keyframes fill-unfill-rotate {12.5% { transform: rotate(135deg);} /* 0.5 * ARCSIZE */25%{ transform: rotate(270deg);} /* 1* ARCSIZE */37.5% { transform: rotate(405deg);} /* 1.5 * ARCSIZE */50%{ transform: rotate(540deg);} /* 2* ARCSIZE */62.5% { transform: rotate(675deg);} /* 2.5 * ARCSIZE */75%{ transform: rotate(810deg);} /* 3* ARCSIZE */87.5% { transform: rotate(945deg);} /* 3.5 * ARCSIZE */to{ transform: rotate(1080deg); } /* 4* ARCSIZE */}/** * HACK: Even though the intention is to have the current .spinner-layer at * `opacity: 1`, we set it to `opacity: 0.99` instead since this forces Chrome * to do proper subpixel rendering for the elements being animated. This is * especially visible in Chrome 39 on Ubuntu 14.04. See: * * - https://github.com/Polymer/paper-spinner/issues/9 * - https://code.google.com/p/chromium/issues/detail?id=436255 */@-webkit-keyframes layer-1-fade-in-out {from { opacity: 0.99; }25% { opacity: 0.99; }26% { opacity: 0; }89% { opacity: 0; }90% { opacity: 0.99; }100% { opacity: 0.99; }}@keyframes layer-1-fade-in-out {from { opacity: 0.99; }25% { opacity: 0.99; }26% { opacity: 0; }89% { opacity: 0; }90% { opacity: 0.99; }100% { opacity: 0.99; }}@-webkit-keyframes layer-2-fade-in-out {from { opacity: 0; }15% { opacity: 0; }25% { opacity: 0.99; }50% { opacity: 0.99; }51% { opacity: 0; }}@keyframes layer-2-fade-in-out {from { opacity: 0; }15% { opacity: 0; }25% { opacity: 0.99; }50% { opacity: 0.99; }51% { opacity: 0; }}@-webkit-keyframes layer-3-fade-in-out {from { opacity: 0; }40% { opacity: 0; }50% { opacity: 0.99; }75% { opacity: 0.99; }76% { opacity: 0; }}@keyframes layer-3-fade-in-out {from { opacity: 0; }40% { opacity: 0; }50% { opacity: 0.99; }75% { opacity: 0.99; }76% { opacity: 0; }}@-webkit-keyframes layer-4-fade-in-out {from { opacity: 0; }65% { opacity: 0; }75% { opacity: 0.99; }90% { opacity: 0.99; }100% { opacity: 0; }}@keyframes layer-4-fade-in-out {from { opacity: 0; }65% { opacity: 0; }75% { opacity: 0.99; }90% { opacity: 0.99; }100% { opacity: 0; }}/** * Patch the gap that appear between the two adjacent div.circle-clipper while the * spinner is rotating (appears on Chrome 38, Safari 7.1, and IE 11). * * Update: the gap no longer appears on Chrome when .spinner-layer's opacity is 0.99, * but still does on Safari and IE. */.gap-patch {position: absolute;box-sizing: border-box;top: 0;left: 45%;width: 10%;height: 100%;overflow: hidden;border-color: inherit;}.gap-patch .circle {width: 1000%;left: -450%;}.circle-clipper {display: inline-block;position: relative;width: 50%;height: 100%;overflow: hidden;border-color: inherit;}.circle-clipper .circle {width: 200%;}.circle {box-sizing: border-box;height: 100%;border-width: 3px; /* STROKEWIDTH */border-style: solid;border-color: inherit;border-bottom-color: transparent !important;border-radius: 50%;-webkit-animation: none;animation: none;@apply(--layout-fit);}.circle-clipper.left .circle {border-right-color: transparent !important;-webkit-transform: rotate(129deg);transform: rotate(129deg);}.circle-clipper.right .circle {left: -100%;border-left-color: transparent !important;-webkit-transform: rotate(-129deg);transform: rotate(-129deg);}.active .circle-clipper.left .circle {/* duration: ARCTIME */-webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .circle-clipper.right .circle {/* duration: ARCTIME */-webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}@-webkit-keyframes left-spin {from { -webkit-transform: rotate(130deg); }50% { -webkit-transform: rotate(-5deg); }to { -webkit-transform: rotate(130deg); }}@keyframes left-spin {from { transform: rotate(130deg); }50% { transform: rotate(-5deg); }to { transform: rotate(130deg); }}@-webkit-keyframes right-spin {from { -webkit-transform: rotate(-130deg); }50% { -webkit-transform: rotate(5deg); }to { -webkit-transform: rotate(-130deg); }}@keyframes right-spin {from { transform: rotate(-130deg); }50% { transform: rotate(5deg); }to { transform: rotate(-130deg); }}#spinnerContainer.cooldown {/* duration: SHRINK_TIME */-webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0.0, 0.2, 1);animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0.0, 0.2, 1);}@-webkit-keyframes fade-out {from { opacity: 0.99; }to { opacity: 0; }}@keyframes fade-out {from { opacity: 0.99; }to { opacity: 0; }}</style>
-
-  <template>
-
-    <div id="spinnerContainer" class-name="[[_spinnerContainerClassName]]">
-      <div class="spinner-layer layer-1">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer layer-2">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer layer-3">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer layer-4">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-
-  </template>
-
-  </dom-module>
-<dom-module id="paper-item-shared-styles" assetpath="bower_components/paper-item/">
-  <template>
-    <style>:host {display: block;min-height: var(--paper-item-min-height, 48px);padding: 0px 16px;}:host > ::content > *:not(:first-child):not(:last-child) {margin-right: 16px;}</style>
-  </template>
-</dom-module>
-<dom-module id="paper-item" assetpath="bower_components/paper-item/">
-  <template>
-    <style include="paper-item-shared-styles"></style>
-    <style>:host {@apply(--layout-horizontal);@apply(--layout-center);@apply(--paper-font-subhead);@apply(--paper-item);}</style>
-
-    <content></content>
-  </template>
-
-  </dom-module>
 <dom-module id="paper-fab" assetpath="bower_components/paper-fab/">
   <template strip-whitespace="">
     <style include="paper-material">:host {display: inline-block;position: relative;outline: none;-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none;-webkit-tap-highlight-color: rgba(0,0,0,0);user-select: none;cursor: pointer;box-sizing: border-box;min-width: 0;width: 56px;height: 56px;background: var(--paper-fab-background, --accent-color);color: var(--text-primary-color);border-radius: 50%;padding: 16px;z-index: 0;@apply(--layout-vertical);@apply(--layout-center-center);@apply(--paper-fab);}:host([mini]) {width: 40px;height: 40px;padding: 8px;@apply(--paper-fab-mini);}:host([disabled]) {color: var(--paper-fab-disabled-text, --paper-grey-500);background: var(--paper-fab-disabled-background, --paper-grey-300);@apply(--paper-fab-disabled);}iron-icon {@apply(--paper-fab-iron-icon);}:host(.keyboard-focus) {background: var(--paper-fab-keyboard-focus-background, --paper-pink-900);}</style>
     <iron-icon id="icon" src="[[src]]" icon="[[icon]]"></iron-icon>
   </template>
 </dom-module>
-<dom-module id="paper-badge" assetpath="bower_components/paper-badge/">
-  <template>
-    <style>:host {display: block;position: absolute;outline: none;}#badge {@apply(--paper-font-common-base);font-weight: 600;font-size: 12px;border-radius: 50%;margin-left: var(--paper-badge-margin-left, 0px);margin-bottom: var(--paper-badge-margin-bottom, 0px);width: var(--paper-badge-width, 22px);height: var(--paper-badge-height, 22px);background-color: var(--paper-badge-background, --accent-color);opacity: var(--paper-badge-opacity, 1.0);color: var(--paper-badge-text-color, white);@apply(--layout);@apply(--layout-center-center);@apply(--paper-badge);}</style>
-
-    <div id="badge">{{label}}</div>
+<dom-module id="paper-icon-button" assetpath="bower_components/paper-icon-button/">
+  <template strip-whitespace="">
+    <style>:host {display: inline-block;position: relative;padding: 8px;outline: none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;cursor: pointer;z-index: 0;width: 24px;@apply(--paper-icon-button);}:host #ink {color: var(--paper-icon-button-ink-color, --primary-text-color);opacity: 0.6;}:host([disabled]) {color: var(--paper-icon-button-disabled-text, --disabled-text-color);pointer-events: none;cursor: auto;@apply(--paper-icon-button-disabled);}iron-icon {--iron-icon-width: 100%;--iron-icon-height: 100%;}</style>
+    <iron-icon id="icon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
   </template>
 
   </dom-module>
@@ -715,6 +694,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 </dom-module>
 
+<dom-module id="paper-item-shared-styles" assetpath="bower_components/paper-item/">
+  <template>
+    <style>:host {display: block;min-height: var(--paper-item-min-height, 48px);padding: 0px 16px;}:host > ::content > *:not(:first-child):not(:last-child) {margin-right: 16px;}</style>
+  </template>
+</dom-module>
+<dom-module id="paper-item" assetpath="bower_components/paper-item/">
+  <template>
+    <style include="paper-item-shared-styles"></style>
+    <style>:host {@apply(--layout-horizontal);@apply(--layout-center);@apply(--paper-font-subhead);@apply(--paper-item);}</style>
+
+    <content></content>
+  </template>
+
+  </dom-module>
+<dom-module id="paper-icon-item" assetpath="bower_components/paper-item/">
+  <template>
+    <style include="paper-item-shared-styles"></style>
+    <style>:host {@apply(--layout-horizontal);@apply(--layout-center);@apply(--paper-font-subhead);@apply(--paper-item);@apply(--paper-icon-item);}.content-icon {width: var(--paper-item-icon-width, 56px);}</style>
+
+    <div id="contentIcon" class="content-icon layout horizontal center">
+      <content select="[item-icon]"></content>
+    </div>
+    <content></content>
+  </template>
+
+  </dom-module>
 <dom-module id="paper-menu" assetpath="bower_components/paper-menu/">
   <style>/**@licenseCopyright (c) 2015 The Polymer Project Authors. All rights reserved.This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txtThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txtThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txtCode distributed by Google as part of the polymer project is alsosubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt*//* need a wrapper element to make this higher specificity than the :host rule in paper-item */.selectable-content > ::content > .iron-selected {font-weight: bold;@apply(--paper-menu-selected-item);}.selectable-content > ::content > [disabled] {color: var(--paper-menu-disabled-color, --disabled-text-color);}.selectable-content > ::content > *:focus {position: relative;outline: 0;@apply(--paper-menu-focused-item);}.selectable-content > ::content > *:focus:after {@apply(--layout-fit);background: currentColor;opacity: var(--dark-divider-opacity);content: '';@apply(--paper-menu-focused-item-after);}.selectable-content > ::content > *[colored]:focus:after {opacity: 0.26;}</style>
 
@@ -743,6 +748,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </dom-module>
 
+<dom-module id="iron-dropdown" assetpath="bower_components/iron-dropdown/">
+  <style>:host {position: fixed;}#contentWrapper ::content > * {overflow: auto;}#contentWrapper.animating ::content > * {overflow: hidden;}</style>
+  <template>
+    <div id="contentWrapper">
+      <content id="content" select=".dropdown-content"></content>
+    </div>
+  </template>
+
+  </dom-module>
+
+<dom-module id="paper-menu-button" assetpath="bower_components/paper-menu-button/">
+  <style>:host {display: inline-block;position: relative;padding: 8px;outline: none;@apply(--paper-menu-button);}:host([disabled]) {cursor: auto;color: var(--disabled-text-color);@apply(--paper-menu-button-disabled);}:host([vertical-align="top"]) paper-material {margin-bottom: 20px;margin-top: -10px;top: 10px;}:host([vertical-align="bottom"]) paper-material {bottom: 10px;margin-bottom: -10px;margin-top: 20px;}paper-material {border-radius: 2px;background-color: var(--paper-menu-button-dropdown-background, --primary-background-color);@apply(--paper-menu-button-dropdown);}</style>
+  <template>
+    <div id="trigger" on-tap="open">
+      <content select=".dropdown-trigger"></content>
+    </div>
+    <iron-dropdown id="dropdown" opened="{{opened}}" horizontal-align="[[horizontalAlign]]" vertical-align="[[verticalAlign]]" horizontal-offset="[[horizontalOffset]]" vertical-offset="[[verticalOffset]]" open-animation-config="[[openAnimationConfig]]" close-animation-config="[[closeAnimationConfig]]" no-animations="[[noAnimations]]" focus-target="[[_dropdownContent]]">
+      <paper-material class="dropdown-content">
+        <content id="content" select=".dropdown-content"></content>
+      </paper-material>
+    </iron-dropdown>
+  </template>
+</dom-module>
 <dom-module id="paper-scroll-header-panel" assetpath="bower_components/paper-scroll-header-panel/">
 
   <style>:host {display: block;position: relative;overflow: hidden;}#mainContainer {position: absolute;top: 0;right: 0;bottom: 0;left: 0;-moz-box-sizing: border-box;box-sizing: border-box;-webkit-overflow-scrolling: touch;overflow-x: hidden;overflow-y: auto;}#headerContainer {position: absolute;top: 0;right: 0;left: 0;}.bg-container {position: absolute;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;}#headerBg {@apply(--paper-scroll-header-panel-full-header);}#condensedHeaderBg {@apply(--paper-scroll-header-panel-condensed-header);}#headerBg, #condensedHeaderBg {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-repeat: no-repeat;background-size: cover;background-position: center center;}#condensedHeaderBg {opacity: 0;}</style>
@@ -760,6 +788,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 </dom-module>
 
+<dom-module id="paper-spinner" assetpath="bower_components/paper-spinner/">
+
+  <style>/**@licenseCopyright (c) 2015 The Polymer Project Authors. All rights reserved.This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txtThe complete set of authors may be found at http://polymer.github.io/AUTHORS.txtThe complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txtCode distributed by Google as part of the polymer project is alsosubject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt*//**************************//* STYLES FOR THE SPINNER *//**************************//* * Constants: *STROKEWIDTH = 3px *ARCSIZE= 270 degrees (amount of circle the arc takes up) *ARCTIME= 1333ms (time it takes to expand and contract arc) *ARCSTARTROT = 216 degrees (how much the start location of the arc *should rotate each time, 216 gives us a *5 pointed star shape (it's 360/5 * 3). *For a 7 pointed star, we might do *360/7 * 3 = 154.286) *CONTAINERWIDTH = 28px *SHRINK_TIME = 400ms */:host {display: inline-block;position: relative;width: 28px; /* CONTAINERWIDTH */height: 28px; /* CONTAINERWIDTH */}#spinnerContainer {width: 100%;height: 100%;/* The spinner does not have any contents that would have to be* flipped if the direction changes. Always use ltr so that the* style works out correctly in both cases. */direction: ltr;}#spinnerContainer.active {/* duration: 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */-webkit-animation: container-rotate 1568ms linear infinite;animation: container-rotate 1568ms linear infinite;}@-webkit-keyframes container-rotate {to { -webkit-transform: rotate(360deg) }}@keyframes container-rotate {to { transform: rotate(360deg) }}.spinner-layer {position: absolute;width: 100%;height: 100%;opacity: 0;}.layer-1 {border-color: var(--paper-spinner-layer-1-color, --google-blue-500);}.layer-2 {border-color: var(--paper-spinner-layer-2-color, --google-red-500);}.layer-3 {border-color: var(--paper-spinner-layer-3-color, --google-yellow-500);}.layer-4 {border-color: var(--paper-spinner-layer-4-color, --google-blue-500);}/** * IMPORTANT NOTE ABOUT CSS ANIMATION PROPERTIES (keanulee): * * iOS Safari (tested on iOS 8.1) does not handle animation-delay very well - it doesn't * guarantee that the animation will start _exactly_ after that value. So we avoid using * animation-delay and instead set custom keyframes for each color (as layer-2undant as it * seems). * * We write out each animation in full (instead of separating animation-name, * animation-duration, etc.) because under the polyfill, Safari does not recognize those * specific properties properly, treats them as -webkit-animation, and overrides the * other animation rules. See https://github.com/Polymer/platform/issues/53. */.active .spinner-layer.layer-1 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .spinner-layer.layer-2 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .spinner-layer.layer-3 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .spinner-layer.layer-4 {/* durations: 4 * ARCTIME */-webkit-animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}@-webkit-keyframes fill-unfill-rotate {12.5% { -webkit-transform: rotate(135deg);} /* 0.5 * ARCSIZE */25%{ -webkit-transform: rotate(270deg);} /* 1* ARCSIZE */37.5% { -webkit-transform: rotate(405deg);} /* 1.5 * ARCSIZE */50%{ -webkit-transform: rotate(540deg);} /* 2* ARCSIZE */62.5% { -webkit-transform: rotate(675deg);} /* 2.5 * ARCSIZE */75%{ -webkit-transform: rotate(810deg);} /* 3* ARCSIZE */87.5% { -webkit-transform: rotate(945deg);} /* 3.5 * ARCSIZE */to{ -webkit-transform: rotate(1080deg); } /* 4* ARCSIZE */}@keyframes fill-unfill-rotate {12.5% { transform: rotate(135deg);} /* 0.5 * ARCSIZE */25%{ transform: rotate(270deg);} /* 1* ARCSIZE */37.5% { transform: rotate(405deg);} /* 1.5 * ARCSIZE */50%{ transform: rotate(540deg);} /* 2* ARCSIZE */62.5% { transform: rotate(675deg);} /* 2.5 * ARCSIZE */75%{ transform: rotate(810deg);} /* 3* ARCSIZE */87.5% { transform: rotate(945deg);} /* 3.5 * ARCSIZE */to{ transform: rotate(1080deg); } /* 4* ARCSIZE */}/** * HACK: Even though the intention is to have the current .spinner-layer at * `opacity: 1`, we set it to `opacity: 0.99` instead since this forces Chrome * to do proper subpixel rendering for the elements being animated. This is * especially visible in Chrome 39 on Ubuntu 14.04. See: * * - https://github.com/Polymer/paper-spinner/issues/9 * - https://code.google.com/p/chromium/issues/detail?id=436255 */@-webkit-keyframes layer-1-fade-in-out {from { opacity: 0.99; }25% { opacity: 0.99; }26% { opacity: 0; }89% { opacity: 0; }90% { opacity: 0.99; }100% { opacity: 0.99; }}@keyframes layer-1-fade-in-out {from { opacity: 0.99; }25% { opacity: 0.99; }26% { opacity: 0; }89% { opacity: 0; }90% { opacity: 0.99; }100% { opacity: 0.99; }}@-webkit-keyframes layer-2-fade-in-out {from { opacity: 0; }15% { opacity: 0; }25% { opacity: 0.99; }50% { opacity: 0.99; }51% { opacity: 0; }}@keyframes layer-2-fade-in-out {from { opacity: 0; }15% { opacity: 0; }25% { opacity: 0.99; }50% { opacity: 0.99; }51% { opacity: 0; }}@-webkit-keyframes layer-3-fade-in-out {from { opacity: 0; }40% { opacity: 0; }50% { opacity: 0.99; }75% { opacity: 0.99; }76% { opacity: 0; }}@keyframes layer-3-fade-in-out {from { opacity: 0; }40% { opacity: 0; }50% { opacity: 0.99; }75% { opacity: 0.99; }76% { opacity: 0; }}@-webkit-keyframes layer-4-fade-in-out {from { opacity: 0; }65% { opacity: 0; }75% { opacity: 0.99; }90% { opacity: 0.99; }100% { opacity: 0; }}@keyframes layer-4-fade-in-out {from { opacity: 0; }65% { opacity: 0; }75% { opacity: 0.99; }90% { opacity: 0.99; }100% { opacity: 0; }}/** * Patch the gap that appear between the two adjacent div.circle-clipper while the * spinner is rotating (appears on Chrome 38, Safari 7.1, and IE 11). * * Update: the gap no longer appears on Chrome when .spinner-layer's opacity is 0.99, * but still does on Safari and IE. */.gap-patch {position: absolute;box-sizing: border-box;top: 0;left: 45%;width: 10%;height: 100%;overflow: hidden;border-color: inherit;}.gap-patch .circle {width: 1000%;left: -450%;}.circle-clipper {display: inline-block;position: relative;width: 50%;height: 100%;overflow: hidden;border-color: inherit;}.circle-clipper .circle {width: 200%;}.circle {box-sizing: border-box;height: 100%;border-width: 3px; /* STROKEWIDTH */border-style: solid;border-color: inherit;border-bottom-color: transparent !important;border-radius: 50%;-webkit-animation: none;animation: none;@apply(--layout-fit);}.circle-clipper.left .circle {border-right-color: transparent !important;-webkit-transform: rotate(129deg);transform: rotate(129deg);}.circle-clipper.right .circle {left: -100%;border-left-color: transparent !important;-webkit-transform: rotate(-129deg);transform: rotate(-129deg);}.active .circle-clipper.left .circle {/* duration: ARCTIME */-webkit-animation: left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}.active .circle-clipper.right .circle {/* duration: ARCTIME */-webkit-animation: right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;animation: right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;}@-webkit-keyframes left-spin {from { -webkit-transform: rotate(130deg); }50% { -webkit-transform: rotate(-5deg); }to { -webkit-transform: rotate(130deg); }}@keyframes left-spin {from { transform: rotate(130deg); }50% { transform: rotate(-5deg); }to { transform: rotate(130deg); }}@-webkit-keyframes right-spin {from { -webkit-transform: rotate(-130deg); }50% { -webkit-transform: rotate(5deg); }to { -webkit-transform: rotate(-130deg); }}@keyframes right-spin {from { transform: rotate(-130deg); }50% { transform: rotate(5deg); }to { transform: rotate(-130deg); }}#spinnerContainer.cooldown {/* duration: SHRINK_TIME */-webkit-animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0.0, 0.2, 1);animation: container-rotate 1568ms linear infinite, fade-out 400ms cubic-bezier(0.4, 0.0, 0.2, 1);}@-webkit-keyframes fade-out {from { opacity: 0.99; }to { opacity: 0; }}@keyframes fade-out {from { opacity: 0.99; }to { opacity: 0; }}</style>
+
+  <template>
+
+    <div id="spinnerContainer" class-name="[[_spinnerContainerClassName]]">
+      <div class="spinner-layer layer-1">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer layer-2">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer layer-3">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer layer-4">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  </dom-module>
 <dom-module id="iron-a11y-announcer" assetpath="bower_components/iron-a11y-announcer/">
   <style>:host {display: inline-block;position: fixed;clip: rect(0px,0px,0px,0px);}</style>
 
@@ -806,31 +885,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </dom-module>
 
-<dom-module id="shared-styles" assetpath="styles/"><template><style>.page-title {@apply(--paper-font-display2);}@media (max-width: 600px) {.page-title {font-size: 24px!important;}}</style></template></dom-module><dom-module id="my-greeting" assetpath="elements/my-greeting/">
+<dom-module id="shared-styles" assetpath="styles/"><template><style>.page-title {@apply(--paper-font-display2);}@media (max-width: 600px) {.page-title {font-size: 24px!important;}}</style></template></dom-module><dom-module id="theforum-theme" assetpath="elements/theforum/">
   <template>
-    <style include="shared-styles"></style>
-    <style>:host {display: block;}</style>
-    <h2 class="page-title"><span>{{greeting}}</span></h2>
-    <span class="paper-font-body2">Update text to change the greeting.</span>
-    
-    <input class="paper-font-body2" value="{{greeting::input}}">
-  </template>
-
-  </dom-module>
-<dom-module id="my-list" assetpath="elements/my-list/">
-  <template>
-    <style>:host {display: block;}</style>
-    <ul>
-      <template is="dom-repeat" items="{{items}}">
-        <li><span class="paper-font-body1">{{item}}</span></li>
-      </template>
-    </ul>
-  </template>
-
-  </dom-module>
-<dom-module id="theforum-theme" assetpath="elements/theforum/">
-  <template>
-    <style>/*Polymer includes a shim for CSS Custom Properties that we can use for application theming.Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to playwith changing the colors used or generate your own palette of colours at MaterialPalette.com.See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-detailsfor further information on custom CSS properties.*//* Application theme */:root {--dark-primary-color: #303F9F;--default-primary-color: #3F51B5;--light-primary-color: #C5CAE9;--text-primary-color: #ffffff; /*text/icons*/--accent-color: #FF4081;--primary-background-color: #c5cae9;--primary-text-color: #212121;--secondary-text-color: #727272;--disabled-text-color: #bdbdbd;--divider-color: #B6B6B6;/* Components *//* paper-drawer-panel */--drawer-menu-color: #ffffff;--drawer-border-color: 1px solid #ccc;--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);/* paper-menu */--paper-menu-background-color: #fff;--menu-link-color: #111111;}/* General styles */#drawerToolbar {color: var(--secondary-text-color);background-color: var(--drawer-menu-color);border-bottom: var(--drawer-toolbar-border-color);}paper-scroll-header-panel {height: 100%;}paper-material {border-radius: 2px;height: 100%;padding: 16px 0 16px 0;width: calc(98.66% - 16px);margin: 16px auto;background: white;}paper-material.post {-webkit-animation: dropGift .3s;animation: dropGift .3s;}// http://rhumaric.com/2013/12/apparition-and-css-animations/@keyframes dropGift{0% {-webkit-transform: translateY(-200px);transform: translateY(-200px);}75% {-webkit-transform: translateY(5px);transform: translateY(5px);}}@-webkit-keyframes dropGift{0% {-webkit-transform: translateY(-200px);transform: translateY(-200px);}75% {-webkit-transform: translateY(5px);transform: translateY(5px);}}paper-menu iron-icon {margin-right: 33px;opacity: 0.54;}.paper-menu > .iron-selected {color: var(--default-primary-color);}paper-menu a {text-decoration: none;color: var(--menu-link-color);display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: row;-webkit-flex-direction: row;flex-direction: row;-ms-flex-align: center;-webkit-align-items: center;align-items: center;font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;text-rendering: optimizeLegibility;font-size: 14px;font-weight: 400;line-height: 24px;min-height: 48px;padding: 0 16px;}paper-toolbar.tall .app-name {font-size: 40px;font-weight: 300;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}#mainToolbar .middle-container{height: 100%;margin-left: 48px;}#mainToolbar:not(.tall) .middle {font-size: 18px;padding-bottom: 0;}#mainToolbar .bottom {margin-left: 48px;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}/* Height of the scroll area */.content {height: 900px;}img.circle {border-radius: 50%;}/* Breakpoints *//* Small */@media (max-width: 600px) {paper-material {--menu-container-display: none;width: calc(97.33% - 32px);padding-left: 16px;padding-right: 16px;}paper-toolbar.tall .app-name {font-size: 24px;font-weight: 400;}#drawer .paper-toolbar {margin-left: 16px;}#overlay {min-width: 360px;}.bg {background: white;}}/* Tablet+ */@media (min-width: 601px) {paper-material {width: calc(98% - 46px);margin-bottom: 32px;padding-left: 30px;padding-right: 30px;}#drawer.paper-drawer-panel > [drawer] {border-right: 1px solid rgba(0, 0, 0, 0.14);}iron-pages {padding: 22px 22px;}}/* Material Design Adaptive Breakpoints *//*Below you'll find CSS media queries based on the breakpoint guidancepublished by the Material Design team. You can choose to use, customiseor remove these breakpoints based on your needs.http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints*//* mobile-small */@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }/* mobile-large */@media all and (min-width: 361px) and (orientation: portrait) { }/* mobile-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* mobile-large-landscape */@media all and (min-width: 481px) and (orientation: landscape) { }/* tablet-small-landscape */@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }/* tablet-large-landscape */@media all and (min-width: 961px) and (orientation: landscape) { }/* tablet-small */@media all and (min-width: 600px) and (orientation: portrait) { }/* tablet-large */@media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }/* desktop-x-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* desktop-x-small */@media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }/* desktop-small-landscape */@media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }/* desktop-small */@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }/* desktop-medium-landscape */@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }/* desktop-medium */@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }/* desktop-large */@media all and (min-width: 1281px) and (max-width: 1600px) { }/* desktop-xlarge */@media all and (min-width: 1601px) and (max-width: 1920px) { }</style>
+    <style>/*Polymer includes a shim for CSS Custom Properties that we can use for application theming.Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to playwith changing the colors used or generate your own palette of colours at MaterialPalette.com.See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-detailsfor further information on custom CSS properties.*//* Application theme */:root {--dark-primary-color: #303F9F;--default-primary-color: #3F51B5;--light-primary-color: #C5CAE9;--text-primary-color: #ffffff; /*text/icons*/--accent-color: #FF4081;--primary-background-color: #c5cae9;--primary-text-color: #212121;--secondary-text-color: #727272;--disabled-text-color: #bdbdbd;--divider-color: #B6B6B6;/* Components *//* paper-drawer-panel */--drawer-menu-color: #ffffff;--drawer-border-color: 1px solid #ccc;--drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);/* paper-menu */--paper-menu-background-color: #fff;--menu-link-color: #111111;}/* General styles */#drawerToolbar {color: var(--secondary-text-color);background-color: var(--drawer-menu-color);border-bottom: var(--drawer-toolbar-border-color);}paper-scroll-header-panel {height: 100%;}paper-material {border-radius: 2px;height: 100%;padding: 16px 0 16px 0;width: calc(98.66% - 16px);margin: 16px auto;background: white;}paper-dialog {border-radius: 2px;padding: 16px 0 16px 0;width: calc(98.66% - 16px);background: white;}paper-material.post {-webkit-animation: dropGift .3s;animation: dropGift .3s;}// http://rhumaric.com/2013/12/apparition-and-css-animations/@keyframes dropGift{0% {-webkit-transform: translateY(-200px);transform: translateY(-200px);}75% {-webkit-transform: translateY(5px);transform: translateY(5px);}}@-webkit-keyframes dropGift{0% {-webkit-transform: translateY(-200px);transform: translateY(-200px);}75% {-webkit-transform: translateY(5px);transform: translateY(5px);}}paper-menu iron-icon {margin-right: 33px;opacity: 0.54;}.paper-menu > .iron-selected {color: var(--default-primary-color);}paper-menu a {text-decoration: none;color: var(--menu-link-color);display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction: row;-webkit-flex-direction: row;flex-direction: row;-ms-flex-align: center;-webkit-align-items: center;align-items: center;font-family: 'Roboto', 'Noto', sans-serif;-webkit-font-smoothing: antialiased;text-rendering: optimizeLegibility;font-size: 14px;font-weight: 400;line-height: 24px;min-height: 48px;padding: 0 16px;}paper-toolbar.tall .app-name {font-size: 40px;font-weight: 300;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}#mainToolbar .middle-container{height: 100%;margin-left: 48px;}#mainToolbar:not(.tall) .middle {font-size: 18px;padding-bottom: 0;}#mainToolbar .bottom {margin-left: 48px;/* Required for main area's paper-scroll-header-panel custom condensing transformation */-webkit-transform-origin: left center;transform-origin: left center;}/* Height of the scroll area */.content {height: 900px;}img.circle {border-radius: 50%;}/* Breakpoints *//* Small */@media (max-width: 600px) {paper-material {--menu-container-display: none;width: calc(97.33% - 32px);padding-left: 16px;padding-right: 16px;}paper-dialog {width: calc(97.33% - 32px);padding-left: 16px;padding-right: 16px;}paper-toolbar.tall .app-name {font-size: 24px;font-weight: 400;}#drawer .paper-toolbar {margin-left: 16px;}#overlay {min-width: 360px;}.bg {background: white;}}/* Tablet+ */@media (min-width: 601px) {paper-material {width: calc(98% - 46px);margin-bottom: 32px;padding-left: 30px;padding-right: 30px;}paper-dialog {width: calc(98% - 46px);margin-bottom: 32px;padding-left: 30px;padding-right: 30px;}#drawer.paper-drawer-panel > [drawer] {border-right: 1px solid rgba(0, 0, 0, 0.14);}iron-pages {padding: 22px 22px;}}/* Material Design Adaptive Breakpoints *//*Below you'll find CSS media queries based on the breakpoint guidancepublished by the Material Design team. You can choose to use, customiseor remove these breakpoints based on your needs.http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints*//* mobile-small */@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }/* mobile-large */@media all and (min-width: 361px) and (orientation: portrait) { }/* mobile-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* mobile-large-landscape */@media all and (min-width: 481px) and (orientation: landscape) { }/* tablet-small-landscape */@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }/* tablet-large-landscape */@media all and (min-width: 961px) and (orientation: landscape) { }/* tablet-small */@media all and (min-width: 600px) and (orientation: portrait) { }/* tablet-large */@media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }/* desktop-x-small-landscape */@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }/* desktop-x-small */@media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }/* desktop-small-landscape */@media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }/* desktop-small */@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }/* desktop-medium-landscape */@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }/* desktop-medium */@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }/* desktop-large */@media all and (min-width: 1281px) and (max-width: 1600px) { }/* desktop-xlarge */@media all and (min-width: 1601px) and (max-width: 1920px) { }</style>
   </template>
 </dom-module>
 <dom-module id="theforum-app" assetpath="elements/theforum/">
@@ -839,10 +896,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="theforum-theme"></style>
     
     
-    <style is="custom-style">.skinny {max-width: 300px;}paper-button {display: block;margin-bottom: 24px;}paper-button.blue {color: #fff;background: var(--paper-blue-500);--paper-button-flat-focus-color: var(--paper-blue-400);}paper-button.blue:hover {background: var(--paper-blue-400);}</style>
+    <style is="custom-style">.skinny {max-width: 300px;}.tight {margin: 0px;}paper-button {display: block;margin-bottom: 24px;}paper-button.blue {color: #fff;background: var(--paper-blue-500);--paper-button-flat-focus-color: var(--paper-blue-400);}paper-button.blue:hover {background: var(--paper-blue-400);}</style>
     
+    <theforum-fad id="fad" topic="[[route]]" authenticated$="[[authenticated]]" user="[[user]]" on-posted="_userPostPosted">
+    </theforum-fad>
     
-    <paper-drawer-panel id="paperDrawerPanel">
+    <paper-drawer-panel drawer-width="175px" id="paperDrawerPanel">
   
       
       <paper-scroll-header-panel drawer="" fixed="">
@@ -870,7 +929,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </a>
         </paper-menu>
       </paper-scroll-header-panel>
-
+      
       
       <paper-scroll-header-panel main="" condenses="" keep-condensed-header="">
 
@@ -915,11 +974,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="general">
-                <theforum-topic topic="general" user="{{user}}">
+                <theforum-topic id="topic-general" topic="general" user="{{user}}" on-iron-overlay-opened="_dialogOpened" on-iron-overlay-closed="_dialogClosed">
             </theforum-topic></section>
 
             <section data-route="media">
-              <theforum-topic topic="media" user="{{user}}">
+              <theforum-topic id="topic-media" topic="media" user="{{user}}" on-iron-overlay-opened="_dialogOpened" on-iron-overlay-closed="_dialogClosed">
             </theforum-topic></section>
 
             <section data-route="events">
@@ -939,6 +998,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
       </paper-scroll-header-panel>
     </paper-drawer-panel>
+    
+    <paper-toast id="toast1" text="This is a toast!"></paper-toast>
+     
   </template>
   </dom-module><dom-module id="theforum-cookie" assetpath="elements/theforum/">
   <template>
@@ -957,16 +1019,59 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <theforum-cookie id="cookie"></theforum-cookie>
     <iron-ajax auto="" id="ajax" url="{{_url(topic)}}" handle-as="json" on-response="handleTopic" headers="{{_headers()}}" debounce-duration="300"></iron-ajax>
-
-    <paper-material animated="" elevation="{{elevation}}" on-mouseover="onHovered" on-mouseout="onUnhovered">
-      <theforum-post-compose topic="[[topic]]" user="[[user]]" on-posted="_userPosted"></theforum-post-compose>
-    </paper-material>
-
+        
     <template is="dom-repeat" items="{{threads}}">
-      <theforum-thread thread="{{item}}" user="{{user}}" on-replied="_userReplied"></theforum-thread>
+      <theforum-thread2 thread="{{item}}" user="{{user}}" on-replied="_userReplied"></theforum-thread2>
     </template>
 
   </template>
+  </dom-module><dom-module id="theforum-thread2" assetpath="elements/theforum/">
+  <style include="theforum-theme"></style>
+  <style>:host > paper-card {min-width: 100%;margin-bottom: 20px;}.author > img, img.author {width: 32px;height: 32px;border-radius: 50%;}img.ghost {border-radius: 50%;border-radius: 50%;border-color: #9E9E9E;border: dashed;border-width: 1px;opacity: .75;}span.ghost {font-size: .8em;color: #9E9E9E;margin: 10px;}paper-menu-button {padding: 0px;padding-left: 5px;}paper-icon-button.ghost {color: #9E9E9E;width: 16px;height: 16px;padding: 0;}paper-item.author {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;}paper-item.author > span {font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;margin: 10px;font-size: .8em;}paper-item.author > span.name {-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;font-weight: bold;}paper-item.author > span.date {font-size: .65em;}paper-item.author > iron-icon {color: #9E9E9E;--iron-icon-height: 16px;--iron-icon-width: 16px;}</style>
+  <style is="custom-style">iron-icon.heading-right {color: #9E9E9E;position: absolute;right: 5px;top: 5px;}.list {padding-top: 12px;background-color: white;}</style>
+  <template>
+    
+    <paper-dialog id="composeReplyDialog" on-iron-overlay-opened="_dialogOpened" on-iron-overlay-closed="_dialogClosed" modal="">
+        <theforum-reply-compose title="[[thread.title]]" topic="[[thread.topic]]" thread="[[thread._id]]" user="[[user]]" on-replied="_userReplyPosted" on-canceled="_userReplyCanceled"></theforum-reply-compose>
+    </paper-dialog>
+    
+    <paper-card animated="" heading="{{thread.title}}" elevation="{{elevation}}" on-mouseover="onHovered" on-mouseout="onUnhovered">
+      <iron-icon class="heading-right" icon="star" hidden$="{{!fresh}}"></iron-icon>
+      
+      <paper-item class="author">
+        <img src="{{thread.author.photo}}" alt="{{thread.author.name}}">
+        <span id="author-name" class="name flex">{{thread.author.handle}}</span>
+        
+        <span id="author-at" class="date">{{prettyDate(thread.created)}}
+          <template is="dom-if" if="[[_hasOwnership(user, thread)]]">
+            <paper-menu-button horizontal-align="right">
+              <paper-icon-button icon="build" class="ghost dropdown-trigger" alt="edit"></paper-icon-button>
+              <paper-menu class="dropdown-content">
+                <paper-item>Edit</paper-item>
+                <paper-item>Delete</paper-item>
+              </paper-menu>
+            </paper-menu-button>
+          </template>
+        </span>
+        
+      </paper-item>
+
+      <paper-item class="body">
+        <marked-element markdown="[[thread.markdown]]">
+          <div class="markdown-html"></div>
+        </marked-element>
+      </paper-item>
+      
+      <div role="listbox">
+        <template is="dom-repeat" items="{{thread.reply}}">
+          <theforum-reply2 user="[[user]]" reply="[[item]]"></theforum-reply2>
+        </template>
+      </div>
+      <paper-item class="card-actions reply" on-click="_composeReply">
+        <img class="author ghost" src="[[user.photo]]" alt="{{user.handle}}">
+        <span class="ghost">Add a comment...</span>
+      </paper-item>
+  </paper-card></template>
   </dom-module><dom-module id="theforum-thread" assetpath="elements/theforum/">
   <style include="theforum-theme"></style>
   <style>.replies {border-width: 1px;border-color: #eaeaea;border-bottom-color: #eaeaea;border-bottom-style: solid;margin-top: 5px;margin-bottom: 10px;}</style>
@@ -988,7 +1093,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-<dom-module id="theforum-post" assetpath="elements/theforum/">
+<dom-module id="theforum-fad" assetpath="elements/theforum/">
+  <style include="theforum-theme"></style>
+  <style>:host paper-fab {position: absolute;bottom: 10px;right: 10px;z-index: 100;}</style>
+  <template>
+    <paper-fab id="compose" on-click="_composePost" icon="add" hidden$="{{!_showComposePost(authenticated, topic, composable)}}"></paper-fab>
+        
+    <paper-dialog id="composePostDialog" on-iron-overlay-opened="_dialogOpened" on-iron-overlay-closed="_dialogClosed" modal="">
+        <theforum-post-compose topic="[[topic]]" user="[[user]]" on-posted="_userPostPosted" on-canceled="_userPostCanceled"></theforum-post-compose>
+    </paper-dialog>
+  </template>
+  </dom-module><dom-module id="theforum-post" assetpath="elements/theforum/">
   <style>paper-icon-button {padding: 0px;border-radius: 3px;margin-left: 10px;}paper-icon-button::shadow #ripple {color: blue;}.with-badge > paper-badge {--paper-badge-margin-left: 0px;--paper-badge-margin-bottom: 0px;}.breaker {border-width: 1px;border-bottom-color: #eaeaea;border-bottom-style: solid;margin-top: 5px;margin-bottom: 10px;}</style>
   <template>
     <theforum-post-author photo="{{post.author.photo}}" name="{{post.author.handle}}" at="{{post.created}}" fresh$="{{post.fresh}}">
@@ -1029,19 +1144,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
   </template>
   </dom-module><dom-module id="theforum-post-compose" assetpath="elements/theforum/">
-  <style>img.author {width: 32px;height: 32px;border-radius: 50%;border-radius: 50%;border: dashed;border-width: 1px;margin-right: 10px;opacity: .75;}paper-input.title {margin-right: 40px;}</style>
+  <style>img.author {width: 32px;height: 32px;border-radius: 50%;border-radius: 50%;border: dashed;border-width: 1px;margin-right: 10px;opacity: .75;}</style>
   <template>
     <theforum-cookie id="cookie"></theforum-cookie>
     <iron-ajax id="ajax" url="{{_createPostUrl(topic)}}" method="POST" headers="{{_headers()}}" handle-as="json" on-response="_handleResponse"></iron-ajax>
-    <paper-input id="titleText" class="title" on-input="_onInput" label="Say What?!"></paper-input>
-    <div class="horizontal layout center">
+    <div class="horizontal end-justified layout">
+      <paper-icon-button icon="close" on-click="_cancel"></paper-icon-button>
+    </div>
+    <paper-input id="titleText" class="title" on-input="_onInput" label="Title"></paper-input>
+    <div class="horizontal layout start">
       <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
-      <paper-textarea id="bodyText" class="flex center" on-focus="_onFocus" on-input="_onInput" label="omg..."></paper-textarea>
-      <paper-icon-button icon="create" on-click="post" disabled$="{{!hasContent}}" hidden$="{{!_postable(isWorking, hadSuccess, hadError)}}"></paper-icon-button>
+      <paper-textarea id="bodyText" class="flex center" rows="8" max-rows="8" on-focus="_onFocus" on-input="_onInput" label="omg..."></paper-textarea>
+    </div>
+    <div class="horizontal end-justified layout">
+      <paper-fab icon="create" on-click="_post" disabled$="{{!hasContent}}" hidden$="{{!_postable(isWorking, hadSuccess, hadError)}}">
       <paper-spinner active="" hidden$="{{!isWorking}}"></paper-spinner>
       <iron-icon icon="done" hidden$="{{!hadSuccess}}"></iron-icon>
       <iron-icon icon="error" hidden$="{{!hadError}}"></iron-icon>
-    </div>
+    </paper-fab></div>
   </template>
   </dom-module><dom-module id="theforum-reply" assetpath="elements/theforum/">
   <style include="theforum-theme"></style>
@@ -1069,15 +1189,60 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
     
   </div></template>
+  </dom-module><dom-module id="theforum-reply2" assetpath="elements/theforum/">
+  <style include="theforum-theme"></style>
+  <style>img.author {width: 32px;height: 32px;border-radius: 50%;}div.author {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-align: top;-webkit-align-items: top;-ms-flex-align: top;align-items: top;}div.author > span {font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;margin: 0px 10px 0px 10px;font-size: .8em;line-height: .8em;}div.author > span.name {-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;font-weight: bold;font-size: .8em;}div.author > span.date {font-size: .65em;}.markdown-html p {margin-left: 10px;margin-top: 2px;}paper-menu-button {padding: 0px;padding-left: 5px;}paper-icon-button.ghost {color: #9E9E9E;width: 16px;height: 16px;padding: 0;}</style>
+  <template>
+    <paper-item>
+      <div class="horizontal layout flex">
+        <div>
+          <img class="author" src="{{reply.author.photo}}" alt="{{reply.author.name}}">
+        </div>
+        <div class="flex">
+          <div class="vertical layout">
+            <div class="author">
+              <span id="author-name" class="name">{{reply.author.handle}}</span>
+              <span id="author-at" class="date">{{prettyDate(reply.created)}}
+                <template is="dom-if" if="{{_hasOwnership(user, reply)}}">
+                  <paper-menu-button horizontal-align="right">
+                    <paper-icon-button icon="build" class="ghost dropdown-trigger" alt="edit"></paper-icon-button>
+                    <paper-menu class="dropdown-content">
+                      <paper-item>Edit</paper-item>
+                      <paper-item>Delete</paper-item>
+                    </paper-menu>
+                  </paper-menu-button>
+                </template>
+              </span> 
+            </div>
+            <div class="reply">
+              <marked-element markdown="{{reply.markdown}}">
+                <div class="markdown-html"></div>
+              </marked-element>
+            </div>
+          </div>
+        </div>
+      </div>
+    </paper-item>
+    
+  </template>
   </dom-module><dom-module id="theforum-reply-compose" assetpath="elements/theforum/">
-  <style>img.author {width: 32px;height: 32px;border-radius: 50%;border-radius: 50%;border: dashed;border-width: 1px;margin-right: 10px;opacity: .75;}paper-icon-button:hover {background: var(--paper-pink-400);border-radius: 50%;}</style>
+  <style>img.author {width: 32px;height: 32px;border-radius: 50%;border-radius: 50%;border: dashed;border-width: 1px;margin-right: 10px;opacity: .75;}</style>
   <template>
     <theforum-cookie id="cookie"></theforum-cookie>
     <iron-ajax id="ajax" url="{{_createReplyUrl(topic, thread)}}" method="POST" headers="{{_headers()}}" handle-as="json" on-response="_handleResponse"></iron-ajax>
-    <div class="horizontal layout center">
-      <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
-      <paper-textarea id="bodyText" label="omg..." class="flex center"></paper-textarea>
-      <paper-icon-button icon="reply-all" on-click="reply"></paper-icon-button>
+    <div class="horizontal end-justified layout">
+      <paper-icon-button icon="close" on-click="_cancel"></paper-icon-button>
     </div>
+    <h2>{{_title(title)}}</h2>
+    <div class="horizontal layout start">
+      <img class="author" src="{{user.photo}}" alt="{{user.handle}}">
+      <paper-textarea id="bodyText" class="flex center" rows="8" max-rows="8" on-focus="_onFocus" on-input="_onInput" label="omg..."></paper-textarea>
+    </div>
+    <div class="horizontal end-justified layout">
+      <paper-fab icon="create" on-click="_reply" disabled$="{{!hasContent}}" hidden$="{{!_postable(isWorking, hadSuccess, hadError)}}">
+      <paper-spinner active="" hidden$="{{!isWorking}}"></paper-spinner>
+      <iron-icon icon="done" hidden$="{{!hadSuccess}}"></iron-icon>
+      <iron-icon icon="error" hidden$="{{!hadError}}"></iron-icon>
+    </paper-fab></div>
   </template>
   </dom-module></div><span id="browser-sync-binding"></span><theforum-app></theforum-app><script src="index.build.js"></script></body></html>

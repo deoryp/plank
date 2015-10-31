@@ -1,0 +1,81 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="theforum-fad">
+  <style include="theforum-theme"></style>
+  <style>
+    :host paper-fab {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      z-index: 100;
+    }
+  </style>
+  <template>
+    <paper-fab 
+        id="compose"
+        on-click="_composePost" 
+        icon="add"
+        hidden$="{{!_showComposePost(authenticated, topic, composable)}}"></paper-fab>
+        
+    <paper-dialog
+        id="composePostDialog"
+        on-iron-overlay-opened="_dialogOpened"
+        on-iron-overlay-closed="_dialogClosed"
+        modal>
+        <theforum-post-compose
+            topic="[[topic]]"
+            user="[[user]]"
+            on-posted="_userPostPosted"
+            on-canceled="_userPostCanceled"></theforum-post-compose>
+    </paper-dialog>
+  </template>
+  <script>
+    Polymer({
+      is: 'theforum-fad',
+      
+      properties: {
+        authenticated: Boolean,
+        topic: String,
+        user: Object,
+        composable: {
+          type: Boolean,
+          value: true
+        }
+      },
+      _dialogOpened: function() {
+        console.log('opened.');
+        this.composable = false;
+      },
+      _dialogClosed: function() {
+        console.log('closed.');
+        this.composable = true;
+      },
+      _showComposePost: function (authenticated, topic, composable) {
+        if (authenticated && composable) {
+          if (topic === 'general') {
+            return true;
+          } else if (topic === 'media') {
+            return true;
+          }
+        }
+        return false;
+      },
+      show: function() {
+        this.$.compose.hidden = false;
+      },
+      hide: function() {
+        this.$.compose.hidden = true;
+      },
+      _composePost: function() {
+        this.$.composePostDialog.open();
+        this.composable = false;
+      },
+      _userPostPosted: function() {
+        this.$.composePostDialog.close();
+      },
+      _userPostCanceled: function() {
+        this.$.composePostDialog.close();
+      },
+    });
+  </script>
+</dom-module>

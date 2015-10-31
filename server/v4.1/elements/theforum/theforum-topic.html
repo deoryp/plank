@@ -12,22 +12,12 @@
         on-response="handleTopic"
         headers='{{_headers()}}'
         debounce-duration="300"></iron-ajax>
-
-    <paper-material animated 
-        elevation="{{elevation}}"
-        on-mouseover="onHovered"
-        on-mouseout="onUnhovered">
-      <theforum-post-compose 
-          topic="[[topic]]"
-          user="[[user]]"
-          on-posted="_userPosted"></theforum-post-compose>
-    </paper-material>
-
+        
     <template is="dom-repeat" items="{{threads}}">
-      <theforum-thread
+      <theforum-thread2
           thread="{{item}}"
           user="{{user}}"
-          on-replied="_userReplied"></theforum-thread>
+          on-replied="_userReplied"></theforum-thread2>
     </template>
 
   </template>
@@ -47,6 +37,9 @@
           notify: true
         }
       },
+      refresh: function() {
+        this.$.ajax.generateRequest();
+      },
       _headers: function() {
         var token = this.$.cookie.token;
         return {
@@ -57,11 +50,8 @@
       _url: function(topic) {
         return '/api/thread/' + topic;
       },
-      _userPosted: function() {
-        this.$.ajax.generateRequest();
-      },
       _userReplied: function() {
-        this.$.ajax.generateRequest();
+        this.refresh();
       },
       handleTopic: function(response) {
         this.threads = response.srcElement.lastResponse;

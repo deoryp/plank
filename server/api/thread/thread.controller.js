@@ -52,15 +52,9 @@ var markSeen = function(thread, userId) {
 };
 
 var mapAuthorToUser = function(obj, users) {
-  console.log('author before:');
-  console.log(obj.author);
   if (users[obj.author.id]) {
     _.extend(obj.author, users[obj.author.id]);
-    _.extend(obj.author, {wtf:'works'});
   }
-  console.log('author after:');
-  console.log(obj.author);
-  
 };
 
 // Get list of threads
