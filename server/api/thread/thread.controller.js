@@ -18,6 +18,8 @@ var config = require('../../config/environment');
 
 var Users = require('../user/user.controller');
 
+var auth = require('../../auth/auth.service');
+
 //
 // TODO:: need to filter out the seenBy field and replace it with the me field...
 //
@@ -195,7 +197,7 @@ exports.update = function(req, res) {
     if(!thread) {
       return res.sendStatus(404);
     }
-    if (thread.author.id !== req.user._id && !config.hasRole(req.user.role, 'admin')) {
+    if (thread.author.id !== req.user._id && !auth.hasRole(req.user.role, 'admin')) {
       return res.sendStatus(403);
     }
     
@@ -222,7 +224,7 @@ exports.destroy = function(req, res) {
     if(!thread) {
       return res.sendStatus(404);
     }
-    if (thread.author.id !== req.user._id && !config.hasRole(req.user.role, 'admin')) {
+    if (thread.author.id !== req.user._id && !auth.hasRole(req.user.role, 'admin')) {
       return res.sendStatus(403);
     }
     

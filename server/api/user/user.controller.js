@@ -19,10 +19,38 @@ var validationError = function(res, err) {
  * restriction: 'admin'
  */
 exports.index = function(req, res) {
+  
+  User.find({}, '-salt -hashedPassword', function (err, users) {
+    console.log(JSON.stringify(users));
+  });
+  
+  exports.cache(function(users) {
+    
+    
+    
+    var userList = [];
+    
+    _.each(users, function (user) {
+      userList.push({
+        "id": user._id,
+        "handle": user.handle,
+        "photo": user.photo,
+        "email": user.email,
+        "role": user.role
+      });
+    });
+    
+    res.status(200).json(userList);
+  })
+  /*
   User.find({}, '-salt -hashedPassword', function (err, users) {
     if(err) return res.send(500, err);
+    
+    
+    
     res.status(200).json(users);
   });
+  */
 };
 
 var cache = {};
@@ -40,8 +68,17 @@ exports.cache = function(callback) {
     _.each(users, function (user) {
       cache.users[user._id] = {
         photo: user.google.image.url,
-        handle: user.google.displayName
+        handle: user.google.displayName,
+        email: user.email
       };
+      Invite.find({ email: user.email.toLowerCase() }, function (err, invite) {
+        if (err) return next(err);
+        if (invite && invite.length === 1) {
+          cache.users[user._id].role = invite[0].role;
+        } else {
+          cache.users[user._id].role = 'invalid';
+        }
+      });
     });
     var id = '';
     if (fresh) {
@@ -69,10 +106,6 @@ exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
-  
-  console.log('creating a new user');
-  
-  
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
