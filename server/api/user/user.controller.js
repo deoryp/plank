@@ -16,30 +16,20 @@ var validationError = function(res, err) {
 
 /**
  * Get list of users
- * restriction: 'admin'
  */
 exports.index = function(req, res) {
-  
-  User.find({}, '-salt -hashedPassword', function (err, users) {
-    console.log(JSON.stringify(users));
-  });
-  
   exports.cache(function(users) {
-    
-    
-    
     var userList = [];
-    
     _.each(users, function (user) {
       userList.push({
-        "id": user._id,
-        "handle": user.handle,
-        "photo": user.photo,
-        "email": user.email,
-        "role": user.role
+        id: user._id,
+        handle: user.handle,
+        photo: user.photo,
+        email: user.email,
+        contact: user.contact,
+        role: user.role
       });
     });
-    
     res.status(200).json(userList);
   })
   /*
@@ -69,7 +59,8 @@ exports.cache = function(callback) {
       cache.users[user._id] = {
         photo: user.google.image.url,
         handle: user.google.displayName,
-        email: user.email
+        email: user.email,
+        contact: user.contact
       };
       Invite.find({ email: user.email.toLowerCase() }, function (err, invite) {
         if (err) return next(err);
@@ -188,6 +179,41 @@ exports.me = function(req, res, next) {
         return res.send(401);
       }
     });
+  });
+};
+
+/**
+ * Update my info
+ */
+exports.contact = function(req, res, next) {
+  var userId = req.user._id;
+  
+  // Non Blocking.
+  updateGoogleUser(userId);
+  
+  User.findOne({
+    _id: userId
+  }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
+    if (err) return next(err);
+    if (!user) return res.json(401);
+    
+    user.contact = {
+      address1: req.body.address1,
+      address2: req.body.address2,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      phone: req.body.phone
+    };
+
+    user.save(function(err, user) {
+      if (err) return validationError(res, err);
+      
+      exports.cache(function() {}); // update the cache.
+      
+      return res.sendStatus(200);
+    });
+    
   });
 };
 
